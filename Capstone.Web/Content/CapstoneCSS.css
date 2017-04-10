@@ -1,0 +1,176 @@
+﻿html {
+    height: 100%;
+}
+body {
+    background-color: rgba(181, 221, 167, 0.59);
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    }
+
+/* Index page stuff */
+
+hr {
+    border-color: black;
+}
+#wrapper {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+footer {
+    background-color: rgba(0, 183, 255, 0.33);
+    height: 40px;
+    padding-top: 10px;
+    color: white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+#bg_image {
+    opacity: .92;
+    background-image: url(imgs/JjqNXHb.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position-y: center;
+}
+.navigator {
+    background-color: rgba(0, 183, 255, 0.33);
+    background-attachment: fixed;
+    background-position: top;
+    background-position-y: center;
+    width: 100%;
+    overflow: visible;
+    left: 0;
+    right: 0;
+    padding: 10px 0px 0px 10px;
+    font-family: 'Merriweather', serif;
+
+}
+#nav_top {
+    font-family: 'Merriweather', serif;
+    
+}
+#nav_title {
+    font-size: 50px;
+    color: white;
+    font-family: 'Merriweather', serif;
+
+}
+#nav_top .container {
+    margin-bottom: -15px;
+}
+    #nav_top div .glyphicon {
+        color: white;
+        margin-left: -15px;
+        font-size: 10px;
+    }
+
+.right-side-nav {
+    float: right;
+    color: black;
+    padding: 0px 15px 0px 0px;
+}
+#googleMap {
+    margin-top: 30px;
+}
+/* ------------------------------- */
+
+/* Credit to www.w3schools.com for inspiration on drop down menus */
+
+.dropbtn {
+    background-color: rgba(176, 102, 102, 0);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+.dropbtn a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: lightgrey;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #808080
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover, .dropbtn:hover {
+    background-color: lightgrey;
+    color: black;
+}
+
+/* Register View */
+
+.register_form {
+    right: 100px;
+    width: 1200px;
+    margin: 0 auto;
+    color: white;
+    display: block;
+    background-color: rgba(0, 183, 255, 0.33);
+    padding: 0px 5px 300px 5px;
+    clear: both;
+ 
+}
+    .register_form h2 {
+        text-align: center;
+    }
+    .register_label {
+            text-align: right;
+            width: 30%;
+            float: left;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+    .register_textbox {
+            display: inline-block;
+            float: left;
+            margin-left: 10px;
+            width: 60%;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+.save_button {
+    width: 200px;
+    top: 0;
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+
+}

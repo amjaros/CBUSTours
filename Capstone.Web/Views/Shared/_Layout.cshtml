@@ -1,21 +1,44 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layout</title>
-
+    <title>Tour Columbus!</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Content/CapstoneCSS.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lora|Merriweather" rel="stylesheet">
 </head>
-<body>
-    <div> 
+<body id="bg_image">
+    <div class="navigator">
+        <span id="nav_title">Tour Columbus!</span>
+        <div class="container">
+            <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Home</button>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
+                <div class="dropdown-content" style="left:0;">
+                    <a href="@Url.Action("#", "Home")">Sample Page 1</a>
+                    <a href="@Url.Action("#", "Home")">Sample Page 2</a>
+                    <a href="@Url.Action("#","Home")">Sample Page 3</a>
+                </div>
+                <div class="glyphicon glyphicon-arrow-down"></div>
+            </div>
+            <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Contact Us</button>
+            <div class="right-side-nav">
+                <button class="dropbtn" onclick="window.location='@Url.Action("Register","Home")';">Register</button>
+                <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Login</button>
+
+            </div>
+        </div>
     </div>
+    <div> 
+        @RenderBody()
+    </div>
+    <footer>
+        @DateTime.Now.Year AJJA Inc.
+    </footer>
 </body>
 </html>

@@ -14,5 +14,10 @@ namespace Capstone.Web.Controllers
         {
             return View("Index");
         }
+
+        public ActionResult Register()
+        {
+            return View("Register");
+        }
     }
 }

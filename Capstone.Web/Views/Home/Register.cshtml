@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    <div class="register_form">
+
+        <h2>@ViewBag.Title</h2>
+
+        <div class="register_label">
+            @Html.Label("Email Address:")
+        </div>
+        <div class="register_textbox">
+            @Html.TextBox("EmailAddress", "#")
+        </div>
+        <br />
+        <div class="register_label">
+            @Html.Label("Username:")
+        </div>
+        <div class="register_textbox">
+            @Html.TextBox("Username", "#")
+        </div>
+        <br />
+        <div class="register_label">
+            @Html.Label("Password:")
+        </div>
+        <div class="register_textbox">
+            @Html.TextBox("Password", "#")
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn-danger" />
+
+    </div>
+
+
+}
