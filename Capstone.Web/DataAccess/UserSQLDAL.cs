@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HistoryGeek.Web.Models;
 using Dapper;
 using System.Data.SqlClient;
+using Capstone.Web.Models;
 
 namespace Capstone.Web.DataAccess
 {
     public class UserSQLDAL
     {
         private string connectionString = @"Data Source=DESKTOP-4EOMNFH\sqlexpress;Initial Catalog=CBUSTours;Integrated Security=True";
-        private string SQL_GetUser = "SELECT* FROM users WHERE user_id = @user_id;";
-        private string SQL_SaveUser = "INSERT INTO users VALUES (@user_email, @user_password, @user_name, @user_admin); SELECT CAST(SCOPE_IDENTITY() as int);";
+        private string SQL_LoginUser = "SELECT* FROM users WHERE user_name = @user_name AND user_password = @user_password;";
+        private string SQL_RegisterUser = "INSERT INTO users VALUES (@user_email, @user_password, @user_name);";
 
         public UserSQLDAL(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public User GetUser(int user_id)
+        public UserModel LoginUser(string username, string password)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    User result = conn.QueryFirstOrDefault<User>(SQL_GetUser, new { user_id = user_id });
+                    UserModel result = conn.QueryFirstOrDefault<UserModel>(SQL_LoginUser, new { user_name = username, user_password = password });
                     return result;
                 }
             }
@@ -36,14 +36,18 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public void SaveUser(User user)
+        public bool RegisterUser(UserModel user)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-                    user.Id = conn.QueryFirst<int>(SQL_SaveUser, new { emailValue = user.Email, passwordValue = user.Password });
+                    SqlCommand cmd = new SqlCommand(SQL_RegisterUser, conn);
+                    cmd.Parameters.AddWithValue("@user_name", user.User_name);
+                    cmd.Parameters.AddWithValue("@user_password", user.User_password);
+                    cmd.Parameters.AddWithValue("@user_email", user.User_email);
+                    int result = cmd.ExecuteNonQuery();
+                    return (result > 0);
                 }
             }
             catch (SqlException ex)
