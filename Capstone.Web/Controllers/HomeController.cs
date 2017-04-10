@@ -55,6 +55,10 @@ namespace Capstone.Web.Controllers
             if(!wasNewUserRegisteredSuccessfully)
             {
                 //This is assuming the model used for the register page is a simple boolean.
+
+                UserSQLDAL user = new UserSQLDAL();
+                user.RegisterUser(model);
+
                 model.EnteredInvalidLogin = true;
                 return View("Register", model);
             }
