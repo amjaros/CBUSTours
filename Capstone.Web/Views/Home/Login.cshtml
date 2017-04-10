@@ -5,17 +5,20 @@
 
 @using Capstone.Web.Models
 @model UserModel
+<div class="register_form">
+    <h2>Log in:</h2>
+    @if (Model.EnteredInvalidLogin)
+    {
+        <p>*Invalid username or password. Are you sure you entered the correct information?</p>
+    }
+    @using (Html.BeginForm("LoginHome", "Home", FormMethod.Post))
+    {
 
-<h2>Log in:</h2>
-@if(Model.EnteredInvalidLogin)
-{
-    <p>*Invalid username or password. Are you sure you entered the correct information?</p>
-}
-@using(Html.BeginForm("LoginHome", "Home", FormMethod.Post))
-{
-    @Html.Label("Username: ")
-    @Html.TextBoxFor(m => m.User_name, new { placeholder = "username" })<br />
-    @Html.Label("Password: ")
-    @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "password" })<br />
-    <input type="submit" value="Log In" />
-}
+        @Html.Label("Username: ")
+        @Html.TextBoxFor(m => m.User_name, new { placeholder = "username" })<br />
+        @Html.Label("Password: ")
+        @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "password" })<br />
+        <input type="submit" value="Log In" />
+
+    }
+</div>

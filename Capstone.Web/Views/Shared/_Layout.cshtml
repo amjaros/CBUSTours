@@ -9,13 +9,15 @@
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/CapstoneJS.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/CapstoneCSS.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lora|Merriweather" rel="stylesheet">
 </head>
 <body id="bg_image">
     <div class="navigator">
         <span id="nav_title">Tour Columbus!</span>
-        <div class="container">
+        <br />
             <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Home</button>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
@@ -30,13 +32,14 @@
             <div class="right-side-nav">
                 <button class="dropbtn" onclick="window.location='@Url.Action("Register","Home")';">Register</button>
                 <button class="dropbtn" onclick="window.location='@Url.Action("Login","Home")';">Login</button>
-
             </div>
-        </div>
     </div>
     <div> 
         @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
     <footer>
         @DateTime.Now.Year AJJA Inc.
     </footer>

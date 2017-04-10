@@ -1,12 +1,13 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using Capstone.Web.Models
 
+@model UserModel
 
-@using (Html.BeginForm("Register", "User", FormMethod.Post))
+@using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
 {
     <div class="register_form">
 
@@ -16,21 +17,21 @@
             @Html.Label("Email Address:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("EmailAddress", "#")
+            @Html.TextBox("EmailAddress", Model.User_email)
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Username:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("Username", "#")
+            @Html.TextBox("Username", Model.User_name)
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Password:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("Password", "#")
+            @Html.TextBox("Password", Model.User_password)
         </div>
         <br />
         <input type="submit" value="Save" class="btn-danger" />
