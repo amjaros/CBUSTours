@@ -3,10 +3,11 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using Capstone.Web.Models
+@model UserRegisterModel
 
 
-
-@using (Html.BeginForm("Register", "User", FormMethod.Post))
+@using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
 {
     <div class="register_form">
 
@@ -16,21 +17,24 @@
             @Html.Label("Email Address:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("EmailAddress", "#")
+            @Html.TextBoxFor(m => m.User_email, new { placeholder = "email address" })
+            @Html.ValidationMessageFor(m => m.User_email)<br />
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Username:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("Username", "#")
+            @Html.TextBoxFor(m => m.User_name, new { placeholder = "username" })
+            @Html.ValidationMessageFor(m => m.User_name)<br />
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Password:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("Password", "#")
+            @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "password" })
+            @Html.ValidationMessageFor(m => m.User_password)<br />
         </div>
         <br />
         <input type="submit" value="Save" class="btn-danger" />

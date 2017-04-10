@@ -3,8 +3,9 @@
     //Current model is a boolean "isUsernameOrPasswordEnteredValid"
 }
 
+@using System.ComponentModel.DataAnnotations
 @using Capstone.Web.Models
-@model UserModel
+@model UserLoginModel
 
 <h2>Log in:</h2>
 @if(Model.EnteredInvalidLogin)
@@ -15,7 +16,9 @@
 {
     @Html.Label("Username: ")
     @Html.TextBoxFor(m => m.User_name, new { placeholder = "username" })<br />
+    @Html.ValidationMessageFor(m => m.User_name)<br />
     @Html.Label("Password: ")
     @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "password" })<br />
+    @Html.ValidationMessageFor(m => m.User_password)<br />
     <input type="submit" value="Log In" />
 }

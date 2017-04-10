@@ -27,41 +27,63 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            UserModel model = new UserModel();
+            UserLoginModel model = new UserLoginModel();
             return View("Login", model);
         }
 
         [HttpPost]
-        public ActionResult LoginHome(UserModel model)
+        public ActionResult LoginHome(UserLoginModel model)
         {
-            //DAL method call to verify User and Return HomePageModel goes here. Just creating a true boolean for now
-            bool userIsValid = false;
-            if (!userIsValid)
+            if (ModelState.IsValid)
             {
-                model.EnteredInvalidLogin = true;
+                //DAL method call to verify User and Return the user's 
+                UserLoginModel thisUser = new UserSQLDAL().LoginUser(model.User_name, model.User_password);
+                if (thisUser == null)
+                {
+                    model.EnteredInvalidLogin = true;
+                    return View("Login", model);
+                }
+                else
+                {
+                    model = thisUser;
+                }
+
+                //Bring the signed in user to the homepage *Still may need to create the HomePageModel
+                //*******Perform operations to return the right homepagemodel
+                return View("HomePage");
+            }
+            else
+            {
+                ModelState.AddModelError("invalid-login", "the username and password combination is not valid.");
                 return View("Login", model);
             }
 
-            //Bring the signed in user to the homepage *Still may need to create the HomePageModel
-            //*******Perform operations to return the right homepagemodel
-            return View("HomePage");
         }
 
         [HttpPost]
-        public ActionResult RegisterHome(UserModel model)
+        public ActionResult RegisterHome(UserRegisterModel model)
         {
-            //DAL Method which returns a boolean if the user was properly registered in the database. Just putting a sample boolean for now.
-            bool wasNewUserRegisteredSuccessfully = false;
-            if(!wasNewUserRegisteredSuccessfully)
+            if(ModelState.IsValid)
             {
-                //This is assuming the model used for the register page is a simple boolean.
-                model.EnteredInvalidLogin = true;
+                //DAL Method which returns a boolean if the user was properly registered in the database. Just putting a sample boolean for now.
+                bool wasNewUserRegisteredSuccessfully = new UserSQLDAL().RegisterUser(model);
+                if (!wasNewUserRegisteredSuccessfully)
+                {
+                    //This is assuming the model used for the register page is a simple boolean.
+                    model.EnteredInvalidLogin = true;
+                    return View("Register", model);
+                }
+
+                //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
+                //*******Perform operations to return the right homepagemodel
+                return View("HomePage");
+            }
+            else
+            {
+                ModelState.AddModelError("invalid-registration", "Invalid email, username and password combination. Please try again.");
                 return View("Register", model);
             }
-
-            //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
-            //*******Perform operations to return the right homepagemodel
-            return View("HomePage");
+            
         }
     }
 }

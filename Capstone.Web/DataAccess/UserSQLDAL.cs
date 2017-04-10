@@ -12,24 +12,17 @@ namespace Capstone.Web.DataAccess
 {
     public class UserSQLDAL
     {
-        //private string connectionString = @"Data Source=DESKTOP-6M09UJ0\SQLEXPRESS;Initial Catalog=CBUSTours;Integrated Security=True";
-        //private string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         private string SQL_LoginUser = "SELECT* FROM users WHERE user_name = @user_name AND user_password = @user_password;";
-        private string SQL_RegisterUser = "INSERT INTO users VALUES (@user_email, @user_password, @user_name);";
+        private string SQL_RegisterUser = "INSERT INTO users VALUES (@user_email, @user_password, @user_name, 1);";
 
-        //public UserSQLDAL(string connectionString)
-        //{
-        //    this.connectionString = connectionString;
-        //}
-
-        public UserModel LoginUser(string username, string password)
+        public UserLoginModel LoginUser(string username, string password)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    UserModel result = conn.QueryFirstOrDefault<UserModel>(SQL_LoginUser, new { user_name = username, user_password = password });
+                    UserLoginModel result = conn.QueryFirstOrDefault<UserLoginModel>(SQL_LoginUser, new { user_name = username, user_password = password });
                     return result;
                 }
             }
@@ -39,12 +32,13 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public bool RegisterUser(UserModel user)
+        public bool RegisterUser(UserRegisterModel user)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
+                    conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_RegisterUser, conn);
                     cmd.Parameters.AddWithValue("@user_name", user.User_name);
                     cmd.Parameters.AddWithValue("@user_password", user.User_password);
