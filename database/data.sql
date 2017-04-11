@@ -17,15 +17,15 @@ CREATE TABLE users
 
 );
 
-CREATE TABLE intinerary
+CREATE TABLE itinerary
 (
-	intinerary_id int identity not null,
+	itinerary_id int identity not null,
 	name varchar (50) not null,
 	user_id int not null,
 	starting_point varchar (100), 
 	
 	constraint fk_user_id foreign key (user_id) references users(user_id),
-	constraint pk_intinerary_id primary key (intinerary_id),
+	constraint pk_itinerary_id primary key (itinerary_id),
 );
 
 CREATE TABLE landmark
@@ -40,13 +40,13 @@ CREATE TABLE landmark
 	constraint pk_landmark_id primary key (landmark_id),
 );
 
-CREATE TABLE landmarks_by_intinerary
+CREATE TABLE landmarks_by_itinerary
 (
-	intinerary_id int not null,
+	itinerary_id int not null,
 	landmark_id int not null,
 	
-	constraint PK_IL primary key (intinerary_id, landmark_id),
-	constraint fk_intinerary_id foreign key (intinerary_id) references intinerary(intinerary_id),
+	constraint PK_IL primary key (itinerary_id, landmark_id),
+	constraint fk_itinerary_id foreign key (itinerary_id) references itinerary(itinerary_id),
 	constraint fk_landmark_id foreign key (landmark_id) references landmark(landmark_id),
 );
 
