@@ -12,7 +12,7 @@ namespace Capstone.Web.DataAccess
 {
     public class ItinerarySQLDAL
     {
-        private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);";
+        private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);SELECT CAST(itinerary_id() as int)";
         private string SQL_DeleteItinerary = "DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
         private string SQL_GetAllItineraries = "SELECT name FROM itinerary WHERE user_id = @user_id;";
 
@@ -50,17 +50,16 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public DashboardModel GetAllItineraries(int user_id)
+        public List<ItineraryModel> GetAllItineraries(int user_id)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    List<ItineraryModel> itinList = conn.Query<ItineraryModel>(SQL_GetAllItineraries).ToList();
-                    DashboardModel result = new DashboardModel();
-                    result.Itineraries = itinList;
-                    return result;
+                    List<ItineraryModel> itinList = conn.Query<ItineraryModel>(SQL_GetAllItineraries, new { user_id = user_id }).ToList();
+                    return itinList;
+
                 }
             }
             catch (SqlException ex)
