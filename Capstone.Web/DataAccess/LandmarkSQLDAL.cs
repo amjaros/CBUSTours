@@ -8,31 +8,6 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.DataAccess
 {
-<<<<<<< HEAD
-    //    public class LandmarkSQLDAL
-    //    {
-    //        private string 
-
-    //        public LandmarkModel InsertLandmark(string username, string password)
-    //        {
-    //            try
-    //            {
-    //                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
-    //                {
-    //                    conn.Open();
-
-    //                }
-    //            }
-    //            catch (SqlException ex)
-    //            {
-    //                throw ex;
-    //            }
-    //        }
-
-    //    }
-}
-=======
-
     public class LandmarkSQLDAL
     {
         private string SQL_InsertLandmarkIntoItinerary = "INSERT INTO landmarks_by_itinerary VALUES (@itineraryID, @landmarkID)";
@@ -110,5 +85,6 @@ namespace Capstone.Web.DataAccess
             }
         }
     }
+}
 
 
