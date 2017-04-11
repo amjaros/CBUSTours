@@ -35,7 +35,7 @@ namespace Capstone.Web.DataAccess
                         Landmark.description = Convert.ToString(reader["description"]);
                         Landmark.approved = Convert.ToBoolean(reader["approved"]);
                         Landmark.image = Convert.ToString(reader["image"]);
-                       
+
                         LandmarkList.Add(Landmark);
                     }
                 }
@@ -57,7 +57,7 @@ namespace Capstone.Web.DataAccess
                     SqlCommand cmd = new SqlCommand(SQL_DeleteLandmarkFromItinerary, conn);
                     cmd.Parameters.AddWithValue("@itineraryID", itineraryID);
                     int worked = cmd.ExecuteNonQuery();
-                    return (worked>0) ;
+                    return (worked > 0);
                 }
             }
             catch (SqlException ex)
@@ -85,31 +85,8 @@ namespace Capstone.Web.DataAccess
                 throw ex;
             }
         }
-
     }
-=======
-    //    public class LandmarkSQLDAL
-    //    {
-    //        private string 
-
-    //        public LandmarkModel InsertLandmark(string username, string password)
-    //        {
-    //            try
-    //            {
-    //                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
-    //                {
-    //                    conn.Open();
-
-    //                }
-    //            }
-    //            catch (SqlException ex)
-    //            {
-    //                throw ex;
-    //            }
-    //        }
-
-    //    }
-    //}
->>>>>>> 3adf7a171f58e28981516b40559b63d654f2ac4f
 }
+
+
 
