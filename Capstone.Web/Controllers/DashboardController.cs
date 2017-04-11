@@ -10,12 +10,8 @@ namespace Capstone.Web.Controllers
     public class DashboardController : Controller
     {
         // GET: Dashboard
-        public ActionResult Dashboard()
+        public ActionResult Dashboard(DashboardModel model)
         {
-            DashboardModel model = new DashboardModel();
-
-            //method call to DAL to populate model
-
             return View("Dashboard", model);
         }
 

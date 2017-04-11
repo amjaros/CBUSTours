@@ -23,6 +23,8 @@ namespace Capstone.Web.Models
         [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*\W).{6,15}$", ErrorMessage = "Password must be at least 6 characters long and have a number, an uppercase letter, a lowercase letter and a special character.")]
         public string Password { get; set; }
 
+        public int User_Id { get; set; }
+
         public bool EnteredInvalidLogin { get; set; }
     }
 }
