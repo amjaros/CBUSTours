@@ -16,15 +16,15 @@ namespace Capstone.Web.DataAccess
         private string SQL_DeleteItinerary = "DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
         private string SQL_GetAllItineraries = "SELECT name FROM itinerary WHERE user_id = @user_id;";
 
-        public bool AddNewItinerary(ItineraryModel itinerary, int user_id)
+        public bool InsertNewItinerary(ItineraryModel itinerary)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    int rowsAffected = conn.Execute(SQL_DeleteItinerary, itinerary);
-                    return (rowsAffected > 0);
+                    
+                    return (1 > 0);
                 }
             }
             catch (SqlException ex)

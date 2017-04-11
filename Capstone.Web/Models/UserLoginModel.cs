@@ -14,6 +14,8 @@ namespace Capstone.Web.Models
         [Required(ErrorMessage = "**Password is required.")]
         public string Password { get; set; }
 
+        public int User_Id { get; set; }
+
         public bool EnteredInvalidLogin { get; set; }
     }
 }

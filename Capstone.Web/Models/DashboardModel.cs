@@ -8,6 +8,5 @@ namespace Capstone.Web.Models
     public class DashboardModel
     {
         public List<ItineraryModel> Itineraries { get; set; }
-
     }
 }
