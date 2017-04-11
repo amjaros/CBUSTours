@@ -3,7 +3,7 @@
 }
 body {
     background-color: black;
-    padding-top: 70px;
+    padding-top: 40px;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -21,7 +21,7 @@ hr {
 }
 
 footer {
-    background-color: rgba(0, 183, 255, 0.33);
+    background-color: rgba(117, 145, 161, 0.70);
     height: 40px;
     padding-top: 10px;
     color: white;
@@ -33,18 +33,45 @@ footer {
     font-family: 'Merriweather', serif;
     text-align: center;
 }
+ /* FONTS */
 
+ @font-face {
+     font-family: BillyOhio;
+     src: url("/fonts/BillyOhio.ttf");
+ }
+
+ #splash {
+     font-family: BillyOhio;
+     /*font-size: 300px;*/
+     font-size: 15vw;
+     color: white;
+     width: 100%;
+     text-align: center;
+     margin: 10px auto auto auto;
+     overflow: hidden;
+ }
+ #splash_subtext {
+     /*font-size: 70px;*/
+     font-size: 4vw;
+     display: block;
+     margin-top: -100px;
+     width: 100%;
+ }
+    #splash_subtext:hover {
+        color: lightblue;
+        cursor: pointer;
+    }
 #bg_image {
     opacity: .92;
-    background-image: url(imgs/JjqNXHb.jpg);
+    background-image: url(imgs/Columbus_1.jpg);
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
     background-size: 100%;
-    background-position-y: center;
+    background-position-y: bottom;
 }
 .navigator {
-    background-color: rgba(0, 183, 255, 0.33);
+    background-color: rgba(117, 145, 161, 0.70);
     background-attachment: fixed;
     background-position: top;
     background-position-y: center;
@@ -52,7 +79,7 @@ footer {
     overflow: visible;
     left: 0;
     right: 0;
-    padding: 10px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
     font-family: 'Merriweather', serif;
 
 }
@@ -139,25 +166,31 @@ footer {
 /* Register View */
 
 .register_form {
-    right: 100px;
-    width: 600px;
+    width: 650px;
     margin: 0 auto;
-    color: white;
     display: block;
-    background-color: rgba(0, 183, 255, 0.33);
+    background-color: rgba(117, 145, 161, 0.85);
     padding: 0px 55px 300px 55px;
-    clear: both;
- 
+    /*clear: both;*/
+    font-family: 'Merriweather', serif
+
 }
+    .register_form div {
+        position: relative;
+        margin: 3px 0px 5px 0px;
+    }
     .register_form h2 {
         text-align: center;
+        color: white;
+        padding-top: 10px;
     }
     .register_label {
             text-align: right;
             width: 30%;
             float: left;
             margin-bottom: 5px;
-            font-size: 20px;
+            font-size: 18px;
+            color: white;
         }
     .register_textbox {
             display: inline-block;
@@ -167,23 +200,49 @@ footer {
             height: 40px;
             margin-bottom: 5px;
         }
-.save_button {
-    width: 200px;
-    top: 0;
-    margin: 0 auto;
-    left: auto;
-    right: auto;
-
-}
 
 /* skqfsklj;sdf */
 
 @media screen and (max-width: 500px) {
     #bg_image {
         background-image: none;
+        background-image: linear-gradient(lightblue);
+    }
+    #splash {
+        display: none;
     }
     .navigator {
         display: none;
     }
+    footer {
+        display: none;
+    }
 
+}
+
+#register_btn {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.00);
+    border: 1px solid black;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    font-size: 25px;
+    width: 100%;
+    position: relative;
+}
+    #register_btn:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    }
+
+.validation_messages {
+    color: #ff9898;
+    border-radius: 2px;
+    overflow: visible;
+    display: block;
+    font-size: 11px;
+    margin: 2px 0px 2px 0px;
+    padding: 1px 0px 1px 5px;
+    position: relative;
 }

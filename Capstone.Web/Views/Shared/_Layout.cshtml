@@ -14,11 +14,10 @@
     <link href="~/Content/CapstoneCSS.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lora|Merriweather" rel="stylesheet">
 </head>
-<body id="bg_image">
+<body id="bg_image" class="img-responsive">
     <div class="navigator">
-        <span id="nav_title">Tour Columbus!</span>
-        <br />
-            <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Home</button>
+        @*<span id="nav_title">Tour Columbus!</span>*@
+            <button class="dropbtn" onclick="window.location='@Url.Action("Index","Home")';">Home</button>
             <div class="dropdown">
                 <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
                 <div class="dropdown-content" style="left:0;">

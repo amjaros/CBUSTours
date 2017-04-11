@@ -12,20 +12,23 @@
     <div class="register_form">
 
         <h2>@ViewBag.Title</h2>
-
+        <hr />
         <div class="register_label">
             @Html.Label("Email Address:")
         </div>
         <div class="register_textbox">
-            @Html.TextBoxFor(m => m.User_email, new { placeholder = "email address" })
-            @Html.ValidationMessageFor(m => m.User_email)<br />
+            @Html.TextBoxFor(m => m.User_email, new { placeholder = "Email Address" })
+            <div class="validation_messages">
+                @Html.ValidationMessageFor(m => m.User_email)
+            </div>
+            <br />
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Username:")
         </div>
         <div class="register_textbox">
-            @Html.TextBoxFor(m => m.User_name, new { placeholder = "username" })
+            @Html.TextBoxFor(m => m.User_name, new { placeholder = "Username" })
             @Html.ValidationMessageFor(m => m.User_name)<br />
         </div>
         <br />
@@ -33,11 +36,11 @@
             @Html.Label("Password:")
         </div>
         <div class="register_textbox">
-            @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "password" })
+            @Html.TextBoxFor(m => m.User_password, new { type = "password", placeholder = "Password" })
             @Html.ValidationMessageFor(m => m.User_password)<br />
         </div>
         <br />
-        <input type="submit" value="Save" class="btn-danger" />
+        <input type="submit" value="Submit" id="register_btn" />
 
     </div>
 
