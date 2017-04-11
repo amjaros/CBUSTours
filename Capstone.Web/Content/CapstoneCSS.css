@@ -2,7 +2,8 @@
     height: 100%;
 }
 body {
-    background-color: rgba(181, 221, 167, 0.59);
+    background-color: black;
+    padding-top: 70px;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -68,7 +69,7 @@ footer {
 #nav_top .container {
     margin-bottom: -15px;
 }
-    #nav_top div .glyphicon {
+    .dropdown .glyphicon {
         color: white;
         margin-left: -15px;
         font-size: 10px;
@@ -89,8 +90,8 @@ footer {
 .dropbtn {
     background-color: rgba(176, 102, 102, 0);
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
 
@@ -117,7 +118,7 @@ footer {
 
 .dropdown-content a {
     color: black;
-    padding: 12px 12px;
+    padding: 10px 10px;
     text-decoration: none;
     display: block;
 }
@@ -139,12 +140,12 @@ footer {
 
 .register_form {
     right: 100px;
-    width: 1200px;
+    width: 600px;
     margin: 0 auto;
     color: white;
     display: block;
     background-color: rgba(0, 183, 255, 0.33);
-    padding: 0px 5px 300px 5px;
+    padding: 0px 55px 300px 55px;
     clear: both;
  
 }
@@ -172,5 +173,17 @@ footer {
     margin: 0 auto;
     left: auto;
     right: auto;
+
+}
+
+/* skqfsklj;sdf */
+
+@media screen and (max-width: 500px) {
+    #bg_image {
+        background-image: none;
+    }
+    .navigator {
+        display: none;
+    }
 
 }
