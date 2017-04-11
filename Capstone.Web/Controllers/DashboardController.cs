@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Capstone.Web.Models;
 
 namespace Capstone.Web.Controllers
 {
@@ -11,8 +12,18 @@ namespace Capstone.Web.Controllers
         // GET: Dashboard
         public ActionResult Dashboard()
         {
+            DashboardModel model = new DashboardModel();
 
-            return View();
+            //method call to DAL to populate model
+
+            return View("Dashboard", model);
+        }
+
+        public ActionResult Itinerary()
+        {
+            ItineraryModel model = new ItineraryModel();
+
+            return View("Itinerary", model);
         }
     }
 }

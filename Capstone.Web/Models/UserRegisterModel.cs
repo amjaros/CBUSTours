@@ -20,7 +20,7 @@ namespace Capstone.Web.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*\W).{6,15}$", ErrorMessage = "Password must be at least 6 characters long and have 3 of the following: a number, an uppercase letter, a lowercase letter, or a special character.")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*\W).{6,15}$", ErrorMessage = "Password must be at least 6 characters long and have a number, an uppercase letter, a lowercase letter and a special character.")]
         public string Password { get; set; }
 
         public bool EnteredInvalidLogin { get; set; }
