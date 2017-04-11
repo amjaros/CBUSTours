@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+@using Capstone.Web.Models
+@model DashboardModel
+
+<h2>Your Itineraries</h2>
+<table>
+    <tr>
+        <th>Trip Name</th>
+        <th>Starting Point</th>
+        <th>Ending Point</th>
+    </tr>
+@foreach (ItineraryModel itinerary in Model.Itineraries)
+{
+    <tr>
+        <td>@itinerary.Name</td>
+        <td>@itinerary.Starting_point</td>
+        <td>@itinerary.Landmarks[itinerary.Landmarks.Count - 1]</td>
+    </tr>
+}
+</table>
+
+

@@ -12,9 +12,9 @@ namespace Capstone.Web.DataAccess
 {
     public class UserSQLDAL
     {
-        private string SQL_LoginUser = "SELECT* FROM users WHERE user_name = @user_name AND user_password = @user_password;";
+        private string SQL_LoginUser = "SELECT * FROM users WHERE user_name = @user_name AND user_password = @user_password; SELECT CAST(user_id() as int)";
         private string SQL_RegisterUser = "INSERT INTO users VALUES (@user_name, @user_email, @user_password, 1);";
-        private string doesUsernameAlreadyExist = "SELECT * FROM users WHERE user_name = @SUsername";
+        private string doesUsernameAlreadyExist = "SELECT * FROM users WHERE user_name = @Username";
 
         public UserLoginModel LoginUser(string username, string password)
         {
@@ -23,7 +23,7 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    UserLoginModel result = conn.QueryFirstOrDefault<UserLoginModel>(SQL_LoginUser, new { user_name = username, user_password = password });
+                    UserLoginModel result = conn.QueryFirstOrDefault<UserLoginModel>(SQL_LoginUser, new { user_name = username, user_password = password}); 
                     return result;
                 }
             }
