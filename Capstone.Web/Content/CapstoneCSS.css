@@ -170,6 +170,9 @@ footer {
     margin: 0 auto;
     display: block;
     background-color: rgba(117, 145, 161, 0.85);
+    color: black;
+    display: block;
+    background-color: rgba(0, 183, 255, .33);
     padding: 0px 55px 300px 55px;
     /*clear: both;*/
     font-family: 'Merriweather', serif
@@ -194,12 +197,24 @@ footer {
         }
     .register_textbox {
             display: inline-block;
-            float: left;
+            /*float: left;*/
             margin-left: 10px;
             width: 60%;
             height: 40px;
             margin-bottom: 5px;
         }
+.save_button {
+    width: 200px;
+    top: 0;
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+
+}
+.field-validation-error {
+    color: #e02323;
+    display: block;
+}
 
 /* skqfsklj;sdf */
 

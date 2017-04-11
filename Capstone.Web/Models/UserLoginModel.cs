@@ -9,10 +9,10 @@ namespace Capstone.Web.Models
     public class UserLoginModel
     {
         [Required(ErrorMessage = "**Username field is required.")]
-        public string User_name { get; set; }
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "**Password is required.")]
-        public string User_password { get; set; }
+        public string Password { get; set; }
 
         public bool EnteredInvalidLogin { get; set; }
     }
