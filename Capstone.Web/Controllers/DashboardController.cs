@@ -20,7 +20,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-            List<LandmarkModel> landmarks = new LandmarkModel().SelectLandmarksByItinerary(id.ToString());
+            List<LandmarkModel> landmarks = new LandmarkSQLDAL().SelectLandmarksByItinerary(id.ToString());
 
             ItineraryModel model = new ItineraryModel();
             model.Landmarks = landmarks;
