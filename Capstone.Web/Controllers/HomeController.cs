@@ -37,7 +37,7 @@ namespace Capstone.Web.Controllers
             if (ModelState.IsValid)
             {
                 //DAL method call to verify User and Return the user's 
-                UserLoginModel thisUser = new UserSQLDAL().LoginUser(model.User_name, model.User_password);
+                UserLoginModel thisUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
                 if (thisUser == null)
                 {
                     model.EnteredInvalidLogin = true;
