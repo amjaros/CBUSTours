@@ -12,19 +12,29 @@
     <div class="register_form">
 
         <h2>@ViewBag.Title</h2>
-
+        <hr />
         <div class="register_label">
             @Html.Label("Email Address:")
         </div>
         <div class="register_textbox">
+
+            @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address" })
+            <div class="validation_messages">
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+            </div>
+            <br />
+
             @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "email address" })
             @Html.ValidationMessageFor(m => m.EmailAddress)<br />
+
         </div>
         <br />
         <div class="register_label">
             @Html.Label("Username:")
         </div>
         <div class="register_textbox">
+
+
             @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })
             @Html.ValidationMessageFor(m => m.Username)<br />
         </div>
@@ -33,11 +43,12 @@
             @Html.Label("Password:")
         </div>
         <div class="register_textbox">
-            @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "password" })
+            @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password" })
             @Html.ValidationMessageFor(m => m.Password)<br />
+
         </div>
         <br />
-        <input type="submit" value="Save" class="btn-danger" />
+        <input type="submit" value="Submit" id="register_btn" />
 
     </div>
 
