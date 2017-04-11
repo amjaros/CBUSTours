@@ -50,7 +50,9 @@ namespace Capstone.Web.Controllers
 
                 //Bring the signed in user to the homepage *Still may need to create the HomePageModel
                 //*******Perform operations to return the right homepagemodel
-                DashboardModel userDashboard = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
+                DashboardModel userDashboard = new DashboardModel();
+                List<ItineraryModel> itins = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
+                userDashboard.Itineraries = itins;
 
                 return RedirectToAction("Dashboard", "Dashboard", userDashboard);
             }
@@ -78,8 +80,8 @@ namespace Capstone.Web.Controllers
 
                 //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
                 //*******Perform operations to return the right homepagemodel
-                DashboardModel userDashboard = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
-
+                DashboardModel userDashboard = new DashboardModel(); 
+                userDashboard.Itineraries= new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
                 return RedirectToAction("Dashboard", "Dashboard", userDashboard);
             }
             else
