@@ -8,6 +8,8 @@ namespace Capstone.Web.Models
     public class ItineraryModel
     {
         public string Name { get; set; }
-        public int ser
+        public int Itinerary_id { get; set; }
+        public string Starting_point { get; set; }
+        public List<LandmarkModel> Landmarks { get; set; }
     }
 }
