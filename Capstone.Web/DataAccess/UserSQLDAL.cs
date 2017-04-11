@@ -23,7 +23,7 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    UserLoginModel result = conn.QueryFirstOrDefault<UserLoginModel>(SQL_LoginUser, new { user_name = username, user_password = password}); 
+                    UserLoginModel result = conn.QueryFirstOrDefault<UserLoginModel>(SQL_LoginUser, new { user_name = username, user_password = password});
                     return result;
                 }
             }
