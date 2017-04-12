@@ -14,7 +14,9 @@ namespace Capstone.Web.DataAccess
     {
         private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);SELECT CAST(itinerary_id() as int)";
         private string SQL_DeleteItinerary = "DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
-        private string SQL_GetAllItineraries = "SELECT name FROM itinerary WHERE user_id = @user_id;";
+        private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id FROM itinerary WHERE user_id = @user_id;";
+        private string SQL_GetItineraryLandmarks = "SELECT li.landmark_id, l.name, l.address, l.description, l.approved, l.image FROM landmark l join landmarks_by_itinerary li ON li.landmark_id = l.landmark_id WHERE li.itinerary_id = @itinerary_id";
+        private string SQL_GetItinerary = "SELECT * FROM itinerary i WHERE itinerary_id = @itinerary_id";
 
         public bool InsertNewItinerary(ItineraryModel itinerary)
         {
@@ -23,8 +25,8 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    
-                    return (1 > 0);
+                    int rowsAffected = conn.Execute(SQL_DeleteItinerary, itinerary);
+                    return (rowsAffected == 0);
                 }
             }
             catch (SqlException ex)
@@ -33,7 +35,7 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public bool DeleteItinerary(ItineraryModel itinerary, int user_id)
+        public bool DeleteItinerary(ItineraryModel itinerary)
         {
             try
             {
@@ -41,7 +43,7 @@ namespace Capstone.Web.DataAccess
                 {
                     conn.Open();
                     int rowsAffected = conn.Execute(SQL_InsertNewItinerary, itinerary);
-                    return (rowsAffected > 0);
+                    return (rowsAffected == 0);
                 }
             }
             catch (SqlException ex)
@@ -61,6 +63,33 @@ namespace Capstone.Web.DataAccess
                     return itinList;
 
                 }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ItineraryModel GetItinerary(int itineraryId)
+        {
+            ItineraryModel result = new ItineraryModel();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    result.Landmarks = new LandmarkSQLDAL().SelectLandmarksByItinerary(itineraryId.ToString());
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetItinerary);
+                    cmd.Parameters.AddWithValue("@itinerary_id", itineraryId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        result.Itinerary_id = itineraryId;
+                        result.Name = reader["name"].ToString();
+                        result.Starting_point = reader["starting_point"].ToString();
+                    }
+                }
+                return result;
             }
             catch (SqlException ex)
             {

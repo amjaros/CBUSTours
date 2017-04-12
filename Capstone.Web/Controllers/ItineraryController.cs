@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Capstone.Web.DataAccess;
 using Capstone.Web.Models;
 
 namespace Capstone.Web.Controllers
@@ -11,8 +12,10 @@ namespace Capstone.Web.Controllers
     {
         // GET: Itinerary
         [HttpGet]
-        public ActionResult ItineraryDetail(ItineraryModel model)
+        public ActionResult ItineraryDetail(int id)
         {
+            ItineraryModel model = new ItineraryModel();
+
             return View("ItineraryDetail", model);
         }
 

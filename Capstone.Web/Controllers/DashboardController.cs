@@ -12,26 +12,39 @@ namespace Capstone.Web.Controllers
     {
         // GET: Dashboard
         [HttpGet]
-        public ActionResult Dashboard(DashboardModel model)
+        public ActionResult Dashboard(int id)
         {
+            DashboardModel model = new DashboardModel();
+            model.Itineraries = new ItinerarySQLDAL().GetAllItineraries(id);
             return View("Dashboard", model);
         }
 
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-            List<LandmarkModel> landmarks = new LandmarkSQLDAL().SelectLandmarksByItinerary(id.ToString());
-
-            ItineraryModel model = new ItineraryModel();
-            model.Landmarks = landmarks;
-
-            return RedirectToAction("ItineraryDetail", "Itinerary", model);
+            return RedirectToAction("ItineraryDetail", "Itinerary", new { id = id });
         }
 
         [HttpGet]
         public ActionResult LandmarkDetail(LandmarkModel model)
         {
             return View("LandmarkDetail", model);
+        }
+
+        public ActionResult AddItinerary(DashboardModel model)
+        {
+            ItineraryModel newItinModel = new ItineraryModel();
+            bool itinInserted = new ItinerarySQLDAL().InsertNewItinerary(newItinModel);
+
+            return View("Dashboard", model);
+        }
+
+        public ActionResult DeleteItinerary(DashboardModel model, int itineraryId)
+        {
+            ItineraryModel postDeletedModel = new ItineraryModel();
+            bool itinDeleted = new ItinerarySQLDAL().DeleteItinerary(postDeletedModel);
+
+            return View("Dashboard", model);
         }
     }
 }
