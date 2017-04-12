@@ -25,7 +25,7 @@ namespace Capstone.Web.Controllers
             ItineraryModel model = new ItineraryModel();
             model.Landmarks = landmarks;
 
-            return View("Itinerary", model);
+            return RedirectToAction("ItineraryDetail", "Itinerary", model);
         }
 
         [HttpGet]
