@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Search Landmarks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Capstone.Web.Models
+@model List<LandmarkModel>
+
+<h2>@ViewBag.Title</h2>
+
+@foreach(LandmarkModel LM in Model)
+{
+    string imagepath = "~Content/img/Landmarks/"+ LM.image;
+    <div>
+        @LM.name
+        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src=@imagepath/></a>
+    </div>
+}

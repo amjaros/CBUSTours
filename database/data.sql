@@ -33,7 +33,7 @@ CREATE TABLE landmark
 	landmark_id int identity not null, 
 	name varchar (50) not null,
 	address varchar (60) not null,
-	description varchar (120) not null,
+	description varchar (250) not null,
 	approved bit not null,
 	image varchar (50),
 	
@@ -73,8 +73,8 @@ CREATE TABLE reviews_by_landmark
 COMMIT;
 
 INSERT INTO users VALUES ('User', 'emailaddress@gmail.com', 'P@ssword1', 1)
-INSERT INTO landmark VALUES ('Franklin Park Conversatory', '1777 E Broad St, Columbus, OH 43203', 'Franklin Park Conservatory and Botanical Gardens is a premier botanical landmark and attraction featuring exceptional plant collections, indoor and outdoor gardens, and other stuff', 1, 'FranklinParkConservatory.jpg')
-INSERT INTO landmark VALUES ('Ohio Theater', '39 East State St Columbus, OH 43215', 'From classical music to modern dance, yearly family traditions to hot concerts, the worlds best artists come to the 2,791-seat Ohio Theatre. The historic 1928 movie palace was saved from demolition in 1969 and completely restored.', 1, 'OhioTheatre.jpg') 
-INSERT INTO itinerary VALUES ('My CBUS adventure', 1, )
+INSERT INTO landmark VALUES ('Franklin Park Conversatory', '1777 E Broad St, Columbus, OH 43203', 'Franklin Park Conservatory and Botanical Gardens is a premier horticulture institution showcasing artfully designed gardens, exotic plant collections and lush floral displays.', 1, 'FranklinParkConservatory.jpg')
+INSERT INTO landmark VALUES ('Ohio Theatre', '39 East State St Columbus, OH 43215', 'From classical music to modern dance, yearly family traditions to hot concerts, the worlds best artists come to the 2,791-seat Ohio Theatre. The historic 1928 movie palace was saved from demolition in 1969 and completely restored.', 1, 'OhioTheatre.jpg') 
+INSERT INTO itinerary VALUES ('My CBUS adventure', 1, 'Ohio Theatre' )
 INSERT INTO landmarks_by_itinerary VALUES (1,1)
 INSERT INTO landmarks_by_itinerary VALUES (1,2)

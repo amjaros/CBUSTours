@@ -173,6 +173,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandmarksController.cs" />
     <Compile Include="DataAccess\ItinerarySQLDAL.cs" />
     <Compile Include="DataAccess\LandmarkSQLDAL.cs" />
     <Compile Include="DataAccess\UserSQLDAL.cs" />
@@ -201,6 +202,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Views\Dashboard\Itinerary.cshtml" />
+    <Content Include="Views\Landmarks\SearchLandmarks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
