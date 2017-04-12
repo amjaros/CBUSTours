@@ -17,6 +17,5 @@ namespace Capstone.Web.Models
         public string image { get; set; }
 
         public bool approved { get; set; }
-
     }
 }

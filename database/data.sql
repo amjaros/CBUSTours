@@ -8,9 +8,9 @@ BEGIN TRANSACTION
 CREATE TABLE users
 (
 	user_id int identity not null,
-	user_name varchar(50) not null,
-	user_emailaddress varchar(50) not null,
-	user_password varchar(50) not null,
+	user_name varchar(1000) not null,
+	user_emailaddress varchar(1000) not null,
+	user_password varchar(1000) not null,
 	admin bit not null,
 	
 	constraint pk_user_id primary key (user_id),
@@ -20,9 +20,9 @@ CREATE TABLE users
 CREATE TABLE itinerary
 (
 	itinerary_id int identity not null,
-	name varchar (50) not null,
+	name varchar (1000) not null,
 	user_id int not null,
-	starting_point varchar (100), 
+	starting_point varchar (1000), 
 	
 	constraint fk_user_id foreign key (user_id) references users(user_id),
 	constraint pk_itinerary_id primary key (itinerary_id),
@@ -31,11 +31,17 @@ CREATE TABLE itinerary
 CREATE TABLE landmark
 (
 	landmark_id int identity not null, 
+<<<<<<< HEAD
 	name varchar (50) not null,
 	address varchar (60) not null,
 	description varchar (250) not null,
+=======
+	name varchar (1000) not null,
+	address varchar (1000) not null,
+	description varchar (1000) not null,
+>>>>>>> b6c0b9acae74d419b6cb4b86f457d50eed4ff052
 	approved bit not null,
-	image varchar (50),
+	image varchar (1000),
 	
 	constraint pk_landmark_id primary key (landmark_id),
 );
@@ -54,7 +60,7 @@ CREATE TABLE reviews
 (
 	review_id int identity not null,
 	rating int not null,
-	description varchar (60),
+	description varchar (1000),
 	
 	constraint ck_rating CHECK (rating IN ('1', '2', '3', '4', '5')),
 	constraint pk_review_id primary key (review_id),

@@ -3,9 +3,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Capstone.Web.Models
-@model UserRegisterModel
 
-@using Capstone.Web.Models
+@model UserRegisterModel
 
 @using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
 {
@@ -23,10 +22,10 @@
                 @Html.ValidationMessageFor(m => m.EmailAddress)
             </div>
             <br />
+<<<<<<< HEAD
 
-            @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "email address" })
-            @Html.ValidationMessageFor(m => m.EmailAddress)<br />
-
+=======
+>>>>>>> 3acf262c7811bd6bde1cf464f503a2478e11b7e5
         </div>
         <br />
         <div class="register_label">
@@ -48,7 +47,7 @@
 
         </div>
         <br />
-        <input type="submit" value="Submit" id="register_btn" />
+        <input type="submit" value="Submit" class="register_btn" />
 
     </div>
 

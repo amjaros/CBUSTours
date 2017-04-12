@@ -18,7 +18,7 @@
     <div class="navigator">
         @*<span id="nav_title">Tour Columbus!</span>*@
             <button class="dropbtn" onclick="window.location='@Url.Action("Index","Home")';">Home</button>
-            <div class="dropdown">
+            @*<div class="dropdown">
                 <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
                 <div class="dropdown-content" style="left:0;">
                     <a href="@Url.Action("#", "Home")">Sample Page 1</a>
@@ -26,8 +26,8 @@
                     <a href="@Url.Action("#","Home")">Sample Page 3</a>
                 </div>
                 <div class="glyphicon glyphicon-arrow-down"></div>
-            </div>
-            <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Contact Us</button>
+            </div>*@
+            <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">Search Landmarks</button>
             <div class="right-side-nav">
                 <button class="dropbtn" onclick="window.location='@Url.Action("Register","Home")';">Register</button>
                 <button class="dropbtn" onclick="window.location='@Url.Action("Login","Home")';">Login</button>
