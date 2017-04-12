@@ -139,6 +139,7 @@
     <Content Include="Content\CapstoneCSS.css" />
     <Content Include="Content\imgs\Columbus_1.jpg" />
     <Content Include="Content\imgs\JjqNXHb.jpg" />
+    <Content Include="Content\imgs\Landmarks\FranklinParkConservatory.jpg" />
     <Content Include="Content\imgs\ohio-wallpaper-002.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
