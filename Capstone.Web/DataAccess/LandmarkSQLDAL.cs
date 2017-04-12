@@ -8,10 +8,6 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.DataAccess
 {
-<<<<<<< HEAD
-
-=======
->>>>>>> 4854e1024d9e7c79c751feb5708d24c1ffd8a7cb
     public class LandmarkSQLDAL
     {
         private string SQL_InsertLandmarkIntoItinerary = "INSERT INTO landmarks_by_itinerary VALUES (@itineraryID, @landmarkID)";

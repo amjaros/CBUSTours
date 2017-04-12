@@ -168,11 +168,12 @@ footer {
 .register_form {
     width: 650px;
     margin: 0 auto;
+    margin-top: 5%;
     display: block;
-    background-color: rgba(117, 145, 161, 0.85);
     color: black;
     display: block;
-    background-color: rgba(0, 183, 255, .33);
+    background-color: rgba(154, 167, 171, 0.82);
+    border-radius: 5px;
     padding: 0px 55px 300px 55px;
     /*clear: both;*/
     font-family: 'Merriweather', serif
@@ -199,7 +200,7 @@ footer {
             display: inline-block;
             /*float: left;*/
             margin-left: 10px;
-            width: 60%;
+            width: 50%;
             height: 40px;
             margin-bottom: 5px;
         }
