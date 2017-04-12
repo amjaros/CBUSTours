@@ -18,8 +18,11 @@
         <td>@itinerary.Name</td>
         <td>@itinerary.Starting_point</td>
         <td>@itinerary.Landmarks[itinerary.Landmarks.Count - 1]</td>
+        <td><button class="btn" onclick=@Url.Action("DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id})> Delete Itinerary </button></td>
     </tr>
 }
 </table>
+
+
 
 

@@ -236,7 +236,7 @@ footer {
 
 }
 
-#register_btn {
+.register_btn {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.00);
     border: 1px solid black;
