@@ -13,6 +13,69 @@ namespace Capstone.Web.DataAccess
         private string SQL_InsertLandmarkIntoItinerary = "INSERT INTO landmarks_by_itinerary VALUES (@itineraryID, @landmarkID)";
         private string SQL_DeleteLandmarkFromItinerary = "DELETE FROM landmarks_by_itinerary WHERE itinerary_id = @itineraryID";
         private string SQL_SelectLandmarksByItinerary = "SELECT * from landmark JOIN landmarks_by_itinerary on landmark.landmark_id= landmarks_by_itinerary.landmark_id WHERE itinerary_id=@itineraryID";
+        private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
+        private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
+
+        public LandmarkModel GetLandmarkById(string landmarkID)
+        {
+            LandmarkModel Landmark = new LandmarkModel();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetLandmarkByID, conn);
+                    cmd.Parameters.AddWithValue("@landmarkID", landmarkID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Landmark.address = Convert.ToString(reader["address"]);
+                        Landmark.landmark_id = Convert.ToInt32(reader["landmark_id"]);
+                        Landmark.name = Convert.ToString(reader["name"]);
+                        Landmark.description = Convert.ToString(reader["description"]);
+                        Landmark.approved = Convert.ToBoolean(reader["approved"]);
+                        Landmark.image = Convert.ToString(reader["image"]);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return Landmark;
+        }
+
+        public List<LandmarkModel> GetApprovedLandmarks()
+        {
+            List<LandmarkModel> LandmarkList = new List<LandmarkModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_GetApprovedLandmarks, conn);
+                    
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        LandmarkModel Landmark = new LandmarkModel();
+                        Landmark.address = Convert.ToString(reader["address"]);
+                        Landmark.landmark_id = Convert.ToInt32(reader["landmark_id"]);
+                        Landmark.name = Convert.ToString(reader["name"]);
+                        Landmark.description = Convert.ToString(reader["description"]);
+                        Landmark.approved = Convert.ToBoolean(reader["approved"]);
+                        Landmark.image = Convert.ToString(reader["image"]);
+                        LandmarkList.Add(Landmark);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return LandmarkList;
+        }
+
 
         public List<LandmarkModel> SelectLandmarksByItinerary(string itineraryID)
         {

@@ -50,7 +50,7 @@ namespace Capstone.Web.Tests.DAL
             LandmarkSQLDAL LMSQLDAL = new LandmarkSQLDAL();
 
             //Act
-            List<LandmarkModel> LandmarkList = LMSQLDAL. ("1");
+            //List<LandmarkModel> LandmarkList = LMSQLDAL. ("1");
 
             //Assert
 
