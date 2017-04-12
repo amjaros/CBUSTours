@@ -14,7 +14,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-            ItineraryModel model = new ItineraryModel();
+            ItineraryModel model = new ItinerarySQLDAL().GetItinerary(id);
 
             return View("ItineraryDetail", model);
         }
