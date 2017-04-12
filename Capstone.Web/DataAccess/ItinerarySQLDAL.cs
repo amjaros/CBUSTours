@@ -13,7 +13,7 @@ namespace Capstone.Web.DataAccess
     public class ItinerarySQLDAL
     {
         private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);SELECT CAST(itinerary_id() as int)";
-        private string SQL_DeleteItinerary = "DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
+        private string SQL_DeleteItinerary = "DELETE * FROM itinerary WHERE itinerary_id = @itinerary_id;";
         private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id, itinerary_id FROM itinerary WHERE user_id = @user_id;";
         private string SQL_GetItinerary = "SELECT * FROM itinerary i WHERE itinerary_id = @itinerary_id";
 
