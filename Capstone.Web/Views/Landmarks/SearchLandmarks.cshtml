@@ -9,10 +9,9 @@
 <h2>@ViewBag.Title</h2>
 
 @foreach(LandmarkModel LM in Model)
-{
-    string imagepath = "~Content/img/Landmarks/"+ LM.image;
+{ 
     <div>
         @LM.name
-        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src=@imagepath/></a>
+        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src="Capstone.Web/Content/imgs/Landmarks/@LM.image"/></a>
     </div>
 }
