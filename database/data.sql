@@ -34,8 +34,9 @@ CREATE TABLE landmark
 	name varchar (50) not null,
 	address varchar (60) not null,
 	description varchar (250) not null,
-	image varchar (1000),
 	approved bit not null, 
+	image varchar (50),
+	
 	
 	constraint pk_landmark_id primary key (landmark_id),
 );
