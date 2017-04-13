@@ -16,6 +16,10 @@ namespace Capstone.Web.Controllers
         {
             DashboardModel model = new DashboardModel();
             model.Itineraries = new ItinerarySQLDAL().GetAllItineraries(id);
+
+            Session["sid"] = id;
+            id = (int)Session["sid"];
+
             return View("Dashboard", model);
         }
 
@@ -46,6 +50,16 @@ namespace Capstone.Web.Controllers
             bool itinDeleted = new ItinerarySQLDAL().DeleteItinerary(postDeletedModel);
 
             return View("Dashboard", model);
+        }
+
+        public void UserSession()
+        {
+            if(Session["sid"] == null)
+            {
+                int id = 0;
+                Session["sid"] = id;
+                id = (int)Session["sid"];
+            }
         }
     }
 }

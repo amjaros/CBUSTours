@@ -54,8 +54,6 @@ namespace Capstone.Web.Controllers
                 List<ItineraryModel> itins = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
                 userDashboard.Itineraries = itins;
 
-
-
                 return RedirectToAction("Dashboard", "Dashboard", new { id = model.User_Id });
             }
             else
