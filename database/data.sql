@@ -45,6 +45,7 @@ CREATE TABLE landmarks_by_itinerary
 (
 	itinerary_id int not null,
 	landmark_id int not null,
+	landmarkorder int,
 	
 	constraint PK_IL primary key (itinerary_id, landmark_id),
 	constraint fk_itinerary_id foreign key (itinerary_id) references itinerary(itinerary_id),
