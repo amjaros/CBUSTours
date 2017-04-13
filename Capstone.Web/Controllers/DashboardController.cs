@@ -23,7 +23,7 @@ namespace Capstone.Web.Controllers
         public ActionResult ItineraryDetail(int id)
         {
 
-            return RedirectToAction("ItineraryDetail","Itinerary", new { id = id });
+            return RedirectToAction("ItineraryDetail", "Itinerary", new { id = id });
         }
 
         [HttpGet]
@@ -40,12 +40,16 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", model);
         }
 
-        public ActionResult DeleteItinerary(DashboardModel model, int itineraryId)
+        public ActionResult DeleteItinerary(int id)
         {
-            ItineraryModel postDeletedModel = new ItineraryModel();
+            ItineraryModel postDeletedModel = new ItinerarySQLDAL().GetItinerary(id);
             bool itinDeleted = new ItinerarySQLDAL().DeleteItinerary(postDeletedModel);
-
-            return View("Dashboard", model);
+            if (itinDeleted)
+            {
+                DashboardModel dashboardNewView = new DashboardModel();
+                dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(postDeletedModel.User_Id);
+            }
+                return View("Dashboard", postDeletedModel);
+            }
         }
     }
-}
