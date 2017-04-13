@@ -11,7 +11,7 @@
 @foreach(LandmarkModel LM in Model)
 { 
     <div>
-        @LM.name
-        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src="Capstone.Web/Content/imgs/Landmarks/@LM.image"/></a>
+       
+        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id">@LM.name</a>
     </div>
 }
