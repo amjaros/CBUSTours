@@ -1,11 +1,10 @@
 ﻿html {
-    height: 100%;
+    min-height: 100%;
 }
 body {
-    background-color: #a6b7c2;
+    background-color: #eeeeee;
     padding: 0;
     margin: 0;
-    height: 100%;
     }
 
 /* LAYOUT page stuff */
@@ -14,11 +13,14 @@ hr {
     border-color: black;
 }
 #wrapper {
-    min-height: 100%;
+    /*min-height: 100%;*/
     position: relative;
 }
-
-footer {
+.container {
+    font-family: 'Josefin Sans';
+    font-size: 1vw;
+}
+/*footer {
     background-color: rgba(117, 145, 161, 0.70);
     height: 40px;
     padding-top: 10px;
@@ -30,59 +32,50 @@ footer {
     position: relative;
     font-family: 'Merriweather', serif;
     text-align: center;
-}
+}*/
+
  /* FONTS */
 
  @font-face {
      font-family: BillyOhio;
      src: url("/fonts/BillyOhio.ttf");
  }
-
- /* DEFAULTS */
-
-
-
- /* INDEX PAGE */
-
- #splash {
-     font-family: BillyOhio;
-     font-size: 15vw;
-     color: white;
-     text-align: center;
-     margin: auto auto auto auto;
-     position: relative;
-
+ @font-face {
+     font-family: 'Poiret One', cursive;
+     font-family: 'Josefin Sans', sans-serif;
  }
+
 /********BEGIN JOE RESPONSIVE NAVBAR CSS*/
+
 #layoutimage {
     max-height: 60px;
     margin-top: -15px;
 }
 #tourcolumbusnavbar {
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
     border-bottom: none;
 }
 .navbar-inverse {
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
 }
 .navbar-header {
     border: none;
 }
 .container div {
     border: none;
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
 }
 .container .navbar-collapse {
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
     border: none;
 }
 .container .navbar-collapse.collapse.in li {
     border-bottom: 1px lightgray solid;
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
 } 
 nav .container {
     height: 60px;
-    background-color: #f2f2ed;
+    background-color: #eeeeee;
 }
 /*Hyperlinks at the top*/
 #bs-example-navbar-collapse-1 ul li {
@@ -91,23 +84,26 @@ nav .container {
     color: black;
 }
 #bs-example-navbar-collapse-1 ul li:hover {
-    background-color: lightgray;
+    background-color: #eeeeee;
 }
 /********END JOE RESPONSIVE NAVBAR CSS*/
+
 /* INDEX PAGE */
+
 #splash {
     font-family: BillyOhio;
-    /*font-size: 300px;*/
     font-size: 15vw;
     color: white;
     width: 100%;
     text-align: center;
-    margin: 10px auto auto auto;
-    overflow: hidden;
+    overflow: visible;
+    top: 50px;
+    position: absolute;
 }
 
  #splash_subtext {
-     /*font-size: 70px;*/
+     color: white;
+     text-decoration: none;
      font-size: 4vw;
      display: block;
      margin-top: -80px;
@@ -117,7 +113,9 @@ nav .container {
  }
     #splash_subtext:hover {
         color: lightblue;
+        text-decoration: none;
         cursor: pointer;
+        text-decoration-line: none;
     }
 
 #bg_image {
@@ -125,118 +123,87 @@ nav .container {
     background-image: url(imgs/Columbus_1.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 100% auto;
     background-position: bottom;
-    background-position-x: bottom;
     position: relative;
-    height: 897px;
-    width: auto;
-    top: 0;
-}
-
-/* ------- NAV BAR ------------ */
-
-.navigator {
-    background-color: rgba(117, 145, 161, 0.70);
-    background-attachment: fixed;
-    background-position: top;
-    background-position-y: center;
+    height: 950px;
     width: 100%;
-    overflow: visible;
-    left: 0;
-    right: 0;
-    padding: 0px 0px 0px 10px;
-    font-family: 'Merriweather', serif;
-}
-
-#nav_top {
-    font-family: 'Merriweather', serif;
-    
-}
-#nav_title {
-    font-size: 50px;
-    color: white;
-    font-family: 'Merriweather', serif;
 
 }
-#nav_top .container {
-    margin-bottom: -15px;
-}
-    .dropdown .glyphicon {
-        color: white;
-        margin-left: -15px;
-        font-size: 10px;
-    }
 
-.right-side-nav {
-    float: right;
-    color: black;
-    padding: 0px 15px 0px 0px;
-}
+/* Login View */
 
-/* Credit to www.w3schools.com for "inspiration" on drop down menus */
-
-.dropbtn {
-    background-color: rgba(176, 102, 102, 0);
-    color: white;
-    padding: 15px;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-
-}
-.dropbtn a {
-    text-decoration: none;
-    color: white;
-}
-
-.dropdown {
+#login-splash {
+    background-image: url(imgs/Columbus-ohio-downtown-night.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     position: relative;
-    display: inline-block;
+    height: 900px;
+    width: auto;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: lightgrey;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px 10px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #808080
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover, .dropbtn:hover {
-    background-color: lightgrey;
-    color: black;
-}
-
-/* Register View */
-
-.register_form {
+#login-splash .login-form {
     width: 650px;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 40px;
     display: block;
     color: black;
     background-color: rgba(154, 167, 171, 0.82);
     border-radius: 5px;
     padding: 0px 55px 200px 55px;
-    font-family: 'Merriweather', serif
+    font-family: 'Merriweather', serif;
+    position: relative;
+    top: 80px;
+}
+    .login_form div {
+        position: relative;
+        margin: 3px 0px 5px 0px;
+    }
+    .login-form h2 {
+        font-family: BillyOhio;
+        text-align: center;
+        color: white;
+        padding-top: 10px;
+        font-size: 3vw;
+    }
+    .login_label {
+            text-align: right;
+            width: 30%;
+            float: left;
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: white;
+        }
+    .login_textbox {
+            display: inline-block;
+            /*float: left;*/
+            margin-left: 10px;
+            width: 50%;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+/* Register View */
+#register-splash {
+    background-image: url(imgs/Facade-Night.jpg);
+    background-position: bottom;
+    background-size: cover;
+    min-height: 910px;
+    position: relative; 
+
+}
+.register_form {
+    width: 650px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    color: black;
+    background-color: rgba(154, 167, 171, 0.82);
+    border-radius: 5px;
+    padding: 0px 55px 200px 55px;
+    font-family: 'Merriweather', serif;
+    top: 80px;
+    position: relative;
 
 }
     .register_form div {
@@ -244,6 +211,8 @@ nav .container {
         margin: 3px 0px 5px 0px;
     }
     .register_form h2 {
+        font-family: BillyOhio;
+        font-size: 3vw;
         text-align: center;
         color: white;
         padding-top: 10px;
@@ -297,7 +266,7 @@ nav .container {
     width: 100%;
     position: relative;
 }
-    #register_btn:hover {
+    .register_btn:hover {
     background-color: rgba(0, 0, 0, 0.10);
     border-radius: 5px;
     }
@@ -314,25 +283,44 @@ nav .container {
 }
 
 /***************************DASHBOARD PAGE***************************************/
-#itinerariescontainer * {
-    color: #2a303a;
+.itinerary-divmaster {
+    height: auto;
+    display: block;
+    width: 100%;
 }
-
+#itinerary-splash {
+    background-image: url(imgs/arenadistrict.jpg);
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: bottom;
+    min-height: 600px;
+    position: relative;
+    }
 #itinerariescontainer h1 {
+    font-family: BillyOhio;
+    font-size: 14vw;
+    color: white;
     width: 100%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    position: absolute;
+    top: 150px;
 }
+
 #itinerariescontainer h3 {
     max-width: 80%;
+    font-family: Merriweather;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+
 }
 /******Next 2 Tags are to make links not underlined when hover****/
+
 #itinerariescontainer a {
     text-decoration: none;
 }
@@ -357,7 +345,7 @@ nav .container {
 }
 .itinerary {
     text-align: left;
-    max-width: 750px;;
+    max-width: 750px;
     min-width: 250px;
     margin: 10px auto 10px auto;
     padding: 10px;
@@ -380,6 +368,8 @@ nav .container {
     vertical-align: middle;
     margin: 0 auto 0 auto;
     text-decoration: none;
+    position: relative;
+
 }
 .itinerary *:hover {
     text-decoration: none;
@@ -391,8 +381,12 @@ nav .container {
     height: 30px;
     font-size: 1em;
     text-align: center;
-    padding: 0;
+    padding: 0px 5px 0px 5px;
     display: inline-block;
+    color: black;
+}
+#itinerariescontainer .btn:hover {
+    background-color: #d0daea;
 }
 .tripname {
     display: block;
@@ -426,7 +420,7 @@ nav .container {
     }
 #landmark-splash {
     background-image: url(imgs/cosi.jpg);
-    min-height: 600px;
+    min-height: 650px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -436,16 +430,91 @@ nav .container {
      background-position: center;
      width: 100%;
      display: inline-block;
-     /*margin: 10px 0px 0px 0px;*/
-     padding: 0px 0px 10px 10px;
+     vertical-align: top;
+     overflow: hidden;
+     margin: 10px 0px 0px 0px;
+     padding: 20px 0px 30px 0px;
      border-radius: 5px;
      position: relative;
      text-align: center;
      font-family: Merriweather;
+     font-size: 1.5vw;
+     column-count: 2;
+     column-span: all;
+     column-gap: 10px;
+     column-rule-style: dotted;
+     grid-column-span: 3;
+     grid-column-align: center;
+
  }
 
     .landmark-container img {
-        width: 30%;
-        margin: 10px 0px 0px 10px;
-        border-radius: 5px;
+        width: 60%;
+        height: auto;
+        margin: 10px 0px 10px 10px;
+        border-radius: 3px;
+        border: 1px solid black;
     }
+
+/* Landmarks details */
+
+#landmark-details {
+
+}
+#landmark-details-container {
+    background-color: gray;
+    width: 100%;
+    margin: 0 auto;
+    vertical-align: top;
+}
+    #landmark-details-container img {
+        margin: 0 auto;
+        width: 100%;
+        fit-position: center;
+        position: relative;
+        z-index: 0;
+
+    }
+    #landmark-details-container div {
+        position: relative;
+        width: 40%;
+        font-family: merriweather;
+        color: white;
+        font-size: 1.5vw;
+        margin: 50px auto auto 100px;
+    }
+    #landmark-details-name p {
+            font-family: BillyOhio;
+            font-size: 5vw;
+            color: white;
+            position: absolute;
+            margin: 0 auto;
+            text-align: center;
+            bottom: 70px;
+            z-index: 1;
+        }
+
+/* Itinerary details */
+
+#itinerary-details-splash {
+    background-image: url('imgs/Nationwide Blvd 1.JPG');
+    min-height: 650px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 100px;
+}
+.itinerary-details-container {
+    text-align: center;
+}
+    .itinerary-details-container h2 {
+        font-family: BillyOhio;
+        color: white;
+        font-size: 9vw;
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        top: 250px;
+}

@@ -6,44 +6,46 @@
 
 @model UserRegisterModel
 
-@using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
-{
-    <div class="register_form">
+<div id="register-splash">
+    @using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
+    {
+        <div class="register_form">
 
-        <h2>@ViewBag.Title</h2>
-        <hr />
-        <div class="register_label">
-            @Html.Label("Email Address:")
-        </div>
-        <div class="register_textbox">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <div class="register_label">
+                @Html.Label("Email Address:")
+            </div>
+            <div class="register_textbox">
 
-            @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address" })
-            <div class="validation_messages">
-                @Html.ValidationMessageFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address" })
+                <div class="validation_messages">
+                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                </div>
+                <br />
             </div>
             <br />
-        </div>
-        <br />
-        <div class="register_label">
-            @Html.Label("Username:")
-        </div>
-        <div class="register_textbox">
-            @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })
-            @Html.ValidationMessageFor(m => m.Username)<br />
-        </div>
-        <br />
-        <div class="register_label">
-            @Html.Label("Password:")
-        </div>
-        <div class="register_textbox">
-            @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password" })
-            @Html.ValidationMessageFor(m => m.Password)<br />
+            <div class="register_label">
+                @Html.Label("Username:")
+            </div>
+            <div class="register_textbox">
+                @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })
+                @Html.ValidationMessageFor(m => m.Username)<br />
+            </div>
+            <br />
+            <div class="register_label">
+                @Html.Label("Password:")
+            </div>
+            <div class="register_textbox">
+                @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password)<br />
+
+            </div>
+            <br />
+            <input type="submit" value="Submit" class="register_btn" />
 
         </div>
-        <br />
-        <input type="submit" value="Submit" class="register_btn" />
-
-    </div>
 
 
-}
+    }
+</div>

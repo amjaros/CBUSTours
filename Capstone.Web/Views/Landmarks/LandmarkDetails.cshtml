@@ -5,10 +5,20 @@
 
 @using Capstone.Web.Models
 @model LandmarkModel
+<div id="landmark-details">
+    <div id="landmark-details-container">
 
-<div>
-    @Model.name
-    @Model.address
-    @Model.description
-    <img src="~/Content/imgs/Landmarks/@Model.image" />\
+        <img src="~/Content/imgs/Landmarks/@Model.image" />
+        <div id="landmark-details-name">
+            <p>@Model.name</p>
+        </div>
+        <div>
+            <p>
+                @Model.address
+            </p>
+            <p>
+                @Model.description
+            </p>
+        </div>
+    </div>
 </div>

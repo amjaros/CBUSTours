@@ -2,9 +2,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="bg_image">
+<div id="bg_image"></div>
     <div id="splash">
         <span>Tour Columbus!</span>
-        <text id="splash_subtext">Click here to explore!</text>
+        <a href="@Url.Action("SearchLandmarks","Landmarks")"><text id="splash_subtext">Click here to explore!</text></a>
     </div>
-</div>

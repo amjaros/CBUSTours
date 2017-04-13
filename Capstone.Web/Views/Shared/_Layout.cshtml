@@ -13,6 +13,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/CapstoneCSS.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lora|Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700|Poiret+One" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
                     <img id="layoutimage" src="~/Content/imgs/logo.PNG" alt="">
                 </a>
             </div>
@@ -78,8 +79,8 @@
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/Site.js"></script>
 
-    <footer>
+    @*<footer>
         @DateTime.Now.Year AJJA Inc.
-    </footer>
+    </footer>*@
 </body>
 </html>
