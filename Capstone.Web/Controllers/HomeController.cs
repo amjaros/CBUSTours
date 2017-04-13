@@ -77,12 +77,13 @@ namespace Capstone.Web.Controllers
                     model.EnteredInvalidLogin = true;
                     return View("Register", model);
                 }
+                    UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
 
                 //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
                 //*******Perform operations to return the right homepagemodel
                 DashboardModel userDashboard = new DashboardModel(); 
                 userDashboard.Itineraries= new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
-                return RedirectToAction("Dashboard", "Dashboard", userDashboard);
+                return RedirectToAction("Dashboard", "Dashboard", new { id = registeredAndLoggedInUser.User_Id });
             }
             else
             {

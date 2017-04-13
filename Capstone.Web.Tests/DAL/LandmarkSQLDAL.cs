@@ -13,6 +13,7 @@ namespace Capstone.Web.Tests.DAL
     [TestClass()]
     public class LandmarkSQLDAL
     {
+        /*
         private TransactionScope tran;      //<-- used to begin a transaction during initialize and rollback during cleanup
         SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString);
         // Set up the database before each test        
@@ -54,7 +55,7 @@ namespace Capstone.Web.Tests.DAL
             //Assert
 
             Assert.AreEqual(1,1);
-        }
+        }*/
     }
-
+    
 }
