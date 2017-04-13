@@ -5,6 +5,7 @@
 @using Capstone.Web.Models
 @model DashboardModel
 
+<<<<<<< HEAD
 <h2>Your Itineraries</h2>
 <table>
     <tr>
@@ -35,3 +36,31 @@
 
 
 
+=======
+<div id="itinerariescontainer">
+    <h1>My Columbus Tours</h1>
+    <h3>Trip Itineraries</h3>
+    @foreach (ItineraryModel itinerary in Model.Itineraries)
+    {
+        <div class="itineraryandbutton">
+            <a style="display:block" href="~/Itinerary/ItineraryDetail/@itinerary.Itinerary_id">
+                <div class="itinerary">
+                    <div class="tripname">@itinerary.Name</div>
+                    <div class="startingpointheading">Starting Point:</div>
+                    <div>@itinerary.Starting_point</div>
+                    @if (itinerary.Landmarks == null)
+                {
+                        <div id="numberofstops">0 stops</div>
+                    }
+                    else
+                    {
+                        <div id="numberofstops">@itinerary.Landmarks.Count stops</div>
+                    }
+                </div>
+            </a>
+                <button class="btn" onclick=@Url.Action("DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id})> Delete Itinerary </button>
+            
+        </div>
+    }
+</div>
+>>>>>>> 8337f09c493314b5aec92ea31cd6b33de93466ae

@@ -92,5 +92,26 @@ namespace Capstone.Web.Controllers
             }
             
         }
+        public ActionResult SessionLogin()
+        {
+            SessionLoginMethod();
+
+            return View("Index");
+        }
+
+        public ActionResult SessionLogOut()
+        {
+            SessionLogOutMethod();
+
+            return View("Index");
+        }
+        public void SessionLoginMethod()
+        {
+            Session["sid"] = 1;
+        }
+        public void SessionLogOutMethod()
+        {
+            Session.Clear();
+        }
     }
 }
