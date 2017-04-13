@@ -262,3 +262,98 @@ footer {
     padding: 1px 0px 1px 5px;
     position: relative;
 }
+
+/***************************DASHBOARD PAGE***************************************/
+#itinerariescontainer * {
+    color: #2a303a;
+}
+
+#itinerariescontainer h1 {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+#itinerariescontainer h3 {
+    max-width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+/******Next 2 Tags are to make links not underlined when hover****/
+#itinerariescontainer a {
+    text-decoration: none;
+}
+#itinerariescontainer a:hover {
+    text-decoration: none;
+}
+.itineraryandbutton {
+    display: block;
+    text-align: center;
+}
+.itineraryandbutton * {
+    display: inline-block;
+}
+.itineraryandbutton a {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+}
+.itineraryandbutton .btn {
+    display: inline-block;
+    margin: 0;
+}
+.itinerary {
+    text-align: left;
+    max-width: 750px;;
+    min-width: 250px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    background-color: #e8eff9;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.itinerary:hover {
+    background-color: #d0daea;
+    text-decoration: none;
+}
+
+.itinerary * {
+   display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 200px;
+    text-align: left;
+    min-height: 30px;
+    vertical-align: middle;
+    margin: 0 auto 0 auto;
+    text-decoration: none;
+}
+.itinerary *:hover {
+    text-decoration: none;
+}
+#numberofstops {
+    text-align: center;
+}
+#itinerariescontainer .btn {
+    height: 30px;
+    font-size: 1em;
+    text-align: center;
+    padding: 0;
+    display: inline-block;
+}
+.tripname {
+    display: block;
+    text-align: left;
+    width: 100%;
+    font-size: 2em;
+}
+.startingpointheading {
+    display: block;
+    text-align: left;
+    width: 100%;
+    font-size: 1.3em;
+}
+
