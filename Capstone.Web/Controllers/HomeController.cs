@@ -54,6 +54,8 @@ namespace Capstone.Web.Controllers
                 List<ItineraryModel> itins = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
                 userDashboard.Itineraries = itins;
 
+
+
                 return RedirectToAction("Dashboard", "Dashboard", new { id = model.User_Id });
             }
             else
@@ -77,12 +79,13 @@ namespace Capstone.Web.Controllers
                     model.EnteredInvalidLogin = true;
                     return View("Register", model);
                 }
+                    UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
 
                 //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
                 //*******Perform operations to return the right homepagemodel
                 DashboardModel userDashboard = new DashboardModel(); 
                 userDashboard.Itineraries= new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
-                return RedirectToAction("Dashboard", "Dashboard", userDashboard);
+                return RedirectToAction("Dashboard", "Dashboard", new { id = registeredAndLoggedInUser.User_Id });
             }
             else
             {
@@ -90,6 +93,27 @@ namespace Capstone.Web.Controllers
                 return View("Register", model);
             }
             
+        }
+        public ActionResult SessionLogin()
+        {
+            SessionLoginMethod();
+
+            return View("Index");
+        }
+
+        public ActionResult SessionLogOut()
+        {
+            SessionLogOutMethod();
+
+            return View("Index");
+        }
+        public void SessionLoginMethod()
+        {
+            Session["sid"] = 1;
+        }
+        public void SessionLogOutMethod()
+        {
+            Session.Clear();
         }
     }
 }

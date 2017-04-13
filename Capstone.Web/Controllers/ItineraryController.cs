@@ -14,8 +14,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-            ItineraryModel model = new ItineraryModel();
-
+            ItineraryModel model = new ItinerarySQLDAL().GetItinerary(id);
             return View("ItineraryDetail", model);
         }
 
@@ -37,6 +36,11 @@ namespace Capstone.Web.Controllers
             return View("ItineraryDetail", model);
         }
 
-
+        [HttpGet]
+        public ActionResult LandmarkDetail(int id)
+        {
+            LandmarkModel model = new LandmarkSQLDAL().GetLandmarkById(id.ToString());
+            return View("LandmarkDetail", model);
+        }
     }
 }

@@ -20,11 +20,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult LandmarkDetail(string landmarkID)
         {
-
-
             return View();
         }
-
-
     }
 }

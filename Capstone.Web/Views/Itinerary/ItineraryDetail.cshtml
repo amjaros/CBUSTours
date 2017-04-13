@@ -10,7 +10,13 @@
 <h3>Starting Point:</h3>
 <p>@Model.Starting_point</p>
 <h3>Destinations:</h3>
-@foreach (LandmarkModel landmark in Model.Landmarks)
-{
-    <p>@landmark.name</p>
-}
+<table>
+    @foreach (LandmarkModel landmark in Model.Landmarks)
+    {
+        <tr>
+            <td>@landmark.name</td>
+            <td>@Html.ActionLink("View Landmark", "LandmarkDetail", new { id = landmark.landmark_id })</td>
+        </tr>
+    }
+</table>
+

@@ -25,7 +25,7 @@
         {
             <td>0</td>
         }
-        <td>@Html.ActionLink("View Details", "ItineraryDetails", new { id = itinerary.Itinerary_id })</td><!--NOT SURE IF THIS IS GOOD CODE. WILL KNOW WHEN CONTROLLERS ARE DONE -JOE O-->
+        <td>@Html.ActionLink("View Details", "ItineraryDetail", new { id = itinerary.Itinerary_id })</td><!--NOT SURE IF THIS IS GOOD CODE. WILL KNOW WHEN CONTROLLERS ARE DONE -JOE O-->
         <td><button class="btn" onclick=@Url.Action("DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id})> Delete Itinerary </button></td>
     </tr>
 }

@@ -22,7 +22,8 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-            return RedirectToAction("ItineraryDetail", "Itinerary", new { id = id });
+
+            return RedirectToAction("ItineraryDetail","Itinerary", new { id = id });
         }
 
         [HttpGet]

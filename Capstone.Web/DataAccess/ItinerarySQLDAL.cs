@@ -13,9 +13,8 @@ namespace Capstone.Web.DataAccess
     public class ItinerarySQLDAL
     {
         private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);SELECT CAST(itinerary_id() as int)";
-        private string SQL_DeleteItinerary = "DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
-        private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id FROM itinerary WHERE user_id = @user_id;";
-        private string SQL_GetItineraryLandmarks = "SELECT li.landmark_id, l.name, l.address, l.description, l.approved, l.image FROM landmark l join landmarks_by_itinerary li ON li.landmark_id = l.landmark_id WHERE li.itinerary_id = @itinerary_id";
+        private string SQL_DeleteItinerary = "DELETE * FROM itinerary WHERE itinerary_id = @itinerary_id;";
+        private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id, itinerary_id FROM itinerary WHERE user_id = @user_id;";
         private string SQL_GetItinerary = "SELECT * FROM itinerary i WHERE itinerary_id = @itinerary_id";
 
         public bool InsertNewItinerary(ItineraryModel itinerary)
@@ -81,6 +80,7 @@ namespace Capstone.Web.DataAccess
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(SQL_GetItinerary);
                     cmd.Parameters.AddWithValue("@itinerary_id", itineraryId);
+                    cmd.Connection = connection;
                     SqlDataReader reader = cmd.ExecuteReader();
                     while(reader.Read())
                     {
