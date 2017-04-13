@@ -9,13 +9,13 @@
 <div class="landmark">
 
     <h2>@ViewBag.Title</h2>
+
     <div id="landmark-splash"></div>
     <div class="landmark-container">
 
 
-        @foreach (LandmarkModel LM in Model)
-        {
-
+    @foreach (LandmarkModel LM in Model)
+    {
             <div>
                 @LM.name
             </div><div>
@@ -25,3 +25,6 @@
         }
     </div>
 </div>
+
+
+
