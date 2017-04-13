@@ -15,47 +15,47 @@
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lora|Merriweather" rel="stylesheet">
 </head>
 
-<body id="bg_image">
-    <div class="navigator">
-        @*<span id="nav_title">Tour Columbus!</span>*@
-        <button class="dropbtn" onclick="window.location='@Url.Action("Index","Home")';">Home</button>
+<body>
+    <div id="wrapper">
+        <div class="navigator">
+            @*<span id="nav_title">Tour Columbus!</span>*@
+            <button class="dropbtn" onclick="window.location='@Url.Action("Index","Home")';">Home</button>
 
-        @if (Session["sid"] != null)
-        {
-            <div class="dropdown">
-                <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
-                <div class="dropdown-content" style="left:0;">
-                    <a href="@Url.Action("#", "Home")">Sample Page 1</a>
-                    <a href="@Url.Action("#", "Home")">Sample Page 2</a>
-                    <a href="@Url.Action("#","Home")">Sample Page 3</a>
+            @if (Session["sid"] != null)
+            {
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="window.location='@Url.Action("#","Home")';">About</button>
+                    <div class="dropdown-content" style="left:0;">
+                        <a href="@Url.Action("#", "Home")">Sample Page 1</a>
+                        <a href="@Url.Action("#", "Home")">Sample Page 2</a>
+                        <a href="@Url.Action("#","Home")">Sample Page 3</a>
+                    </div>
+                    <div class="glyphicon glyphicon-arrow-down"></div>
                 </div>
-                <div class="glyphicon glyphicon-arrow-down"></div>
-            </div>
-        }
-        <button class="dropbtn" onclick="window.location='@Url.Action("SearchLandmarks","Landmarks")';">Search Landmarks</button>
-        <button class="dropbtn" onclick="window.location='@Url.Action("SessionLogin","Home")';">Test Button</button>
+            }
+            <button class="dropbtn" onclick="window.location='@Url.Action("SearchLandmarks","Landmarks")';">Search Landmarks</button>
+            <button class="dropbtn" onclick="window.location='@Url.Action("SessionLogin","Home")';">Test Button</button>
 
-        @if (Session["sid"] == null)
-        {
-            <div class="right-side-nav">
-                <button class="dropbtn" onclick="window.location='@Url.Action("Login","Home")';">Login</button>
-                <button class="dropbtn" onclick="window.location='@Url.Action("Register","Home")';">Register</button>
-            </div>
-        }
-        else
-        {
-            <div class="right-side-nav">
-                <button class="dropbtn" onclick="window.location='@Url.Action("SessionLogOut","Home")';">Log Out</button>
+            @if (Session["sid"] == null)
+            {
+                <div class="right-side-nav">
+                    <button class="dropbtn" onclick="window.location='@Url.Action("Login","Home")';">Login</button>
+                    <button class="dropbtn" onclick="window.location='@Url.Action("Register","Home")';">Register</button>
+                </div>
+            }
+            else
+            {
+                <div class="right-side-nav">
+                    <button class="dropbtn" onclick="window.location='@Url.Action("SessionLogOut","Home")';">Log Out</button>
 
-            </div>
-        }
-    </div>
-    <div>
+                </div>
+            }
+        </div>
         @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @*@RenderSection("scripts", required: false)*@
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
     <footer>
         @DateTime.Now.Year AJJA Inc.
     </footer>

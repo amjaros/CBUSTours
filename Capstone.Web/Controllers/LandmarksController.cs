@@ -20,9 +20,6 @@ namespace Capstone.Web.Controllers
 
         public ActionResult LandmarkDetails(string landmarkID)
         {
-
-            return View();
-
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
             LandmarkModel selectedLandmark = DAL.GetLandmarkById(landmarkID);
             return View("LandmarkDetails", selectedLandmark);
