@@ -9,6 +9,7 @@
 <div class="default-container">
     <h2>@ViewBag.Title</h2>
 
+<<<<<<< HEAD
     @foreach (LandmarkModel LM in Model)
     {
 
@@ -20,3 +21,12 @@
 
     }
 </div>
+=======
+@foreach(LandmarkModel LM in Model)
+{ 
+    <div>
+       
+        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id">@LM.name</a>
+    </div>
+}
+>>>>>>> 2475d703c4839e1b756e80a48d0e0b18cdbd2fa4
