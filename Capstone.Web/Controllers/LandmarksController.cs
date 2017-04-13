@@ -18,13 +18,14 @@ namespace Capstone.Web.Controllers
             return View("SearchLandmarks", ApprovedLandmarks);
         }
 
-        public ActionResult LandmarkDetail(string landmarkID)
+        public ActionResult LandmarkDetails(string landmarkID)
         {
 
-
             return View();
+
+            LandmarkSQLDAL DAL = new LandmarkSQLDAL();
+            LandmarkModel selectedLandmark = DAL.GetLandmarkById(landmarkID);
+            return View("LandmarkDetails", selectedLandmark);
         }
-
-
     }
 }

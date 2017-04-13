@@ -6,12 +6,17 @@
 @using Capstone.Web.Models
 @model List<LandmarkModel>
 
-<h2>@ViewBag.Title</h2>
+<div class="default-container">
+    <h2>@ViewBag.Title</h2>
+    @foreach (LandmarkModel LM in Model)
+    {
 
-@foreach(LandmarkModel LM in Model)
-{ 
-    <div>
-        @LM.name
-        <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src="Capstone.Web/Content/imgs/Landmarks/@LM.image"/></a>
-    </div>
-}
+        <div>
+            @LM.name
+        </div><div>
+            <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src="~/Content/imgs/Landmarks/@LM.image" /></a>
+        </div>
+
+    }
+</div>
+

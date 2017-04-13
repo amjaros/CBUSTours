@@ -2,14 +2,15 @@
     height: 100%;
 }
 body {
-    background-color: black;
+    background-color: #a6b7c2;
     padding-top: 40px;
     padding: 0;
     margin: 0;
     height: 100%;
+    background-size: 100%;
     }
 
-/* Index page stuff */
+/* LAYOUT page stuff */
 
 hr {
     border-color: black;
@@ -40,6 +41,34 @@ footer {
      src: url("/fonts/BillyOhio.ttf");
  }
 
+ /* DEFAULTS */
+
+ .default-container {
+     background-color: rgba(117, 145, 161, 0.70);
+     background-position: center;
+     width: 70%;
+     display: inline-block;
+     margin: 35px auto auto 15%;
+     /*margin: 10px 0px 0px 0px;*/
+     padding: 0px 0px 10px 10px;
+     border-radius: 5px;
+     position: relative;
+     text-align: center;
+ }
+    .default-container h2 {
+        font-family: BillyOhio;
+        font-size: 5vw;
+        color: white;
+    }
+    .default-container img {
+        width: 30%;
+        margin: 10px 0px 0px 10px;
+        border-radius: 5px;
+    }
+
+
+ /* INDEX PAGE */
+
  #splash {
      font-family: BillyOhio;
      /*font-size: 300px;*/
@@ -54,22 +83,25 @@ footer {
      /*font-size: 70px;*/
      font-size: 4vw;
      display: block;
-     margin-top: -100px;
+     margin-top: -80px;
      width: 100%;
  }
     #splash_subtext:hover {
         color: lightblue;
         cursor: pointer;
     }
+
 #bg_image {
     opacity: .92;
     background-image: url(imgs/Columbus_1.jpg);
     background-repeat: no-repeat;
-    background-position: top;
     background-attachment: fixed;
-    background-size: 100%;
-    background-position-y: bottom;
+    background-size: cover;
+    background-position: bottom;
 }
+
+/* ------- NAV BAR ------------ */
+
 .navigator {
     background-color: rgba(117, 145, 161, 0.70);
     background-attachment: fixed;
@@ -81,8 +113,8 @@ footer {
     right: 0;
     padding: 0px 0px 0px 10px;
     font-family: 'Merriweather', serif;
-
 }
+
 #nav_top {
     font-family: 'Merriweather', serif;
     
@@ -107,12 +139,8 @@ footer {
     color: black;
     padding: 0px 15px 0px 0px;
 }
-#googleMap {
-    margin-top: 30px;
-}
-/* ------------------------------- */
 
-/* Credit to www.w3schools.com for inspiration on drop down menus */
+/* Credit to www.w3schools.com for "inspiration" on drop down menus */
 
 .dropbtn {
     background-color: rgba(176, 102, 102, 0);
@@ -171,11 +199,9 @@ footer {
     margin-top: 5%;
     display: block;
     color: black;
-    display: block;
     background-color: rgba(154, 167, 171, 0.82);
     border-radius: 5px;
-    padding: 0px 55px 300px 55px;
-    /*clear: both;*/
+    padding: 0px 55px 200px 55px;
     font-family: 'Merriweather', serif
 
 }
@@ -217,23 +243,18 @@ footer {
     display: block;
 }
 
-/* skqfsklj;sdf */
+/* Media adjustments */
 
-@media screen and (max-width: 500px) {
+/*@media screen and (max-width: 1500px) {
     #bg_image {
-        background-image: none;
-        background-image: linear-gradient(lightblue);
+        background-position: bottom;
+        background-size: auto;
     }
-    #splash {
-        display: none;
-    }
-    .navigator {
-        display: none;
-    }
-    footer {
-        display: none;
-    }
+}*/
+@media screen and (min-width: 100px) {
+    #bg_image {
 
+    }
 }
 
 .register_btn {
@@ -263,6 +284,7 @@ footer {
     position: relative;
 }
 
+<<<<<<< HEAD
 /***************************DASHBOARD PAGE***************************************/
 #itinerariescontainer * {
     color: #2a303a;
@@ -356,4 +378,7 @@ footer {
     width: 100%;
     font-size: 1.3em;
 }
+=======
+/* Landmarks Search items */
+>>>>>>> c30e1c760228a3e62d41169315b27b370aad57fd
 
