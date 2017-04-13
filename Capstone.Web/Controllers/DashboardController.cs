@@ -27,7 +27,7 @@ namespace Capstone.Web.Controllers
         public ActionResult ItineraryDetail(int id)
         {
 
-            return RedirectToAction("ItineraryDetail","Itinerary", new { id = id });
+            return RedirectToAction("ItineraryDetail", "Itinerary", new { id = id });
         }
 
         [HttpGet]
@@ -36,25 +36,36 @@ namespace Capstone.Web.Controllers
             return View("LandmarkDetail", model);
         }
 
-        public ActionResult AddItinerary(DashboardModel model)
+        public ActionResult AddItinerary(int id)
         {
             ItineraryModel newItinModel = new ItineraryModel();
+            newItinModel.User_Id = id;
             bool itinInserted = new ItinerarySQLDAL().InsertNewItinerary(newItinModel);
-
-            return View("Dashboard", model);
+            DashboardModel dashboardNewView = new DashboardModel();
+            if (itinInserted)
+            {
+                dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(newItinModel.User_Id);
+            }
+            return RedirectToAction("Dashboard", "Dashboard", new { id = newItinModel.User_Id });
         }
 
-        public ActionResult DeleteItinerary(DashboardModel model, int itineraryId)
+        public ActionResult DeleteItinerary(int id)
         {
-            ItineraryModel postDeletedModel = new ItineraryModel();
+            ItineraryModel postDeletedModel = new ItinerarySQLDAL().GetItinerary(id);
+            postDeletedModel.Itinerary_id = id;
             bool itinDeleted = new ItinerarySQLDAL().DeleteItinerary(postDeletedModel);
-
-            return View("Dashboard", model);
+            DashboardModel dashboardNewView = new DashboardModel();
+            if (itinDeleted)
+            {
+                dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(postDeletedModel.User_Id);
+            }
+            return RedirectToAction("Dashboard", "Dashboard", new { id = postDeletedModel.User_Id });
         }
+
 
         public void UserSession()
         {
-            if(Session["sid"] == null)
+            if (Session["sid"] == null)
             {
                 int id = 0;
                 Session["sid"] = id;
