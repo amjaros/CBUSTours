@@ -17,6 +17,7 @@ namespace Capstone.Web.DataAccess
         private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id, itinerary_id FROM itinerary WHERE user_id = @user_id;";
         private string SQL_GetItinerary = "SELECT * FROM itinerary i WHERE itinerary_id = @itinerary_id";
 
+
         public bool InsertNewItinerary(ItineraryModel itinerary)
         {
             try
@@ -87,6 +88,7 @@ namespace Capstone.Web.DataAccess
                         result.Itinerary_id = itineraryId;
                         result.Name = reader["name"].ToString();
                         result.Starting_point = reader["starting_point"].ToString();
+                        result.User_Id = Convert.ToInt32(reader["user_id"]);
                     }
                 }
                 return result;

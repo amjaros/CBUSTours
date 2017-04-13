@@ -36,24 +36,30 @@ namespace Capstone.Web.Controllers
             return View("LandmarkDetail", model);
         }
 
-        public ActionResult AddItinerary(DashboardModel model)
+        public ActionResult AddItinerary(int id)
         {
             ItineraryModel newItinModel = new ItineraryModel();
+            newItinModel.User_Id = id;
             bool itinInserted = new ItinerarySQLDAL().InsertNewItinerary(newItinModel);
-
-            return View("Dashboard", model);
+            DashboardModel dashboardNewView = new DashboardModel();
+            if (itinInserted)
+            {
+                dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(newItinModel.User_Id);
+            }
+            return RedirectToAction("Dashboard", "Dashboard", new { id = newItinModel.User_Id });
         }
 
         public ActionResult DeleteItinerary(int id)
         {
             ItineraryModel postDeletedModel = new ItinerarySQLDAL().GetItinerary(id);
+            postDeletedModel.Itinerary_id = id;
             bool itinDeleted = new ItinerarySQLDAL().DeleteItinerary(postDeletedModel);
+            DashboardModel dashboardNewView = new DashboardModel();
             if (itinDeleted)
             {
-                DashboardModel dashboardNewView = new DashboardModel();
                 dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(postDeletedModel.User_Id);
             }
-            return View("Dashboard", postDeletedModel);
+            return RedirectToAction("Dashboard", "Dashboard", new { id = postDeletedModel.User_Id });
         }
 
 
