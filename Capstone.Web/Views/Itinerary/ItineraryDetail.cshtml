@@ -1,27 +1,31 @@
-﻿
-@{
-    ViewBag.Title = "Itinerary";
+﻿@{
+    ViewBag.Title = "ItineraryDetail";
 }
 @using Capstone.Web.Models
-
 @model ItineraryModel
+<h2>ItineraryDetail</h2>
 
-<div id="itinerary-details">
-    <div id="itinerary-details-splash"></div>
-    <div class="itinerary-details-container">
-
-        <h2>@Model.Name</h2>
-        <h3>Starting Point:</h3>
-        <p>@Model.Starting_point</p>
-        <h3>Destinations:</h3>
-        <table>
-            @foreach (LandmarkModel landmark in Model.Landmarks)
-            {
-                <tr>
-                    <td>@landmark.name</td>
-                    <td>@Html.ActionLink("View Landmark", "LandmarkDetail", new { id = landmark.landmark_id })</td>
-                </tr>
-            }
-        </table>
-    </div>
+<div>
+    <h3>@Model.Name</h3>
+    <h3>@Model.Starting_point</h3>
 </div>
+
+@if (!(Model.Landmarks == null))
+{
+    <div>
+        @foreach (LandmarkModel landmark in Model.Landmarks)
+        {
+            <div class="itineraryandbutton">
+                <a style="display:block">
+                    <div class="itinerary">
+                        <div class="tripname">@landmark.name</div>
+
+                        <div id="numberofstops">@Model.Landmarks.Count stops</div>
+                        }
+                    </div>
+                </a>
+            </div>
+            @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Landmark", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
+        }
+    </div>
+}

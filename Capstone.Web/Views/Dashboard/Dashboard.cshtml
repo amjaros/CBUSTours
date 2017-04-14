@@ -1,40 +1,12 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Dashboard";
 }
 @using Capstone.Web.Models
 @model DashboardModel
 
 
-    <div id="itinerary-splash">    </div>
 
-@*<h2>Your Itineraries</h2>
-<table>
-    <tr>
-        <th>Trip Name</th>
-        <th>Starting Point</th>
-        <th>Number of Stops</th>
-    </tr>
-@foreach (ItineraryModel itinerary in Model.Itineraries)
-{
-    <tr>
-        <th>@itinerary.Name</th>
-        <td>@itinerary.Starting_point</td>
-        @if (!(itinerary.Landmarks == null))
-        {
-            <td>@itinerary.Landmarks[itinerary.Landmarks.Count - 1]</td>
-        }
-        else
-        {
-            <td>0</td>
-        }
-        <td>@Html.ActionLink("View Details", "ItineraryDetail", new { id = itinerary.Itinerary_id })</td>NOT SURE IF THIS IS GOOD CODE. WILL KNOW WHEN CONTROLLERS ARE DONE -JOE O
-        <td>@Html.ActionLink("Delete Itinerary", "DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id }, new { @class = "btn btn-default" })</td>
-        
-    </tr>
-}
-</table>*@
-
+<div id="itinerary-splash">    </div>
 
 <div id="itinerariescontainer">
     <h1>My Columbus Tours</h1>
@@ -48,29 +20,32 @@
                     <div class="startingpointheading">Starting Point:</div>
                     <div>@itinerary.Starting_point</div>
                     @if (itinerary.Landmarks == null)
-
-                {
-                                <div id="numberofstops">0 stops</div>
-                            }
-                            else
-                            {
-                                <div id="numberofstops">@itinerary.Landmarks.Count stops</div>
-                            }
-                        </div>
-                    </a>
-                    <button class="btn" onclick=@Url.Action("DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id})> Delete Itinerary </button>
-
+                    {
+                        <div id="numberofstops">0 stops</div>
+                    }
+                    else
+                    {
+                        <div id="numberofstops">@itinerary.Landmarks.Count stops</div>
+                    }
                 </div>
-            }
+            </a>
+            @Html.ActionLink("Delete Itinerary", "DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id }, new { @class = "btn btn-default" })
+
         </div>
 
+    }
+    @using (Html.BeginForm("FillNewItinerary", "Dashboard", FormMethod.Get))
+    {
+        <div>
+            @Html.Label("New Itinerary Name")
+            @Html.TextBox("NewItinName")
 
-</div>
+            @Html.Label("Starting Point (Address)")
+            @Html.TextBox("StartingPoint")
 
-        @*<div>
-        <button class="btn" onclick=@Url.Action("AddItinerary", "Dashboard", new { id = itinerary.User_Id})> Create New Itinerary </button>
+
+
+            <input type="submit" value="Submit" class="register_btn" />
         </div>
     }
-</div>*@
-
-
+</div>
