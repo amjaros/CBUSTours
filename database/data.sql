@@ -33,7 +33,7 @@ CREATE TABLE landmark
 	landmark_id int identity not null,
 	name varchar (50) not null,
 	address varchar (60) not null,
-	description varchar (250) not null,
+	description varchar (450) not null,
 	approved bit not null, 
 	image varchar (50),
 	
@@ -75,7 +75,7 @@ COMMIT;
 
 INSERT INTO users VALUES ('User', 'emailaddress@gmail.com', 'P@ssword1', 1)
 INSERT INTO landmark VALUES ('Easton Town Center', '160 Easton Town Center, Columbus, OH 43219', 'Easton Town Center is an indoor and outdoor shopping complex. Included in the design are fountains, streets laid out in a grid pattern surrounded by a continuous loop, and metered storefront parking', 1, 'Easton.jpg')
-INSERT INTO landmark VALUES ('Columbus Museum of Art', '480 E Broad St, Columbus, OH 43215', 'The museum collection includes outstanding late nineteenth and early twentieth-century American and European modern works of art. It houses the world�s largest collections of works by beloved local artists Aminah Brenda Lynn Robinson, Elijah Pierce, and George Bellows. CThere is also a focus on contemporary art, folk art, glass, and photography.' 1, 'COMA.jpg')
+INSERT INTO landmark VALUES ('Columbus Museum of Art', '480 E Broad St, Columbus, OH 43215', 'The museum collection includes outstanding late nineteenth and early twentieth-century American and European modern works of art. It houses the world�s largest collections of works by beloved local artists Aminah Brenda Lynn Robinson, Elijah Pierce, and George Bellows. There is also a focus on contemporary art, folk art, glass, and photography.', 1, 'COMA.jpg')
 INSERT INTO landmark VALUES ('Columbus Zoo and Aquarium', '4850 W Powell Rd, Powell, OH 43065', 'One of the top zoos in the country, in part made famous by the efforts of director Jack Hanna. The Columbus Zoo is home to more than 7,000 animals representing over 800 species and sees over 2.3 million visitors annually. The animal exhibits are divided into regions of the world.', 1, 'Zoo.jpg')
 INSERT INTO landmark VALUES ('Ohio Stadium', '411 Woody Hayes Dr Columbus, OH 43210', 'Ohio Stadium, also known as the Horseshoe, is a football stadium on the campus of The Ohio State University completed in 1922. Its primary purpose is the home venue of the Ohio State Buckeyes football team. The current capacity is 104,944.', 1, 'OhioStadium.jpg')
 INSERT INTO landmark VALUES ('North Market', '59 Spruce St, Columbus, OH 43215', 'Established in 1876, the North Market is Columbus� only remaining true public market. More than 30 merchants vend a wide variety of fresh, local, authentic food. Offerings include organic produce, grass-fed beef, pork, lamb and goat, pastured poultry, sustainably raised seafood, locally roasted coffee, baked goods, cheeses, flowers and other artisan food items.', 1, 'NorthMarket.jpg')
