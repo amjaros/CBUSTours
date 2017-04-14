@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Login Page";
+    //Current model is a boolean "isUsernameOrPasswordEnteredValid"
+}
+
+@using System.ComponentModel.DataAnnotations
+@using Capstone.Web.Models
+
+@model UserLoginModel
+
+<div id="login-splash">
+
+    <div class="login-form">
+        @if (Model.EnteredInvalidLogin)
+        {
+            <p>*Invalid username or password. Are you sure you entered the correct information?</p>
+        }
+        @using (Html.BeginForm("LoginHome", "Home", FormMethod.Post))
+        {
+
+            <h2>Log in:</h2>
+            <hr />
+            <div class="login_label">
+                @Html.Label("Username: ")
+            </div>
+            <div class="login_textbox">
+
+                @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })<br />
+            </div>
+            <div class="validation_messages">
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+            <br />
+
+            <div class="login_label">
+                @Html.Label("Password: ")
+            </div>
+            <div class="login_textbox">
+
+                @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "password" })<br />
+            </div>
+            <div class="validation_messages">
+                @Html.ValidationMessageFor(m => m.Password)
+            </div><br />
+            <input type="submit" value="Log In" class="register_btn" />
+
+
+        }
+    </div>
+</div>

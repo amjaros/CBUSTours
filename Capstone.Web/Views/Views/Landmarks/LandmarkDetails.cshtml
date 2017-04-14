@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using Capstone.Web.Models
+@model LandmarkModel
+<div id="landmark-details">
+    <div id="landmark-details-container">
+
+        <img src="~/Content/imgs/Landmarks/@Model.image" />
+        <div id="landmark-details-name">
+            <p>@Model.name</p>
+        </div>
+        <div class="landmark-details-divider"></div>
+        <div>
+            <p>
+                <strong>Located:</strong><br /> @Model.address
+            </p>
+            <p id="landmark-details-description">
+                @Model.description
+            </p>
+        </div>
+    </div>
+</div>
