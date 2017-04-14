@@ -26,8 +26,9 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult ItineraryDetail(int id)
         {
-
-            return RedirectToAction("ItineraryDetail", "Itinerary", new { id = id });
+            ItineraryModel newItinModel = new ItineraryModel();
+            newItinModel.User_Id = id;
+            return View("ItineraryDetail", newItinModel);
         }
 
         [HttpGet]
@@ -36,17 +37,30 @@ namespace Capstone.Web.Controllers
             return View("LandmarkDetail", model);
         }
 
-        public ActionResult AddItinerary(int id)
+        public ActionResult StartNewItinerary(int id)
         {
             ItineraryModel newItinModel = new ItineraryModel();
             newItinModel.User_Id = id;
+            return View("ItineraryDetail", newItinModel);
+        }
+        public ActionResult FillNewItinerary()
+        {
+            ItineraryModel newItinModel = new ItineraryModel();
+            if (Session["sid"] != null)
+            {
+                newItinModel.User_Id = (int)(Session["sid"]);
+                Session["sid"] = newItinModel.User_Id;
+            }
+            newItinModel.Name = Request.Params["NewItinName"];
+            newItinModel.Starting_point = Request.Params["StartingPoint"];
             bool itinInserted = new ItinerarySQLDAL().InsertNewItinerary(newItinModel);
             DashboardModel dashboardNewView = new DashboardModel();
             if (itinInserted)
             {
                 dashboardNewView.Itineraries = new ItinerarySQLDAL().GetAllItineraries(newItinModel.User_Id);
+                newItinModel.Itinerary_id = dashboardNewView.Itineraries[dashboardNewView.Itineraries.Count - 1].Itinerary_id;
             }
-            return RedirectToAction("Dashboard", "Dashboard", new { id = newItinModel.User_Id });
+            return RedirectToAction("ItineraryDetail", "Itinerary", newItinModel);
         }
 
         public ActionResult DeleteItinerary(int id)

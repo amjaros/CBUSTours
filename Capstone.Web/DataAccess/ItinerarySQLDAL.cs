@@ -12,11 +12,10 @@ namespace Capstone.Web.DataAccess
 {
     public class ItinerarySQLDAL
     {
-        private string SQL_InsertNewItinerary = "INSERT INTO itinerary VALUES (@name, @user_id, @starting_point);SELECT CAST(itinerary_id() as int)";
+        private string SQL_InsertNewItinerary = "INSERT INTO itinerary ([name], [user_id],[starting_point]) VALUES (@name, @user_id, @starting_point);";
         private string SQL_DeleteItinerary = "DELETE FROM landmarks_by_itinerary WHERE itinerary_id = @itinerary_id; DELETE FROM itinerary WHERE itinerary_id = @itinerary_id;";
         private string SQL_GetAllItineraries = "SELECT name, starting_point, user_id, itinerary_id FROM itinerary WHERE user_id = @user_id;";
         private string SQL_GetItinerary = "SELECT * FROM itinerary i WHERE itinerary_id = @itinerary_id";
-
 
         public bool InsertNewItinerary(ItineraryModel itinerary)
         {
@@ -25,7 +24,7 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    int rowsAffected = conn.Execute(SQL_InsertNewItinerary, itinerary);
+                    int rowsAffected = conn.Execute(SQL_InsertNewItinerary, new { name = itinerary.Name, user_id = itinerary.User_Id, starting_point = itinerary.Starting_point });
                     return (rowsAffected > 0);
                 }
             }
@@ -83,7 +82,7 @@ namespace Capstone.Web.DataAccess
                     cmd.Parameters.AddWithValue("@itinerary_id", itineraryId);
                     cmd.Connection = connection;
                     SqlDataReader reader = cmd.ExecuteReader();
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         result.Itinerary_id = itineraryId;
                         result.Name = reader["name"].ToString();

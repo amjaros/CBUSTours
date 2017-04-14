@@ -15,7 +15,14 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View("Index");
+            if(Session["sid"] == null || (int)Session["sid"] == 0)
+            {
+                return View("Index");
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", "Dashboard", new { id = Session["sid"] });
+            }
         }
 
         [HttpGet]
