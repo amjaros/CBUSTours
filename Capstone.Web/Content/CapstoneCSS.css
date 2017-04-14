@@ -481,7 +481,7 @@ nav .container {
     }
     #landmark-details-container div {
         position: relative;
-        width: 40%;
+        width: 50%;
         font-family: merriweather;
         color: white;
         font-size: 1.5vw;
@@ -489,7 +489,7 @@ nav .container {
     }
     #landmark-details-name p {
             font-family: BillyOhio;
-            font-size: 5vw;
+            font-size: 6vw;
             color: white;
             position: absolute;
             margin: 0 auto;
