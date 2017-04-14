@@ -105,7 +105,6 @@ nav .container {
 
  #splash_subtext {
      color: white;
-     text-decoration: none;
      font-size: 4vw;
      display: block;
      margin-top: -80px;
@@ -115,17 +114,20 @@ nav .container {
  }
     #splash_subtext:hover {
         color: lightblue;
-        text-decoration: none;
         cursor: pointer;
-        text-decoration-line: none;
     }
+    #splash a {
+        text-decoration: none;
+    }
+
+
 
 #bg_image {
     opacity: .9;
     background-image: url(imgs/Columbus_1.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% auto;
+    background-size: cover;
     background-position: bottom;
     position: relative;
     height: 950px;
@@ -470,6 +472,7 @@ nav .container {
     width: 100%;
     margin: 0 auto;
     vertical-align: top;
+    padding-bottom: 100px;
 }
     #landmark-details-container img {
         margin: 0 auto;
@@ -481,22 +484,30 @@ nav .container {
     }
     #landmark-details-container div {
         position: relative;
-        width: 50%;
+        width: 90%;
         font-family: merriweather;
         color: white;
         font-size: 1.5vw;
-        margin: 50px auto auto 100px;
+        margin: 10px auto auto 100px;
+
     }
     #landmark-details-name p {
             font-family: BillyOhio;
-            font-size: 6vw;
+            font-size: 7vw;
             color: white;
             position: absolute;
             margin: 0 auto;
             text-align: center;
-            bottom: 70px;
+            bottom: 10px;
             z-index: 1;
         }
+    #landmark-details-description {
+        background-color: #EEEEEE;
+        margin-top: 20px;
+        padding: 20px 0px 20px 15px;
+        color: darkgray;
+        border-radius: 2px;
+    }
 
 /* Itinerary details */
 
@@ -515,7 +526,7 @@ nav .container {
     .itinerary-details-container h2 {
         font-family: BillyOhio;
         color: white;
-        font-size: 9vw;
+        font-size: 11vw;
         position: absolute;
         margin: 0 auto;
         width: 100%;
