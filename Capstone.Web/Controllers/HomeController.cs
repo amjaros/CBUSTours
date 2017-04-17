@@ -104,10 +104,6 @@ namespace Capstone.Web.Controllers
         //{
         //    retur
         //} 
-        public ActionResult SessionLogin()
-        {
-            SessionLoginMethod();
-        }
         public void UserSession()
         {
             if (Session["sid"] == null)
@@ -116,6 +112,15 @@ namespace Capstone.Web.Controllers
                 Session["sid"] = id;
                 id = (int)Session["sid"];
             }
+
+            if (Session["itinId"] == null)
+            {
+                int id = 0;
+                Session["itinId"] = id;
+                id = (int)Session["itinId"];
+            }
+
+
         }
 
     }

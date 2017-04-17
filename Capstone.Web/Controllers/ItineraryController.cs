@@ -18,6 +18,12 @@ namespace Capstone.Web.Controllers
             return View("ItineraryDetail", model);
         }
 
+        public ActionResult ItineraryDetailForAddLandmark(int id)
+        {
+            ItineraryModel model = new ItinerarySQLDAL().GetItinerary(id);
+            return View("ItineraryDetail", model);
+        }
+
         [HttpGet]
         public ActionResult AddLandmark(LandmarkModel model)
         {

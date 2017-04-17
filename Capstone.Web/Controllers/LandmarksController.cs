@@ -40,16 +40,15 @@ namespace Capstone.Web.Controllers
         public ActionResult AddLandmarkToItinerary(int id)
         {
             int itineraryID = (int)(Session["itinId"]);
-            if (itineraryID == 0)
-            {
-                return RedirectToAction("LoginOrRegister", "Home", id);
-            }
             if (!(itineraryID == 0))
             {
                 LandmarkSQLDAL DAL = new LandmarkSQLDAL();
                 bool landmarkAdded = DAL.InsertLandmarkIntoItinerary(id, itineraryID);
-                return RedirectToAction("Iti")
-
+                return RedirectToAction("ItineraryDetailForAddLandmark", "Itinerary", new { id = itineraryID });
+            }
+            else
+            {
+                return RedirectToAction("LoginOrRegister", "Home", new { id = id });
             }
         }
     }
