@@ -24,5 +24,10 @@ namespace Capstone.Web.Controllers
             LandmarkModel selectedLandmark = DAL.GetLandmarkById(landmarkID);
             return View("LandmarkDetails", selectedLandmark);
         }
+
+        //public ActionResult AddLandmark()
+        //{
+
+        //}
     }
 }

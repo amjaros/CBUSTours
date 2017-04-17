@@ -236,7 +236,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Views\Landmarks\SearchLandmarks.cshtml" />
-    <Content Include="Views\Itinerary\ItineraryDetail.cshtml" />
+    <Content Include="Views\Shared\ItineraryDetail.cshtml" />
     <Content Include="Views\Dashboard\LandmarkDetail.cshtml" />
     <Content Include="Views\Landmarks\LandmarkDetails.cshtml" />
     <Content Include="Views\Itinerary\LandmarkDetail.cshtml" />
