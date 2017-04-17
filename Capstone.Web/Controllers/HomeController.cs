@@ -99,6 +99,11 @@ namespace Capstone.Web.Controllers
             }
             
         }
+
+        public ActionResult LoginOrRegister()
+        {
+            retur
+        } 
         public ActionResult SessionLogin()
         {
             SessionLoginMethod();

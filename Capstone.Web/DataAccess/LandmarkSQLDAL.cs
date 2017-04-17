@@ -128,7 +128,7 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public bool InsertLandmarkIntoItinerary(string landmarkID, string itineraryID)
+        public bool InsertLandmarkIntoItinerary(int landmarkID, int itineraryID)
         {
             try
             {

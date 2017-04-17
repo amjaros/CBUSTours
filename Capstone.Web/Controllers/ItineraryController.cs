@@ -18,12 +18,6 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult SearchLandmarks()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public ActionResult AddLandmark(LandmarkModel model)
         {
             return View("ItineraryDetail", model);
@@ -33,13 +27,6 @@ namespace Capstone.Web.Controllers
         public ActionResult DeleteLandmark(LandmarkModel model)
         {
             return View("ItineraryDetail", model);
-        }
-
-        [HttpGet]
-        public ActionResult LandmarkDetail(int id)
-        {
-            LandmarkModel model = new LandmarkSQLDAL().GetLandmarkById(id.ToString());
-            return View("LandmarkDetail", model);
         }
     }
 }

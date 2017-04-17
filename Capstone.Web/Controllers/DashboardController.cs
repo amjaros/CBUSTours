@@ -31,18 +31,7 @@ namespace Capstone.Web.Controllers
             return View("ItineraryDetail", newItinModel);
         }
 
-        [HttpGet]
-        public ActionResult LandmarkDetail(LandmarkModel model)
-        {
-            return View("LandmarkDetail", model);
-        }
 
-        public ActionResult StartNewItinerary(int id)
-        {
-            ItineraryModel newItinModel = new ItineraryModel();
-            newItinModel.User_Id = id;
-            return View("ItineraryDetail", newItinModel);
-        }
         public ActionResult FillNewItinerary()
         {
             ItineraryModel newItinModel = new ItineraryModel();
