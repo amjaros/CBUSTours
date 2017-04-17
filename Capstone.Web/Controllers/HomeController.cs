@@ -97,8 +97,14 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("invalid-registration", "Invalid email, username and password combination. Please try again.");
                 return View("Register", model);
             }
-
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return View("Index");
+        }
+
         public void UserSession()
         {
             if (Session["sid"] == null)
