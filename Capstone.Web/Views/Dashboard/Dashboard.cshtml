@@ -14,7 +14,7 @@
     @foreach (ItineraryModel itinerary in Model.Itineraries)
     {
         <div class="itineraryandbutton">
-            <a style="display:block" href="@Url.Action("ItineraryDetail", "Dashboard", new { id = itinerary.Itinerary_id })">
+            <a style="display:block" href="@Url.Action("ItineraryDetail", "Itinerary", new { id = itinerary.Itinerary_id })">
                 <div class="itinerary">
                     <div class="tripname">@itinerary.Name</div>
                     <div class="startingpointheading">Starting Point:</div>
@@ -32,7 +32,6 @@
             @Html.ActionLink("Delete Itinerary", "DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id }, new { @class = "btn btn-default" })
 
         </div>
-
     }
     @using (Html.BeginForm("FillNewItinerary", "Dashboard", FormMethod.Get))
     {
@@ -42,8 +41,6 @@
 
             @Html.Label("Starting Point (Address)")
             @Html.TextBox("StartingPoint")
-
-
 
             <input type="submit" value="Submit" class="register_btn" />
         </div>

@@ -2,10 +2,8 @@
     ViewBag.Title = "Columbus Landmarks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @using Capstone.Web.Models
-@model List<LandmarkModel>
-
+@model ItineraryModel
 <div class="landmark">
 
     <h2>@ViewBag.Title</h2>
@@ -14,7 +12,7 @@
     <div class="landmark-container">
 
 
-    @foreach (LandmarkModel LM in Model)
+    @foreach (LandmarkModel LM in Model.Landmarks)
     {
             <div>
                 @LM.name
