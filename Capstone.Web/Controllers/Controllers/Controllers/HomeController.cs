@@ -15,7 +15,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if (Session["sid"] == null || (int)Session["sid"] == 0)
+            if(Session["sid"] == null || (int)Session["sid"] == 0)
             {
                 return View("Index");
             }
@@ -74,7 +74,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult RegisterHome(UserRegisterModel model)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 //DAL Method which returns a boolean if the user was properly registered in the database. Just putting a sample boolean for now.
                 bool wasNewUserRegisteredSuccessfully = new UserSQLDAL().RegisterUser(model);
@@ -84,12 +84,12 @@ namespace Capstone.Web.Controllers
                     model.EnteredInvalidLogin = true;
                     return View("Register", model);
                 }
-                UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
+                    UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
 
                 //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
                 //*******Perform operations to return the right homepagemodel
-                DashboardModel userDashboard = new DashboardModel();
-                userDashboard.Itineraries = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
+                DashboardModel userDashboard = new DashboardModel(); 
+                userDashboard.Itineraries= new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
                 return RedirectToAction("Dashboard", "Dashboard", new { id = registeredAndLoggedInUser.User_Id });
             }
             else
@@ -97,45 +97,28 @@ namespace Capstone.Web.Controllers
                 ModelState.AddModelError("invalid-registration", "Invalid email, username and password combination. Please try again.");
                 return View("Register", model);
             }
+            
         }
+        public ActionResult SessionLogin()
+        {
+            SessionLoginMethod();
 
-        public ActionResult LoginOrRegister(int id)
-        {
-            int lmID = id;
-            Session["LMId"] = lmID;
-            UserRegisterModel newUser = new UserRegisterModel();
-            return View("LoginOrRegister", newUser);
-        }
-        public ActionResult Logout()
-        {
-            Session.Clear();
             return View("Index");
         }
 
-        public void UserSession()
+        public ActionResult SessionLogOut()
         {
-            if (Session["sid"] == null)
-            {
-                int id = 0;
-                Session["sid"] = id;
-                id = (int)Session["sid"];
-            }
+            SessionLogOutMethod();
 
-            if (Session["itinId"] == null)
-            {
-                int id = 0;
-                Session["itinId"] = id;
-                id = (int)Session["itinId"];
-            }
-
-            if (Session["LMId"] == null)
-            {
-                int id = 0;
-                Session["LMId"] = id;
-                id = (int)Session["LMId"];
-            }
-
+            return View("Index");
         }
-
+        public void SessionLoginMethod()
+        {
+            Session["sid"] = 1;
+        }
+        public void SessionLogOutMethod()
+        {
+            Session.Clear();
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Capstone.Web.DataAccess
     public class LandmarkSQLDAL
     {
         private string SQL_InsertLandmarkIntoItinerary = "INSERT INTO landmarks_by_itinerary VALUES (@itineraryID, @landmarkID)";
-        private string SQL_DeleteLandmarkFromItinerary = "DELETE FROM landmarks_by_itinerary WHERE itinerary_id = @itineraryID";
+        private string SQL_DeleteLandmarkFromItinerary = "DELETE FROM landmarks_by_itinerary WHERE itinerary_id = @itineraryID AND landmark_id = @landmarkID";
         private string SQL_SelectLandmarksByItinerary = "SELECT * from landmark JOIN landmarks_by_itinerary on landmark.landmark_id= landmarks_by_itinerary.landmark_id WHERE itinerary_id=@itineraryID";
         private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
         private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
@@ -118,6 +118,7 @@ namespace Capstone.Web.DataAccess
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(SQL_DeleteLandmarkFromItinerary, conn);
                     cmd.Parameters.AddWithValue("@itineraryID", itineraryID);
+                    cmd.Parameters.AddWithValue("@landmarkID", landmarkID);
                     int worked = cmd.ExecuteNonQuery();
                     return (worked > 0);
                 }
@@ -128,7 +129,7 @@ namespace Capstone.Web.DataAccess
             }
         }
 
-        public bool InsertLandmarkIntoItinerary(string landmarkID, string itineraryID)
+        public bool InsertLandmarkIntoItinerary(int landmarkID, int itineraryID)
         {
             try
             {
@@ -140,6 +141,31 @@ namespace Capstone.Web.DataAccess
                     cmd.Parameters.AddWithValue("@itineraryID", itineraryID);
                     int worked = cmd.ExecuteNonQuery();
                     return (worked > 0);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool isLandmarkAlreadyInItinerary(int landmark_id, int itinerary_id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM landmarks_by_itinerary WHERE itinerary_id = @itineraryID AND landmark_id = @landmarkID", conn);
+                    cmd.Parameters.AddWithValue("@landmarkID", landmark_id);
+                    cmd.Parameters.AddWithValue("@itineraryID", itinerary_id);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    int rowsAffected = 0;
+                    while(reader.Read())
+                    {
+                        rowsAffected++;
+                    }
+                    return (rowsAffected > 0);
                 }
             }
             catch (SqlException ex)

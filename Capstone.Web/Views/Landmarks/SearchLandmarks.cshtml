@@ -1,10 +1,16 @@
 ﻿@{
     ViewBag.Title = "Columbus Landmarks";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using Capstone.Web.Models
+@model ItineraryModel
+@{ 
+    int itinId = Model.Itinerary_id;
+    Session["itinId"] = itinId;
+    itinId = (int)Session["itinId"];
 }
 
-@using Capstone.Web.Models
-@model List<LandmarkModel>
 
 <div class="landmark">
 
@@ -14,15 +20,16 @@
     <div class="landmark-container">
 
 
-    @foreach (LandmarkModel LM in Model)
+    @foreach (LandmarkModel LM in Model.Landmarks)
     {
             <div>
                 @LM.name
-            </div><div>
-                <a href="~/Landmarks/LandmarkDetails?landmarkID=@LM.landmark_id"><img src="~/Content/imgs/Landmarks/@LM.image" /></a>
             </div>
-
+            <div>
+                <a href="@Url.Action("LandmarkDetails", "Landmarks", new { id = LM.landmark_id })"><img src="~/Content/imgs/Landmarks/@LM.image" /></a>
+            </div>
         }
+        
     </div>
 </div>
 
