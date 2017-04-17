@@ -88,3 +88,4 @@ C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.Web\bin\System.Web.Helpers.xml
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.Web\bin\System.Web.Mvc.xml
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.dll
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.pdb
+C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.csprojResolveAssemblyReference.cache
