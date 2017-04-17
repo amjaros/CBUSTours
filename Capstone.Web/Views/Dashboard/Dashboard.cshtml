@@ -32,7 +32,6 @@
             @Html.ActionLink("Delete Itinerary", "DeleteItinerary", "Dashboard", new { id = itinerary.Itinerary_id }, new { @class = "btn btn-default" })
 
         </div>
-
     }
     @using (Html.BeginForm("FillNewItinerary", "Dashboard", FormMethod.Get))
     {
@@ -42,8 +41,6 @@
 
             @Html.Label("Starting Point (Address)")
             @Html.TextBox("StartingPoint")
-
-
 
             <input type="submit" value="Submit" class="register_btn" />
         </div>

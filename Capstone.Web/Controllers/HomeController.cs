@@ -15,7 +15,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if(Session["sid"] == null || (int)Session["sid"] == 0)
+            if (Session["sid"] == null || (int)Session["sid"] == 0)
             {
                 return View("Index");
             }
@@ -74,7 +74,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult RegisterHome(UserRegisterModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 //DAL Method which returns a boolean if the user was properly registered in the database. Just putting a sample boolean for now.
                 bool wasNewUserRegisteredSuccessfully = new UserSQLDAL().RegisterUser(model);
@@ -84,12 +84,12 @@ namespace Capstone.Web.Controllers
                     model.EnteredInvalidLogin = true;
                     return View("Register", model);
                 }
-                    UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
+                UserLoginModel registeredAndLoggedInUser = new UserSQLDAL().LoginUser(model.Username, model.Password);
 
                 //Bring the newly registered user to his or her homepage. We'll need to create a HomePageModel to pass in.
                 //*******Perform operations to return the right homepagemodel
-                DashboardModel userDashboard = new DashboardModel(); 
-                userDashboard.Itineraries= new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
+                DashboardModel userDashboard = new DashboardModel();
+                userDashboard.Itineraries = new ItinerarySQLDAL().GetAllItineraries(model.User_Id);
                 return RedirectToAction("Dashboard", "Dashboard", new { id = registeredAndLoggedInUser.User_Id });
             }
             else
@@ -100,30 +100,23 @@ namespace Capstone.Web.Controllers
             
         }
 
-        public ActionResult LoginOrRegister()
-        {
-            retur
-        } 
+        //public ActionResult LoginOrRegister()
+        //{
+        //    retur
+        //} 
         public ActionResult SessionLogin()
         {
             SessionLoginMethod();
-
-            return View("Index");
         }
-
-        public ActionResult SessionLogOut()
+        public void UserSession()
         {
-            SessionLogOutMethod();
+            if (Session["sid"] == null)
+            {
+                int id = 0;
+                Session["sid"] = id;
+                id = (int)Session["sid"];
+            }
+        }
 
-            return View("Index");
-        }
-        public void SessionLoginMethod()
-        {
-            Session["sid"] = 1;
-        }
-        public void SessionLogOutMethod()
-        {
-            Session.Clear();
-        }
     }
 }
