@@ -25,16 +25,34 @@ namespace Capstone.Web.Controllers
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
             List<LandmarkModel> ApprovedLandmarks = DAL.GetApprovedLandmarks();
             ItineraryModel itinModel = new ItineraryModel();
-            itinModel.User_Id = id;
+            itinModel.Itinerary_id = id;
             itinModel.Landmarks = ApprovedLandmarks;
             return View("SearchLandmarks", itinModel);
         }
 
-        public ActionResult LandmarkDetails(string landmarkID)
+        public ActionResult LandmarkDetails(string id)
         {
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
-            LandmarkModel selectedLandmark = DAL.GetLandmarkById(landmarkID);
+            LandmarkModel selectedLandmark = DAL.GetLandmarkById(id);
             return View("LandmarkDetails", selectedLandmark);
+        }
+
+        public ActionResult AddLandmarkToItinerary(int id)
+        {
+            int itineraryID = (int)(Session["itinId"]);
+            if (!(itineraryID == 0))
+            {
+                LandmarkSQLDAL DAL = new LandmarkSQLDAL();
+                if(!DAL.isLandmarkAlreadyInItinerary(id, itineraryID))
+                {
+                    bool landmarkAdded = DAL.InsertLandmarkIntoItinerary(id, itineraryID);
+                }
+                return RedirectToAction("ItineraryDetailForAddLandmark", "Itinerary", new { id = itineraryID });
+            }
+            else
+            {
+                return RedirectToAction("LoginOrRegister", "Home", new { id = id });
+            }
         }
     }
 }

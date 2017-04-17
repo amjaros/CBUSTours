@@ -18,6 +18,12 @@ namespace Capstone.Web.Controllers
             return View("ItineraryDetail", model);
         }
 
+        public ActionResult ItineraryDetailForAddLandmark(int id)
+        {
+            ItineraryModel model = new ItinerarySQLDAL().GetItinerary(id);
+            return View("ItineraryDetail", model);
+        }
+
         [HttpGet]
         public ActionResult AddLandmark(LandmarkModel model)
         {
@@ -25,8 +31,12 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult DeleteLandmark(LandmarkModel model)
+        public ActionResult DeleteLandmark(int id, int itineraryId)
         {
+            bool landmarkDeleted = new LandmarkSQLDAL().DeleteLandmarkFromItinerary(id.ToString(), itineraryId.ToString());
+
+            ItineraryModel model = new ItinerarySQLDAL().GetItinerary(itineraryId);
+
             return View("ItineraryDetail", model);
         }
     }

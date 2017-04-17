@@ -24,7 +24,7 @@
                     </div>
                 </a>
             </div>
-            @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Landmark", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
         }
     </div>
 }

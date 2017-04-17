@@ -23,6 +23,14 @@ namespace Capstone.Web.Controllers
             return View("Dashboard", model);
         }
 
+        [HttpGet]
+        public ActionResult ItineraryDetail(int id)
+        {
+            ItineraryModel newItinModel = new ItineraryModel();
+            newItinModel = new ItinerarySQLDAL().GetItinerary(id);
+            return View("ItineraryDetail", newItinModel);
+        }
+
         public ActionResult FillNewItinerary()
         {
             ItineraryModel newItinModel = new ItineraryModel();
