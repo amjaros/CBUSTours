@@ -17,7 +17,7 @@ hr {
     position: relative;
 }
 .container {
-    font-family: 'Josefin Sans';
+    font-family: 'Poiret One';
     font-size: 1vw;
 }
 /*footer {
@@ -41,9 +41,18 @@ hr {
      src: url("/fonts/BillyOhio.ttf");
  }
  @font-face {
-     font-family: 'Poiret One', cursive;
-     font-family: 'Josefin Sans', sans-serif;
-     font-family: 'Merriweather';
+font-family: 'Merriweather', serif;
+font-family: 'Poiret One', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Proza Libre', sans-serif;
+font-family: 'Libre Franklin', sans-serif;
+font-family: 'Libre Baskerville', serif;
+font-family: 'Trirong', serif;
+font-family: 'Rubik', sans-serif;
+font-family: 'Work Sans', sans-serif;
+font-family: 'Taviraj', serif;
+font-family: 'Eczar', serif;
+font-family: 'Gentium Basic', serif;
 
  }
 
@@ -98,29 +107,33 @@ nav .container {
     color: white;
     width: 100%;
     text-align: center;
-    overflow: visible;
+    /*overflow: visible;*/
     top: 50px;
     position: absolute;
 }
 
  #splash_subtext {
-     color: white;
-     font-size: 4vw;
-     display: block;
-     margin-top: -80px;
-     width: 100%;
+     font-size: .3em;
+     margin: -40px 0px 0px 0px;
      position: relative;
-
+     /*background-color: #fff;*/
+     opacity: 0.9;
+     width: 100%;
+     border-radius: 200px;
+     z-index: 4;
  }
+    #splash_subtext {
+        color: #fff;
+        opacity: 1;
+    }
     #splash_subtext:hover {
-        color: lightblue;
+        color: darkblue;
         cursor: pointer;
     }
     #splash a {
         text-decoration: none;
+        width: 100%;
     }
-
-
 
 #bg_image {
     opacity: .9;
@@ -132,7 +145,26 @@ nav .container {
     position: relative;
     height: 950px;
     width: 100%;
-
+}
+@media screen and (max-width: 800px) {
+    #splash {
+        top: 100px;
+        font-size: 5em;
+    }
+    #splash_subtext {
+        top: 0px;
+        font-size: .6em;
+        margin: -15px 20px 0px 0px;
+        padding-right: 0px;
+    }
+    #bg_image {
+        max-height: 600px;
+        background-color: grey;
+        background-size: auto;
+    }
+    #bs-example-navbar-collapse-1 ul li {
+        font-size: 4.5em;
+    }
 }
 
 /* Login View */
@@ -294,6 +326,9 @@ nav .container {
     display: block;
     width: 100%;
 }
+#itinerariescontainer {
+    width: 100%;
+}
 #itinerary-splash {
     background-image: url(imgs/arenadistrict.jpg);
     background-attachment: fixed;
@@ -316,14 +351,73 @@ nav .container {
     top: 150px;
 }
 
+#itinerary-create-new {
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    padding: 0px 55px 40px 55px;
+    font-family: 'Merriweather', serif;
+    top: 20px;
+    position: relative;
+    text-align: center;
+    /*width: 490px;*/
+    /*margin: 0 auto;
+    position: relative;*/
+}
+
+    .itinerary-textbox {
+        display: inline-block;
+        overflow: auto;
+        width: 400px;
+    }
+    #itinerary-create-new input {
+        width: 400px;
+    }
 #itinerariescontainer h3 {
     max-width: 80%;
-    font-family: Merriweather;
+    font-family: Garamond;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 20px;
 
+}
+#itinerary-create-btn {
+    margin: 20px auto;
+    background-color: lightblue;
+    text-decoration: none;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    width: 200px!important;
+}
+    #itinerary-create-btn:hover {
+        background-color: #e8eff9; 
+    }
+    .itinerary-details-delete-btn {
+    background-color: lightblue;
+    text-decoration: none;
+    border-style: none;
+    border-radius: 5px;
+    font-family: Merriweather;
+    color: white;
+    text-align: center;
+    padding: 15px 0px 5px 0px;
+    width: 130px!important;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    }
+        .itinerary-details-delete-btn:hover {
+            background-color: #e8eff9; 
+        }
+.trip-container {
+    background-image: url(imgs/Columbus-Ohio-skyline-reflect-52247845.jpg);
+    background-attachment: fixed;
+    background-size: 2000px;
+    background-position: bottom;
 }
 /******Next 2 Tags are to make links not underlined when hover****/
 
@@ -334,21 +428,22 @@ nav .container {
     text-decoration: none;
 }
 .itineraryandbutton {
-    display: block;
     text-align: center;
-}
-.itineraryandbutton * {
+    /*padding-bottom: 100px;*/
     display: inline-block;
+    vertical-align: top;
+    width: 100%;
 }
+
 .itineraryandbutton a {
     display: inline-block;
-    width: auto;
-    margin: 0;
+
 }
-.itineraryandbutton .btn {
-    display: inline-block;
-    margin: 0;
+#itineraries-boxes {
+    width: 100%;
+    column-count: 3;
 }
+
 .itinerary {
     text-align: left;
     max-width: 750px;
@@ -365,8 +460,8 @@ nav .container {
 }
 
 .itinerary * {
-   display: inline-block;
-    font-size: 1.2em;
+    display: inline-block;
+    font-size: 1.0em;
     font-weight: bold;
     width: 200px;
     text-align: left;
@@ -406,10 +501,20 @@ nav .container {
     width: 100%;
     font-size: 1.3em;
 }
-/* Landmarks Search items */
+@media screen and (max-width: 800px) {
+    #itinerary-splash {
+        min-height: 225px;
+    }
+    #itinerariescontainer h1 {
+        top: 100px;
+        font-size: 4em;
+    }
+}
+
+/********** Landmarks Search items *************/
 
 .landmark {
-    background-color: #aba8ad;
+    background-color: #eeeeee;
     }
 .landmark img {
     width: 100%;
@@ -439,27 +544,45 @@ nav .container {
      vertical-align: top;
      overflow: hidden;
      margin: 10px 0px 0px 0px;
-     padding: 30px 0px 60px 0px;
+     padding: 20px 0px 60px 0px;
      border-radius: 5px;
      position: relative;
      text-align: center;
      font-family: Garamond;
-     font-size: 2vw;
+     font-size: 2em;
      column-count: 2;
      column-span: all;
      column-gap: 10px;
      column-rule-style: dotted;
-     grid-column-span: 3;
-     grid-column-align: center;
-
+     column-fill: balance;
+     /*grid-column-span: 3;
+     grid-column-align: center;*/
+     -webkit-column-break-inside: avoid;
  }
-
+@media screen and (max-width: 800px) {
+    .landmark-container {
+        column-count: 1;
+    }
+    #landmark-splash {
+        min-height: 225px;
+    }
+    .landmark h2 {
+        top: 100px;
+    }
+}
+    .landmark-container div {
+        margin-bottom: 10px;
+    }
     .landmark-container img {
         width: 60%;
         height: auto;
         margin: 10px 0px 10px 10px;
         border-radius: 3px;
         border: 1px solid black;
+    }
+    .landmark-container img:hover {
+        background-color: gray;
+        opacity: .75;
     }
 
 /* Landmarks details */
@@ -468,7 +591,7 @@ nav .container {
 
 }*/
 #landmark-details-container {
-    background-color: gray;
+    background-color: #eeeeee;
     width: 100%;
     margin: 0 auto;
     vertical-align: top;
@@ -485,10 +608,10 @@ nav .container {
     #landmark-details-container div {
         position: relative;
         width: 90%;
-        font-family: merriweather;
-        color: white;
+        font-family: 'Libre Baskerville';
+        color: #5d5d5d;
         font-size: 1.5vw;
-        margin: 10px auto auto 100px;
+        margin: 20px auto auto 100px;
 
     }
     #landmark-details-name p {
@@ -498,22 +621,25 @@ nav .container {
             position: absolute;
             margin: 0 auto;
             text-align: center;
-            bottom: 10px;
+            bottom: 15px;
             z-index: 1;
         }
     #landmark-details-description {
         background-color: #EEEEEE;
         margin-top: 20px;
-        padding: 20px 0px 20px 15px;
-        color: darkgray;
+        padding: 20px 0px 20px 0px;
+        color: #5d5d5d;
         border-radius: 2px;
     }
-
+#add-landmark-btn {
+    margin: -100px 0px 0px 100px;
+    
+}
 /* Itinerary details */
 
 #itinerary-details-splash {
     background-image: url('imgs/Nationwide Blvd 1.JPG');
-    min-height: 650px;
+    min-height: 550px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -531,9 +657,14 @@ nav .container {
         margin: 0 auto;
         width: 100%;
         text-align: center;
-        top: 250px;
+        top: 200px;
 }
-
+#add-landmark-btn-itinerary {
+    margin-top: 10px;
+}
+#delete-landmark-itinerary-btn {
+    display: inline;
+}
     #right-panel {
             font-family: 'Roboto','sans-serif';
             line-height: 30px;

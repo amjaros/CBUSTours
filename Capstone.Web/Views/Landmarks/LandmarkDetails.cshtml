@@ -22,7 +22,8 @@
             </p>
         </div>
     </div>
+    <div id="add-landmark-btn">
+        @Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
+    </div>
 </div>
-
-@Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
 

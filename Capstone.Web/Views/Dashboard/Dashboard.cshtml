@@ -10,6 +10,24 @@
 
 <div id="itinerariescontainer">
     <h1>My Columbus Tours</h1>
+
+    <h3>My Itineraries</h3>
+    <div id="itinerary-create-new">
+        @using (Html.BeginForm("FillNewItinerary", "Dashboard", FormMethod.Get))
+        {
+            <div>
+                @Html.Label("New Itinerary Name")
+                @Html.TextBox("NewItinName")
+
+                @Html.Label("Starting Point (Address)")
+                @Html.TextBox("StartingPoint")
+                <br />
+                <input type="submit" value="Submit" class="btn" />
+            </div>
+        }
+    </div>
+
+
     <h3>Trip Itineraries</h3>
     @foreach (ItineraryModel itinerary in Model.Itineraries)
     {
@@ -33,16 +51,5 @@
 
         </div>
     }
-    @using (Html.BeginForm("FillNewItinerary", "Dashboard", FormMethod.Get))
-    {
-        <div>
-            @Html.Label("New Itinerary Name")
-            @Html.TextBox("NewItinName")
 
-            @Html.Label("Starting Point (Address)")
-            @Html.TextBox("StartingPoint")
-
-            <input type="submit" value="Submit" class="register_btn" />
-        </div>
-    }
 </div>
