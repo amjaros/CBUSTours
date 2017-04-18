@@ -12,8 +12,9 @@ namespace Capstone.Web.DataAccess
 {
     public class ReviewSQLDAL
     {
-        private string SQL_InsertNewReview = "INSERT INTO reviews ([rating], [description], [landmark_id]) VALUES (@rating, @description, @landmark_id);";
-        private string SQL_GetAllReviews = "SELECT reviews.review_id, rating, description FROM reviews WHERE landmark_id = @landmark_id;";
+
+        private string SQL_SubmitReview = "INSERT INTO reviews VALUES (@landmark_id, @rating, @description)";
+        private string SQL_GetAllReviews = "SELECT reviews.review_id, rating, description FROM reviews JOIN reviews_by_landmark ON reviews.review_id = reviews_by_landmark.review_id WHERE reviews_by_landmark.landmark_id = @landmark_id;";
 
         public bool InsertNewReview(ReviewModel review, int landmarkID)
         {
@@ -22,7 +23,12 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    int rowsAffected = conn.Execute(SQL_InsertNewReview, new { rating = review.Rating, description = review.Description, landmarkID = landmarkID });
+                    //int rowsAffected = conn.Execute(SQL_SubmitReview, new { rating = review.Rating, description = review.Description, landmarkID = landmarkID });
+                    SqlCommand cmd = new SqlCommand(SQL_SubmitReview, conn);
+                    cmd.Parameters.AddWithValue("@landmark_id", landmarkID);
+                    cmd.Parameters.AddWithValue("@rating", review.Rating);
+                    cmd.Parameters.AddWithValue("@description", review.Description);
+                    int rowsAffected = cmd.ExecuteNonQuery();
                     return (rowsAffected > 0);
                 }
             }
