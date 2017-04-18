@@ -30,10 +30,12 @@ namespace Capstone.Web.Controllers
             return View("SearchLandmarks", itinModel);
         }
 
-        public ActionResult LandmarkDetails(string id)
+        public ActionResult LandmarkDetails(int id)
         {
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
             LandmarkModel selectedLandmark = DAL.GetLandmarkById(id);
+            ReviewSQLDAL reviewDAL = new ReviewSQLDAL();
+            selectedLandmark.Reviews = reviewDAL.GetAllReviews(id);
             return View("LandmarkDetails", selectedLandmark);
         }
 

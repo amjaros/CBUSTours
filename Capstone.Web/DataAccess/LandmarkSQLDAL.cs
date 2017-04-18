@@ -16,7 +16,7 @@ namespace Capstone.Web.DataAccess
         private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
         private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
 
-        public LandmarkModel GetLandmarkById(string landmarkID)
+        public LandmarkModel GetLandmarkById(int landmarkID)
         {
             LandmarkModel Landmark = new LandmarkModel();
             try
