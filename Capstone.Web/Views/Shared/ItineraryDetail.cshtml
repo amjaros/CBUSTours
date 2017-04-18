@@ -6,28 +6,31 @@
 
 <div id="itinerary-details-splash"></div>
 <div class="itinerary-details-container">
-    <h2>@Model.Name Details</h2>
+    <h2 id="quickfit">@Model.Name</h2>
 
     <div>
+        <h4>Starting Point:</h4>
         <h3>@Model.Starting_point</h3>
     </div>
 
     @if (!(Model.Landmarks == null))
     {
-        <div>
+        <div id="itinerary-details-boxes" class="row">
             @foreach (LandmarkModel landmark in Model.Landmarks)
             {
-                <div class="itineraryandbutton">
-                    <a style="display:block">
-                        <div class="itinerary">
-                            <div class="tripname">@landmark.name</div>
+                <div class="col-lg-4">
+                    <div class="itineraryandbutton">
+                        <a style="display:block">
+                            <div class="itinerary">
+                                <div class="tripname">@landmark.name</div>
 
-                            <div id="numberofstops">@Model.Landmarks.Count stops</div>
-                        </div>
-                    </a>
-                </div>
-                <div id="delete-landmark-itinerary-btn">
-                    @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
+                                <div id="numberofstops">@Model.Landmarks.Count stops</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="delete-landmark-itinerary-btn">
+                        @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
+                    </div>
                 </div>
             }
         </div>

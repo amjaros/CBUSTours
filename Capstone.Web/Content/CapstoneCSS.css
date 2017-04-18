@@ -110,18 +110,18 @@ nav .container {
     /*overflow: visible;*/
     top: 50px;
     position: absolute;
+    overflow-y: hidden;
 }
 
  #splash_subtext {
      font-size: .3em;
-     margin: -40px 0px 0px 0px;
+     margin: -65px auto auto auto;
      position: relative;
-     /*background-color: #fff;*/
-     opacity: 0.9;
-     width: 100%;
+     width: 30%;
      border-radius: 200px;
-     z-index: 4;
+     z-index: auto;
  }
+
     #splash_subtext {
         color: #fff;
         opacity: 1;
@@ -129,6 +129,7 @@ nav .container {
     #splash_subtext:hover {
         color: darkblue;
         cursor: pointer;
+     background-color: rgba(0, 0, 0, 0.21)
     }
     #splash a {
         text-decoration: none;
@@ -145,23 +146,27 @@ nav .container {
     position: relative;
     height: 950px;
     width: 100%;
+    overflow: hidden;
 }
 @media screen and (max-width: 800px) {
     #splash {
         top: 100px;
-        font-size: 5em;
+        font-size: 6em;
     }
     #splash_subtext {
         top: 0px;
         font-size: .6em;
-        margin: -15px 20px 0px 0px;
-        padding-right: 0px;
+        margin: 35px auto auto auto;
+        width: 75%;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.21)
     }
     #bg_image {
-        max-height: 600px;
+        overflow-y: hidden;
         background-color: grey;
         background-size: auto;
     }
+
     #bs-example-navbar-collapse-1 ul li {
         font-size: 4.5em;
     }
@@ -204,9 +209,12 @@ nav .container {
         padding-top: 10px;
         font-size: 3vw;
     }
+    .login-form .register_btn {
+        font-family: 'Poiret One';
+    }
     .login_label {
             text-align: right;
-            width: 30%;
+            width: 40%;
             float: left;
             margin-bottom: 5px;
             color: white;
@@ -221,7 +229,30 @@ nav .container {
             height: 40px;
             margin-bottom: 5px;
         }
-/* Register View */
+@media screen and (max-width: 800px) {
+    #login-splash {
+        background-position: bottom;
+        overflow: hidden;
+
+    }
+    #login-splash .login-form {
+        width: 90%;
+        font-size: 1em;
+    }
+            .login-form h2 {
+            font-size: 3em;
+        }
+    .login-form .login_label {
+        display: inline;
+        font-size: 1em;
+        overflow: auto;
+    }
+    .login-form .login_textbox {
+        display: inline;
+    }
+}
+/********** Register View ***************/
+
 #register-splash {
     background-image: url(imgs/Facade-Night.jpg);
     background-position: bottom;
@@ -239,10 +270,13 @@ nav .container {
     background-color: rgba(154, 167, 171, 0.82);
     border-radius: 5px;
     padding: 0px 55px 200px 55px;
-    font-family: 'Merriweather', serif;
     top: 80px;
     position: relative;
+    font-family: 'Josefin Sans';
 
+}
+.register_form .register_btn {
+    font-family: 'Poiret One';
 }
     .register_form div {
         position: relative;
@@ -257,18 +291,19 @@ nav .container {
     }
     .register_label {
             text-align: right;
-            width: 30%;
+            width: 50%;
             float: left;
-            margin-bottom: 5px;
-            font-size: 18px;
+            margin: auto 40px auto auto;
+            font-size: 1.5em;
             color: white;
+            font-family: 'Josefin Sans';
+
         }
     .register_textbox {
             display: inline-block;
-            /*float: left;*/
-            margin-left: 10px;
+            margin-left: 40px;
             width: 50%;
-            height: 40px;
+            height: 50px;
             margin-bottom: 5px;
         }
 .save_button {
@@ -283,15 +318,28 @@ nav .container {
     color: #e02323;
     display: block;
 }
-
-/* Media adjustments */
-
-/*@media screen and (max-width: 1500px) {
-    #bg_image {
+@media screen and (max-width: 800px) {
+    #register-splash {
         background-position: bottom;
-        background-size: auto;
+        min-height: 650px;
     }
-}*/
+    .register_form {
+        width: 95%;
+        margin: auto;
+        font-size: 1em;
+    }
+        .register_form h2 {
+            font-size: 3em;
+        }
+    .register_label {
+        display: inline;
+        font-size: 1em;
+        overflow: auto;
+    }
+    .register_textbox {
+        display: inline;
+    }
+}
 
 .register_btn {
     cursor: pointer;
@@ -352,17 +400,14 @@ nav .container {
 }
 
 #itinerary-create-new {
-    margin: 0 auto;
+    margin: auto;
     display: block;
     border-radius: 5px;
-    padding: 0px 55px 40px 55px;
+    padding: 0px 0px 40px 0px;
     font-family: 'Merriweather', serif;
     top: 20px;
     position: relative;
     text-align: center;
-    /*width: 490px;*/
-    /*margin: 0 auto;
-    position: relative;*/
 }
 
     .itinerary-textbox {
@@ -373,6 +418,14 @@ nav .container {
     #itinerary-create-new input {
         width: 400px;
     }
+    #itinerary-create-new .btn {
+        width: 300px;
+        background-color: white;
+        font-family: 'Poiret One';
+        margin: 20px;
+        font-size: 1.5em;
+        padding: 10px;
+    }
 #itinerariescontainer h3 {
     max-width: 80%;
     font-family: Garamond;
@@ -382,7 +435,7 @@ nav .container {
     margin-top: 20px;
 
 }
-#itinerary-create-btn {
+/*#itinerary-create-btn {
     margin: 20px auto;
     background-color: lightblue;
     text-decoration: none;
@@ -395,7 +448,7 @@ nav .container {
 }
     #itinerary-create-btn:hover {
         background-color: #e8eff9; 
-    }
+    }*/
     .itinerary-details-delete-btn {
     background-color: lightblue;
     text-decoration: none;
@@ -429,25 +482,29 @@ nav .container {
 }
 .itineraryandbutton {
     text-align: center;
-    /*padding-bottom: 100px;*/
-    display: inline-block;
-    vertical-align: top;
-    width: 100%;
+    display: inline;
 }
 
-.itineraryandbutton a {
-    display: inline-block;
-
+.delete-itinerary-btn .btn {
+    width: 50%;
+    padding: 10px;
+    font-family: 'Poiret One';
+    font-size: 1.5em;
 }
+
 #itineraries-boxes {
+    text-align: center;
     width: 100%;
-    column-count: 3;
+    vertical-align: top;
+    margin: auto;
+    padding-bottom: 50px;
 }
 
 .itinerary {
     text-align: left;
     max-width: 750px;
-    min-width: 250px;
+    height: 150px;
+    min-width: 350px;
     margin: 10px auto 10px auto;
     padding: 10px;
     background-color: #e8eff9;
@@ -478,16 +535,13 @@ nav .container {
 #numberofstops {
     text-align: center;
 }
-#itinerariescontainer .btn {
-    height: 30px;
-    font-size: 1em;
-    text-align: center;
-    padding: 0px 5px 0px 5px;
-    display: inline-block;
-    color: black;
-}
+
+
 #itinerariescontainer .btn:hover {
     background-color: #d0daea;
+}
+#itinerary-details-container .itineraryandbutton {
+    background-color: black;
 }
 .tripname {
     display: block;
@@ -587,9 +641,9 @@ nav .container {
 
 /* Landmarks details */
 
-/*#landmark-details {
-
-}*/
+#landmark-details {
+    width: 100%;
+}
 #landmark-details-container {
     background-color: #eeeeee;
     width: 100%;
@@ -600,7 +654,6 @@ nav .container {
     #landmark-details-container img {
         margin: 0 auto;
         width: 100%;
-        fit-position: center;
         position: relative;
         z-index: 0;
 
@@ -610,8 +663,8 @@ nav .container {
         width: 90%;
         font-family: 'Libre Baskerville';
         color: #5d5d5d;
-        font-size: 1.5vw;
-        margin: 20px auto auto 100px;
+        font-size: 1.8em;
+        margin: 20px auto auto auto;
 
     }
     #landmark-details-name p {
@@ -627,14 +680,66 @@ nav .container {
     #landmark-details-description {
         background-color: #EEEEEE;
         margin-top: 20px;
-        padding: 20px 0px 20px 0px;
         color: #5d5d5d;
-        border-radius: 2px;
     }
-#add-landmark-btn {
-    margin: -100px 0px 0px 100px;
-    
+    #add-landmark-btn {
+        /*width: 100%;*/
+        margin-bottom: 50px;
+    }
+    #add-landmark-btn .btn {
+        margin: -100px auto auto auto;
+        width: 100%;
+        font-family: 'Poiret One';
+        font-size: 2em;
+    }
+@media screen and (max-width: 800px) {
+    #landmark-details div {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+    }
+    #landmark-details-container {
+        overflow: visible;
+    }
+    #landmark-details-container img {
+        height: auto;
+        margin: auto;
+        width: 100%;
+        top: 50px;
+        position: relative;
+    }
+    #landmark-details-container div p {
+        position: relative;
+        top: 100px;
+        font-size: 1em;
+        padding: 5px;
+    }
+    #landmark-details-container #landmark-details-name {
+        font-size: 3em;
+        margin-top: -50px;
+        margin-bottom: 10px;
+    }
+    #landmark-details-name p {
+        color: black;
+        background-color: white;
+    }
+    #landmark-details-description {
+        font-size: 3em;
+        width: 100%;
+        margin: auto;
+        position: relative;
+        background-color: white;
+        padding: 10px;
+    }
+    #add-landmark-btn .btn {
+        margin: 40px 10px 50px 10px;
+        padding: 20px;
+        width: 95%;
+        font-size: 2em;
+        font-family: 'Poiret One';
+    }
 }
+
 /* Itinerary details */
 
 #itinerary-details-splash {
@@ -649,21 +754,49 @@ nav .container {
 .itinerary-details-container {
     text-align: center;
 }
+    .itinerary-details-container h3 {
+        font-family: Garamond;
+        font-size: 2em;
+        margin: 10px auto 5px auto;
+    }
+    .itinerary-details-container h4 {
+        font-family: Garamond;
+        font-size: 1.5em;
+        margin: 15px auto 5px auto;
+    }
     .itinerary-details-container h2 {
         font-family: BillyOhio;
         color: white;
-        font-size: 11vw;
+        font-size: 10em;
         position: absolute;
         margin: 0 auto;
         width: 100%;
         text-align: center;
-        top: 200px;
+        top: 240px;
+}
+.itinerary-details-container div {
+    text-decoration: none;
+
 }
 #add-landmark-btn-itinerary {
-    margin-top: 10px;
+    margin: 50px auto 30px auto;
+    padding: 10px 0px 10px 0px;
+}
+#add-landmark-btn-itinerary .btn {
+    width: 50%;
+    padding: 10px;
+    font-family: 'Poiret One';
+    font-size: 2em;
 }
 #delete-landmark-itinerary-btn {
     display: inline;
+    position: relative;
+}
+#delete-landmark-itinerary-btn .btn {
+    width: 30%;
+    padding: 5px;
+    font-family: 'Poiret One';
+    font-size: 1.2em;
 }
     #right-panel {
             font-family: 'Roboto','sans-serif';
@@ -707,3 +840,22 @@ nav .container {
             overflow: scroll;
             height: 174px;
         }
+#itinerary-details-boxes {
+    overflow: hidden;
+    margin: auto 10px auto 10px;
+    /*column-count: 3;*/
+}
+@media screen and (max-width: 800px) {
+    .itinerary-details-container #quickfit {
+        font-size: 4em;
+        top: 130px;
+    }
+    #itinerary-details-splash {
+        background-position: top;
+        min-height: 250px;
+    }
+    #add-landmark-btn-itinerary {
+        margin-top: 50px;
+
+    }
+}
