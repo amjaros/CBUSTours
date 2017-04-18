@@ -25,5 +25,14 @@
     <div id="add-landmark-btn">
         @Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
     </div>
+
+    <div>
+        <h2>Reviews</h2>
+        @foreach(ReviewModel review in Model.Reviews)
+        {
+            <div>@review.Rating</div>
+            <div>@review.Description</div>
+        }
+    </div>
 </div>
 

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="DataAccess\ItinerarySQLDAL.cs" />
     <Compile Include="DataAccess\LandmarkSQLDAL.cs" />
+    <Compile Include="DataAccess\ReviewSQLDAL.cs" />
     <Compile Include="DataAccess\UserSQLDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
