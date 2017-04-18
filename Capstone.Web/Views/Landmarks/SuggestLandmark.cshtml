@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "SuggestLandmark";
+}
+
+<h2>SuggestLandmark</h2>
+
+@using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
+{
+    <div>
+
+        <h2>@ViewBag.Title</h2>
+        <hr />
+        <div>
+            @Html.Label("Landmark Name:")
+        </div>
+        <div>
+
+            @Html.TextBox("Name", new { placeholder = "Landmark Name" })
+            <br />
+        </div>
+    </div>
+        <br />
+        <div>
+            @Html.Label("Landmark Address:")
+        </div>
+        <div class="register_textbox">
+            @Html.TextBox("Address", new { placeholder = "Landmark Address" })
+        <br />
+        </div>
+        <br />
+        <div>
+            @Html.Label("Landmark Description:")
+        </div>
+        <div class="register_textbox">
+            @Html.TextArea("Description", new {placeholder = "Landmark Description" })
+        <br />
+
+        </div>
+        <br />
+        <input type="submit" value="Submit" class="register_btn" />
+}

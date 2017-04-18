@@ -45,7 +45,7 @@ namespace Capstone.Web.Controllers
             if (!(itineraryID == 0))
             {
                 LandmarkSQLDAL DAL = new LandmarkSQLDAL();
-                if(!DAL.isLandmarkAlreadyInItinerary(id, itineraryID))
+                if (!DAL.isLandmarkAlreadyInItinerary(id, itineraryID))
                 {
                     bool landmarkAdded = DAL.InsertLandmarkIntoItinerary(id, itineraryID);
                 }
@@ -56,5 +56,16 @@ namespace Capstone.Web.Controllers
                 return RedirectToAction("LoginOrRegister", "Home", new { id = id });
             }
         }
+
+        public ActionResult EnterNewLandmarkSuggestion()
+        {
+            LandmarkModel newLandmarkSuggestion = new LandmarkModel();
+            newLandmarkSuggestion.name = Request.Params["Name"];
+            newLandmarkSuggestion.address = Request.Params["Address"];
+            newLandmarkSuggestion.description = Request.Params["Description"];
+            bool suggestionEntered = new LandmarkSQLDAL().InsertSuggestedLandmark(newLandmarkSuggestion);
+            return View("LandmarkSuggestionAccepted", newLandmarkSuggestion);
+        }
+
     }
 }

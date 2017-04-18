@@ -15,6 +15,7 @@ namespace Capstone.Web.DataAccess
         private string SQL_SelectLandmarksByItinerary = "SELECT * from landmark JOIN landmarks_by_itinerary on landmark.landmark_id= landmarks_by_itinerary.landmark_id WHERE itinerary_id=@itineraryID";
         private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
         private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
+        private string SQL_InsertSuggestedLandmark = "INSERT INTO landmarks VALUES (@name, @address, @description);";
 
         public LandmarkModel GetLandmarkById(int landmarkID)
         {
@@ -166,6 +167,27 @@ namespace Capstone.Web.DataAccess
                         rowsAffected++;
                     }
                     return (rowsAffected > 0);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool InsertSuggestedLandmark(LandmarkModel landmarkSuggested)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_InsertSuggestedLandmark, conn);
+                    cmd.Parameters.AddWithValue("@name", landmarkSuggested.name);
+                    cmd.Parameters.AddWithValue("@address", landmarkSuggested.address);
+                    cmd.Parameters.AddWithValue("@description", landmarkSuggested.description);
+                    int worked = cmd.ExecuteNonQuery();
+                    return (worked > 0);
                 }
             }
             catch (SqlException ex)

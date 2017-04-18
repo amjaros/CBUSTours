@@ -106,11 +106,17 @@ namespace Capstone.Web.Controllers
             UserRegisterModel newUser = new UserRegisterModel();
             return View("LoginOrRegister", newUser);
         }
+        public ActionResult SuggestLandmark()
+        {
+            return View("LandmarkSuggestionForm");
+        }
+
         public ActionResult Logout()
         {
             Session.Clear();
             return View("Index");
         }
+
 
         public void UserSession()
         {
