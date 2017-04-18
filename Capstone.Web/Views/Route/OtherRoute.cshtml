@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "RouteMap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Capstone.Web.Models
+@model List<LandmarkModel>
+
+
+<h2>RouteMap</h2>
+
+<div id="map" style="height: 500px; width: 500px;"></div>
+<div id="right-panel">
+ </div>
+<script>
+    function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: { lat: 39.9612, lng: -82.9988 }
+        });
+        directionsDisplay.setMap(map);
+
+    }
+    var geocoder = new google.maps.Geocoder();
+    var m = @Html.Raw(Json.Encode(Model));
+    var addressArray = new Array();
+    for(var L in m)
+    {
+    addressArray.push(L.address);
+    }
+
+ 
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSSE1t54x7TTuOWO6lzR6tAI2yhpdSDvk&callback=initMap">
+</script>
+

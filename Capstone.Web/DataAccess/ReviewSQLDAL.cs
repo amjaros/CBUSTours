@@ -13,7 +13,7 @@ namespace Capstone.Web.DataAccess
     public class ReviewSQLDAL
     {
         private string SQL_InsertNewReview = "INSERT INTO reviews ([rating], [description]) VALUES (@rating, @description); SELECT CAST(SCOPE_IDENTITY() as int); INSERT INTO reviews_by_landmark ([review_id],[landmark_id]) VALUES (@review_id, @landmark_id);";
-        private string SQL_GetAllReviews = "SELECT reviews.review_id, rating, description FROM reviews JOIN reviews_by_landmark ON reviews.review_id = reviews_by_landmark.review_id WHERE landmark_id = @landmark_id;";
+        private string SQL_GetAllReviews = "SELECT reviews.review_id, rating, description FROM reviews JOIN reviews_by_landmark ON reviews.review_id = reviews_by_landmark.review_id WHERE reviews_by_landmark.landmark_id = @landmark_id;";
 
         public bool InsertNewReview(ReviewModel review, int landmarkID)
         {

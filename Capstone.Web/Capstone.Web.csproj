@@ -241,6 +241,7 @@
     <Content Include="Views\Shared\ItineraryDetail.cshtml" />
     <Content Include="Views\Landmarks\LandmarkDetails.cshtml" />
     <Content Include="Views\Route\RouteMap.cshtml" />
+    <Content Include="Views\Route\OtherRoute.cshtml" />
     <Content Include="Views\Home\LoginOrRegister.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
