@@ -12,6 +12,7 @@ namespace Capstone.Web.DataAccess
 {
     public class ReviewSQLDAL
     {
+
         private string SQL_SubmitReview = "INSERT INTO reviews VALUES (@landmark_id, @rating, @description)";
         private string SQL_GetAllReviews = "SELECT reviews.review_id, rating, description FROM reviews JOIN reviews_by_landmark ON reviews.review_id = reviews_by_landmark.review_id WHERE reviews_by_landmark.landmark_id = @landmark_id;";
 
