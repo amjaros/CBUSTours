@@ -99,6 +99,13 @@ namespace Capstone.Web.Controllers
             }
         }
 
+        public ActionResult LoginOrRegister(int id)
+        {
+            int lmID = id;
+            Session["LMId"] = lmID;
+            UserRegisterModel newUser = new UserRegisterModel();
+            return View("LoginOrRegister", newUser);
+        }
         public ActionResult Logout()
         {
             Session.Clear();
@@ -120,6 +127,14 @@ namespace Capstone.Web.Controllers
                 Session["itinId"] = id;
                 id = (int)Session["itinId"];
             }
+
+            if (Session["LMId"] == null)
+            {
+                int id = 0;
+                Session["LMId"] = id;
+                id = (int)Session["LMId"];
+            }
+
         }
 
     }

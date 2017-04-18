@@ -18,5 +18,12 @@ namespace Capstone.Web.Controllers
             List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(itinerary);
             return View("RouteMap", LandmarkList);
         }
+        public ActionResult OtherRoute()
+        {
+            string itinerary = "1";
+            LandmarkSQLDAL thisDAL = new LandmarkSQLDAL();
+            List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(itinerary);
+            return View("OtherRoute", LandmarkList);
+        }
     }
 }
