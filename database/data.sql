@@ -3,18 +3,17 @@
 -- *****************************************************************************
 
 
-BEGIN TRANSACTION
+BEGIN TRANSACTION;
 
 CREATE TABLE users
 (
 	user_id int identity not null,
-	user_name varchar(50) not null,
-	user_emailaddress varchar(50) not null,
-	user_password varchar(50) not null,
+	user_name varchar(1000) not null,
+	user_emailaddress varchar(1000) not null,
+	user_password varchar(1000) not null,
 	admin bit not null,
 	
 	constraint pk_user_id primary key (user_id),
-
 );
 
 CREATE TABLE itinerary
@@ -31,11 +30,11 @@ CREATE TABLE itinerary
 CREATE TABLE landmark
 (
 	landmark_id int identity not null,
-	name varchar (50) not null,
-	address varchar (60) not null,
-	description varchar (450) not null,
+	name varchar (1000) not null,
+	address varchar (1000) not null,
+	description varchar (1000) not null,
 	approved bit not null, 
-	image varchar (50),
+	image varchar (1000),
 	
 	
 	constraint pk_landmark_id primary key (landmark_id),
@@ -54,11 +53,12 @@ CREATE TABLE landmarks_by_itinerary
 CREATE TABLE reviews
 (
 	review_id int identity not null,
-	rating int not null,
-	description varchar (250),
-	
-	constraint ck_rating CHECK (rating IN ('1', '2', '3', '4', '5')),
+	landmark_id int NOT NULL,
+	rating bit not null,
+	description varchar (1000),
+
 	constraint pk_review_id primary key (review_id),
+	constraint fk_reviews_landmark_id foreign key (landmark_id) REFERENCES landmark(landmark_id)
 );
 
 CREATE TABLE reviews_by_landmark
@@ -70,8 +70,6 @@ CREATE TABLE reviews_by_landmark
 	constraint fk_review_id foreign key (review_id) references reviews(review_id),
 	constraint fk_landmark_id2 foreign key (landmark_id) references landmark(landmark_id),
 );
-
-COMMIT;
 
 INSERT INTO users VALUES ('User', 'emailaddress@gmail.com', 'P@ssword1', 1)
 INSERT INTO landmark VALUES ('Easton Town Center', '160 Easton Town Center, Columbus, OH 43219', 'Easton Town Center is an indoor and outdoor shopping complex. Included in the design are fountains, streets laid out in a grid pattern surrounded by a continuous loop, and metered storefront parking', 1, 'Easton.jpg')
@@ -90,3 +88,5 @@ INSERT INTO landmark VALUES ('The Ohio State University', 'The Ohio State Univer
 INSERT INTO itinerary VALUES ('My CBUS adventure', 1, 'Ohio Theatre' )
 INSERT INTO landmarks_by_itinerary VALUES (1,1)
 INSERT INTO landmarks_by_itinerary VALUES (1,2)
+
+COMMIT TRANSACTION;
