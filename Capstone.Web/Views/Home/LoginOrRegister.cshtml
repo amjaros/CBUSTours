@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "LoginOrRegister";
+}
+
+<h2>LoginOrRegister</h2>
+@using Capstone.Web.Models
+
+@model UserRegisterModel
+
+<div id="register-splash">
+    @using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
+    {
+        <div class="register_form">
+
+            <h2>@ViewBag.Title</h2>
+            <hr />
+            <div class="register_label">
+                @Html.Label("Email Address:")
+            </div>
+            <div class="register_textbox">
+
+                @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Email Address" })
+                <div class="validation_messages">
+                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                </div>
+                <br />
+            </div>
+            <br />
+            <div class="register_label">
+                @Html.Label("Username:")
+            </div>
+            <div class="register_textbox">
+                @Html.TextBoxFor(m => m.Username, new { placeholder = "username" })
+                @Html.ValidationMessageFor(m => m.Username)<br />
+            </div>
+            <br />
+            <div class="register_label">
+                @Html.Label("Password:")
+            </div>
+            <div class="register_textbox">
+                @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password)<br />
+
+            </div>
+            <br />
+            <input type="submit" value="Submit" class="register_btn" />
+
+        </div>
+
+
+    }
+</div>
+
+<div>
+    <h2>If you already have an account @Html.ActionLink("Login", "Login", "Home", new { @class = "btn btn-default" })</h2>
+</div>

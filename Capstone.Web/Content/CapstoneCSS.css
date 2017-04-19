@@ -692,6 +692,42 @@ nav .container {
         font-family: 'Poiret One';
         font-size: 2em;
     }
+
+#landmark-divider {
+    background-image: url(imgs/columbus-arts-festival.jpg);
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: bottom;
+    min-height: 250px;
+    position: relative;
+}
+#landmark-reviews {
+    width: 100%;
+    margin: 0 auto;
+}
+    #landmark-reviews h2 {
+        width: 25%;
+        margin: auto auto auto auto;
+        position: absolute;
+        font-family: BillyOhio;
+        color: white;
+        font-size: 10vw;
+        bottom: -550px;
+        left: 40px;
+    }
+    #landmark-reviews h3 {
+        font-family: Garamond;
+        font-weight: 900;
+    }
+    #landmark-reviews {
+        font-family: Garamond;
+        font-size: 1.25em;
+    }
+
+/********** Landmark Media adjustments ********/
+
 @media screen and (max-width: 800px) {
     #landmark-details div {
         width: 100%;
@@ -742,6 +778,103 @@ nav .container {
 
 /* Itinerary details */
 
+/****Landmark Review Stuff - Joe O*******/
+#submitreviewcontainer {
+    margin: -10px 50px;
+    position: relative;
+}
+#submitreviewcontainer div {
+    display: block;
+}
+#submitreviewcontainer input#rating {
+    display: inline-block;
+}
+#submitreviewcontainer label {
+    display: inline-block;
+}
+#submitdescription label {
+    display: block;
+}
+#submitreviewcontainer textarea {
+    width: 50%;
+    min-height: 100px;
+}
+#submitreviewcontainer .btn {
+        margin: auto 10px 50px auto;
+        padding: 5px;
+        width: 10%;
+        font-size: 1.5em;
+        font-family: 'Poiret One';
+}
+@media screen and (max-width: 800px) {
+
+    #landmark-reviews h2 {
+        text-align: center;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 auto;
+        font-size: 3em;
+        color: black;
+        background-color: white;
+        width: 100%;
+        padding: 5px;
+    }
+    #landmark-divider {
+        display: none;
+    }
+    #submitreviewcontainer {
+        width: 95%;
+    }
+    #submitreviewcontainer textarea {
+        width: 100%;
+    }
+    #submitreviewcontainer .btn {
+        width: 100%;
+    }
+}
+
+#reviewscontainer {
+    margin: 20px auto 0px 50px;
+}
+#reviewscontainer img {
+    max-height: 35px;
+
+}
+#reviewscontainer div {
+    margin-left: 25px;
+}
+#reviewscontainer hr {
+    border-color: gray;
+}
+.reviewcontent {
+    display: inline-block;
+    margin: 5px auto auto auto;
+}
+.reviewcontent div {
+    margin-left: 140px;
+    display: inline-block;
+}
+#reviewscontainer h4 {
+    display: block;
+}
+@media screen and (max-width: 800px) {
+    #reviewscontainer img {
+        position: relative;
+        width: 30px;
+        left: 0px;
+        margin: 20px auto auto 10px;
+        height: auto;
+    }
+    #reviewscontainer div {
+        padding: 5px 5px 0px 0px;
+        margin: 0px auto auto 15px;
+        overflow: hidden;
+    }
+}
+
+/****END Landmark Review Stuff - Joe O*******/
+/* Itinerary details */
 #itinerary-details-splash {
     background-image: url('imgs/Nationwide Blvd 1.JPG');
     min-height: 550px;
@@ -855,7 +988,10 @@ nav .container {
         min-height: 250px;
     }
     #add-landmark-btn-itinerary {
-        margin-top: 50px;
-
+        margin-top: 40px;
+        width: 100%;
+    }
+    #add-landmark-btn-itinerary .btn {
+        width: 100%;
     }
 }

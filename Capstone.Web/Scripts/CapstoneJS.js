@@ -8,9 +8,7 @@
         $(this).parent().find("span").toggleClass("glyphicon-plus glyphicon-minus");
     });
 
-    $(function () {
-        $('#quickfit').quickfit(width);
-    });
+
 });
 
 

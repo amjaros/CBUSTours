@@ -30,7 +30,7 @@ namespace Capstone.Web.Controllers
             return View("SearchLandmarks", itinModel);
         }
 
-        public ActionResult LandmarkDetails(string id)
+        public ActionResult LandmarkDetails(int id)
         {
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
             LandmarkModel selectedLandmark = DAL.GetLandmarkById(id);
@@ -53,6 +53,21 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("LoginOrRegister", "Home", new { id = id });
             }
+        }
+
+        [HttpPost]
+        public ActionResult SubmitReview()
+        {
+            ReviewModel review = new ReviewModel();
+            review.Rating = Request.Params["rating"].ToString().Contains("thumbs up");
+            review.Description = Request.Params["reviewdescription"].ToString();
+            int landmark_id = Convert.ToInt32(Request.Params["landmark_id"]);
+
+            bool reviewSubmitted = new ReviewSQLDAL().InsertNewReview(review, landmark_id);
+
+            LandmarkModel model = new LandmarkSQLDAL().GetLandmarkById(landmark_id);
+
+            return View("LandmarkDetails", model);
         }
     }
 }
