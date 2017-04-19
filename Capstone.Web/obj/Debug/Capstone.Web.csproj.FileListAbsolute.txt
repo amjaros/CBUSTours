@@ -88,3 +88,4 @@ C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.Web\bin\System.Web.Helpers.xml
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.Web\bin\System.Web.Mvc.xml
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.dll
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.pdb
+C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.Web\obj\Debug\Capstone.Web.csprojResolveAssemblyReference.cache
