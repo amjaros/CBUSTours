@@ -5,7 +5,7 @@
 
 <h2>SuggestLandmark</h2>
 
-@using (Html.BeginForm("RegisterHome", "Home", FormMethod.Post))
+@using (Html.BeginForm("SubmitNewLandmarkSuggestion", "Landmarks", FormMethod.Post))
 {
     <div>
 
@@ -16,7 +16,7 @@
         </div>
         <div>
 
-            @Html.TextBox("Name", new { placeholder = "Landmark Name" })
+            @Html.TextBox("Name")
             <br />
         </div>
     </div>
@@ -25,7 +25,7 @@
             @Html.Label("Landmark Address:")
         </div>
         <div class="register_textbox">
-            @Html.TextBox("Address", new { placeholder = "Landmark Address" })
+            @Html.TextBox("Address")
         <br />
         </div>
         <br />
@@ -33,10 +33,10 @@
             @Html.Label("Landmark Description:")
         </div>
         <div class="register_textbox">
-            @Html.TextArea("Description", new {placeholder = "Landmark Description" })
+            @Html.TextArea("Description")
         <br />
 
         </div>
         <br />
-        <input type="submit" value="Submit" class="register_btn" />
+        <input type="submit" value="Submit"/>
 }

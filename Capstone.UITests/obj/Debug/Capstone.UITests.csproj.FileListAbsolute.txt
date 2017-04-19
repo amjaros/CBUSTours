@@ -23,6 +23,7 @@ C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.Su
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.csprojResolveAssemblyReference.cache
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.dll
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.pdb
+<<<<<<< HEAD
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Default.srprofile
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Capstone.UITests.dll.config
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Capstone.UITests.dll
@@ -47,3 +48,30 @@ C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.xm
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.Support.xml
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.dll
 C:\Users\jmccoy\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.pdb
+=======
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Default.srprofile
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Capstone.UITests.dll.config
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Capstone.UITests.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Capstone.UITests.pdb
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Dapper.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\SpecRun.SpecFlowPlugin.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\System.Web.Optimization.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\TechTalk.SpecRun.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.Support.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebGrease.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Dapper.xml
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\System.Web.Optimization.xml
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.xml
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.Support.xml
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.csprojResolveAssemblyReference.cache
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.dll
+C:\Users\aronis\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.pdb
+>>>>>>> 2cfd6fffb0790a8c3fd152b372253cc6ac8adb19
