@@ -1060,3 +1060,75 @@ nav .container {
         width: 50%;
     }
 }
+
+/****** SUGGEST LANDMARK *******/
+
+#landmark-distance-page-container {
+    width: 100%;
+    text-align: left;
+}
+#maps-container {
+    width: 100%;
+}
+#maps-container #map {
+    width: 1080px;
+    height: 500px;
+    margin: 40px auto 200px 200px;
+}
+
+#landmark-distance-splash {
+    background-image: url('imgs/Hilton Pedestrian Bridge (2).jpg');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: 30% 140%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#landmark-distance-container {
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+}
+    #landmark-distance-container h2 {
+        font-family: BillyOhio;
+        color: white;
+        font-size: 150px;
+        text-align: center;
+        margin-top: -100px;
+        top: -200px;
+        position: relative;
+    }
+
+@media screen and (max-width: 800px) {
+    #landmark-distance-splash {
+        background-size: cover;
+        min-height: 250px;
+        background-position: 90% 110%;
+    }
+    #landmark-distance-page-container {
+        text-align: left;
+
+    }
+        #landmark-distance-container #distance-radio-btns {
+            margin-left: 10px;
+            color: red;
+        }
+        #landmark-distance-page-container input {
+            float: right;
+            margin-right: 40px;
+        }
+    #landmark-distance-container h2 {
+        font-size: 1em;
+        margin-bottom: 100px;
+        color: white;
+    }
+    #maps-container {
+        margin: 30px auto;
+    }
+    #maps-container #map {
+        height: 300px;
+        width: 100%;
+        margin: auto;
+    }
+}

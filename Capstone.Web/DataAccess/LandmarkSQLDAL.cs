@@ -83,6 +83,7 @@ namespace Capstone.Web.DataAccess
                         Landmark.description = Convert.ToString(reader["description"]);
                         Landmark.approved = Convert.ToBoolean(reader["approved"]);
                         Landmark.image = Convert.ToString(reader["image"]);
+                        Landmark.latlng = Convert.ToString(reader["latlng"]);
                         LandmarkList.Add(Landmark);
                     }
                 }
@@ -115,6 +116,7 @@ namespace Capstone.Web.DataAccess
                         Landmark.description = Convert.ToString(reader["description"]);
                         Landmark.approved = Convert.ToBoolean(reader["approved"]);
                         Landmark.image = Convert.ToString(reader["image"]);
+                        Landmark.latlng = Convert.ToString(reader["latlng"]);
 
                         LandmarkList.Add(Landmark);
                     }

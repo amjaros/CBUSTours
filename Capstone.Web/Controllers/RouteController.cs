@@ -25,5 +25,17 @@ namespace Capstone.Web.Controllers
             List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(itinerary);
             return View("OtherRoute", LandmarkList);
         }
+
+        public ActionResult LandmarkDistance(int id)
+        {
+            LandmarkSQLDAL thisDAL = new LandmarkSQLDAL();
+            ItinerarySQLDAL thatDAL = new ItinerarySQLDAL();
+            List<LandmarkModel> LandmarkList = thisDAL.GetApprovedLandmarks();
+            ItineraryModel IM = new ItineraryModel();
+            IM = thatDAL.GetItinerary(id);
+            IM.Landmarks = LandmarkList;
+            return View("LandmarkDistance", IM);
+        }
+    
     }
 }

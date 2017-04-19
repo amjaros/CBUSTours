@@ -156,6 +156,7 @@
     <Content Include="Content\imgs\Columbus_1.jpg" />
     <Content Include="Content\imgs\cosi.jpg" />
     <Content Include="Content\imgs\Facade-Night.jpg" />
+    <Content Include="Content\imgs\Hilton Pedestrian Bridge %282%29.jpg" />
     <Content Include="Content\imgs\JjqNXHb.jpg" />
     <Content Include="Content\imgs\Landmarks\COMA.jpg" />
     <Content Include="Content\imgs\Landmarks\COSI.jpg" />
@@ -243,6 +244,7 @@
     <Content Include="Views\Route\RouteMap.cshtml" />
     <Content Include="Views\Route\OtherRoute.cshtml" />
     <Content Include="Views\Home\LoginOrRegister.cshtml" />
+    <Content Include="Views\Route\LandmarkDistance.cshtml" />
     <Content Include="Views\Landmarks\SuggestLandmark.cshtml" />
     <Content Include="Views\Landmarks\LandmarkSuggestionAccepted.cshtml" />
     <None Include="Web.Debug.config">

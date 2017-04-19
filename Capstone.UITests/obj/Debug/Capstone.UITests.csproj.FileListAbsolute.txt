@@ -44,6 +44,5 @@ C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\Newtonsoft.J
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\System.Web.Optimization.xml
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.xml
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\bin\Debug\WebDriver.Support.xml
-C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.csprojResolveAssemblyReference.cache
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.dll
 C:\Users\ajaros\final-c-capstone-foxtrot\Capstone.UITests\obj\Debug\Capstone.UITests.pdb
