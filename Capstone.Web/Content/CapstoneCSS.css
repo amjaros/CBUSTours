@@ -780,8 +780,16 @@ nav .container {
 
 /****Landmark Review Stuff - Joe O*******/
 
-#submitreviewbutton input {
-    margin-left: 10px;
+#submitreviewbutton {
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    font-size: 1.5em;
+    font-family: 'Poiret One';
+}
+#submitreviewcontainer {
+    position: relative;
+    padding-top: 20px;
 }
 
 #submitandreviewscontainer h2 {

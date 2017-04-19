@@ -24,19 +24,6 @@
                         <a style="display:block">
                             <div class="itinerary">
                                 <div class="tripname">@landmark.name</div>
-
-                                <div id="numberofstops">@Model.Landmarks.Count stops</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="delete-landmark-itinerary-btn">
-                        @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
-                    </div>
-
-                    <div class="itineraryandbutton">
-                        <a style="display:block">
-                            <div class="itinerary">
-                                <div class="tripname">@landmark.name</div>
                             </div>
                         </a>
                     </div>
