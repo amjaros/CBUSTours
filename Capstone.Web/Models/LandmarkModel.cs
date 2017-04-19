@@ -19,5 +19,7 @@ namespace Capstone.Web.Models
         public bool approved { get; set; }
 
         public List<ReviewModel> Reviews { get; set; }
+
+        public string latlng { get; set; }
     }
 }

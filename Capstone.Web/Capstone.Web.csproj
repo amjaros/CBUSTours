@@ -243,8 +243,12 @@
     <Content Include="Views\Route\RouteMap.cshtml" />
     <Content Include="Views\Route\OtherRoute.cshtml" />
     <Content Include="Views\Home\LoginOrRegister.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Route\LandmarkDistance.cshtml" />
+=======
     <Content Include="Views\Landmarks\SuggestLandmark.cshtml" />
     <Content Include="Views\Landmarks\LandmarkSuggestionAccepted.cshtml" />
+>>>>>>> 1c587b19e3318b10767f5e08791d6f3935f54735
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

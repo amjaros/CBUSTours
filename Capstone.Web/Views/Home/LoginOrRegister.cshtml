@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "LoginOrRegister";
+    ViewBag.Title = "Login Or Register";
 }
 
 <h2>LoginOrRegister</h2>
@@ -46,12 +46,14 @@
             <br />
             <input type="submit" value="Submit" class="register_btn" />
 
+            <div id="if-logged-in">
+                <h3>If you already have an account @Html.ActionLink("Login", "Login", "Home", new { @class = "btn btn-default" })</h3>
+            </div>
         </div>
 
 
     }
+
+
 </div>
 
-<div>
-    <h2>If you already have an account @Html.ActionLink("Login", "Login", "Home", new { @class = "btn btn-default" })</h2>
-</div>

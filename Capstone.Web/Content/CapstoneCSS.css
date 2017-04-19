@@ -151,11 +151,11 @@ nav .container {
 @media screen and (max-width: 800px) {
     #splash {
         top: 100px;
-        font-size: 6em;
+        font-size: 4em;
     }
     #splash_subtext {
         top: 0px;
-        font-size: .6em;
+        font-size: .7em;
         margin: 35px auto auto auto;
         width: 75%;
         padding: 5px;
@@ -165,6 +165,7 @@ nav .container {
         overflow-y: hidden;
         background-color: grey;
         background-size: auto;
+        max-height: 700px;
     }
 
     #bs-example-navbar-collapse-1 ul li {
@@ -251,6 +252,18 @@ nav .container {
         display: inline;
     }
 }
+
+/*************REGISTER OR LOGIN***************/
+
+.register_form #if-logged-in {
+    margin: auto;
+    width: 100%;
+}
+#register-splash h3 {
+        text-align: center;
+        margin-top: 50px;
+    }
+
 /********** Register View ***************/
 
 #register-splash {
@@ -321,23 +334,29 @@ nav .container {
 @media screen and (max-width: 800px) {
     #register-splash {
         background-position: bottom;
-        min-height: 650px;
+        top: 0;
+        min-height: 800px;
     }
     .register_form {
         width: 95%;
         margin: auto;
         font-size: 1em;
+        padding-bottom: 100px;
     }
         .register_form h2 {
             font-size: 3em;
         }
-    .register_label {
+    #register-splash .register_label {
         display: inline;
         font-size: 1em;
         overflow: auto;
     }
-    .register_textbox {
+    #register-splash.register_textbox {
         display: inline;
+    }
+    #register-splash h3 {
+        font-size: 1em;
+        margin-top: 30px;
     }
 }
 
@@ -613,6 +632,9 @@ nav .container {
      grid-column-align: center;*/
      -webkit-column-break-inside: avoid;
  }
+    .landmark-container a img {
+        width: 70%;
+    }
 @media screen and (max-width: 800px) {
     .landmark-container {
         column-count: 1;
@@ -628,7 +650,7 @@ nav .container {
         margin-bottom: 10px;
     }
     .landmark-container img {
-        width: 60%;
+        width: 80%;
         height: auto;
         margin: 10px 0px 10px 10px;
         border-radius: 3px;
@@ -798,6 +820,11 @@ nav .container {
 #submitandreviewscontainer {
     width: 50%;
     margin: 85px;
+    
+}
+#submit-button-container {
+    width: 50%;
+    margin: auto auto auto auto;
 }
 #submitreviewbutton {
     cursor: pointer;
@@ -805,9 +832,11 @@ nav .container {
     padding: 5px;
     border: 0.5px solid lightgray;
     border-radius: 3px;
+    width: 100%;
+    margin: 0 auto;
 }
 #submitreviewcontainer {
-    margin: -10px 50px;
+    margin: -90px auto auto 20px;
     position: relative;
     width: 100%;
 
@@ -1026,5 +1055,8 @@ nav .container {
     }
     #add-landmark-btn-itinerary .btn {
         width: 100%;
+    }
+    #delete-landmark-itinerary-btn .btn {
+        width: 50%;
     }
 }

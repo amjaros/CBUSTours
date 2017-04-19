@@ -25,58 +25,59 @@
     <div id="add-landmark-btn">
         @Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
     </div>
-    
+
     <div id="landmark-reviews">
-        <input id="submitreviewbutton" value="Review this Landmark" data-toggle="collapse" data-target="#submitreviewcontainer" />
-
-    <div id="submitandreviewscontainer">
-        <div id="submitreviewcontainer" class="collapse">
-            <h3>Review @Model.name</h3>
-
-            @using(Html.BeginForm("SubmitReview", "Landmarks", FormMethod.Post))
-            {
-                @Html.Hidden("landmark_id", Model.landmark_id);
-
-                <div id="submitthumbsup">
-                    @Html.Label("Thumbs Up: ")
-                    @Html.RadioButton("rating", "thumbs up")
-                </div>
-                <div id="submitthumbsdown">
-                    @Html.Label("Thumbs Down: ")
-                    @Html.RadioButton("rating", "thumbs down")
-                </div>
-                <div id="submitdescription">
-                    @Html.Label("What did you think of " + Model.name + "?")
-                    @Html.TextArea("reviewdescription")
-                </div>
-                <input type="submit" value="Submit" class="btn btn-default" />
-            }
-            <hr />
+        <div id="submit-button-container">
+            <input id="submitreviewbutton" value="Review this Landmark" data-toggle="collapse" data-target="#submitreviewcontainer" class="btn btn-default" />
         </div>
-        <div id="reviewscontainer">
-            @if (Model.Reviews.Count > 0)
+        <div id="submitandreviewscontainer">
+            <div id="submitreviewcontainer" class="collapse">
+                <h3>Review @Model.name</h3>
+
+                @using (Html.BeginForm("SubmitReview", "Landmarks", FormMethod.Post))
+                {
+                    @Html.Hidden("landmark_id", Model.landmark_id);
+
+                    <div id="submitthumbsup">
+                        @Html.Label("Thumbs Up: ")
+                        @Html.RadioButton("rating", "thumbs up")
+                    </div>
+                    <div id="submitthumbsdown">
+                        @Html.Label("Thumbs Down: ")
+                        @Html.RadioButton("rating", "thumbs down")
+                    </div>
+                    <div id="submitdescription">
+                        @Html.Label("What did you think of " + Model.name + "?")
+                        @Html.TextArea("reviewdescription")
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                }
+                <hr />
+            </div>
+            <div id="reviewscontainer">
+                @if (Model.Reviews.Count > 0)
             {
                 int counter = 1;
                 foreach (ReviewModel review in Model.Reviews)
                 {
-                    <h4>Review #@counter</h4>
-                    <div class="reviewcontent">
-                        @if (review.Rating == true)
-                        {
-                        <img src="~/Content/imgs/thumbup.png" />
-                        }
-                        else
-                        {
-                        <img src="~/Content/imgs/thumbdown.png" />
-                        }
-                        <br />
-                        <div>@review.Description</div>
-                        @{counter++;}
-                    </div>
-                    <hr />
-                }
-            }
+                        <h4>Review #@counter</h4>
+                        <div class="reviewcontent">
+                            @if (review.Rating == true)
+                            {
+                                <img src="~/Content/imgs/thumbup.png" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/imgs/thumbdown.png" />
+                            }
+                            <br />
+                            <div>@review.Description</div>
+                            @{counter++;}
+                        </div>
+                        <hr />
+                                    }
+                                }
+            </div>
         </div>
     </div>
-</div>
 

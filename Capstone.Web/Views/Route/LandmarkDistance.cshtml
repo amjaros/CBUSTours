@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "LandmarkDistance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LandmarkDistance</h2>
+
+@using Capstone.Web.Models
+@model ItineraryModel
+
+<div>Search for landmarks by distance from @Model.Starting_point</div><br />
+
+@using (Html.BeginForm("LandmarkDistance", "Route", FormMethod.Post))
+{
+    @Html.Label("Search radius:")<br />
+    @Html.Label("One mile radius")
+    @Html.RadioButton("Radius", 1)<br />
+    @Html.Label("Five mile radius")
+    @Html.RadioButton("Radius", 5)<br />
+    @Html.Label("Ten mile radius")
+    @Html.RadioButton("Radius", 10)<br />
+    @Html.Label("Fifteen mile radius")
+    @Html.RadioButton("Radius", 15)<br />
+    @Html.Label("Twenty Five mile radius")
+    @Html.RadioButton("Radius", 25)<br />
+}
+<div id="map" style="height: 700px; width: 700px;"></div>
+
+<table id="myTable">
+    <tbody>
+        <tr><td> </td></tr>
+        
+    </tbody>   
+</table>
+
+
+@foreach (LandmarkModel L in Model.Landmarks)
+{
+    string latlng = L.latlng;
+    string lat = latlng.Substring(5, 9);
+    string lng = latlng.Substring(20);
+    string name = L.name;
+    <script>
+       
+        $(document).ready(function () {
+            var lat = @lat;
+            var lng = @lng; 
+            Coordinates.push( { latitude :lat,
+                longitude: lng
+            });         
+        });
+    </script>
+}
+   
+   
+    <script>
+
+        var startLat;
+        var startLng;
+        var radius = 3;
+        var geocoder;
+        var map;
+        var Coordinates =[];
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var labelIndex = 0;
+
+
+        $("input[type=radio]").on("change", (function(event){
+            radius = ($(this).attr('value'));
+            for(var i=0; i<Coordinates.length; i++ )
+            {
+                var searchDistance = distance(startLat, startLng, Coordinates[i].latitude, Coordinates[i].longitude);
+                if (searchDistance<=radius)
+                {
+                    addMarker(Coordinates[i].latitude, Coordinates[i].longitude);
+                }
+            }
+
+        })
+        );
+
+        function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: { lat: 39.9612, lng: -82.9988 }
+        });
+        geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map);
+      }
+
+        function distance(lat1, lon1, lat2, lon2) {
+
+          var radlat1 = Math.PI * lat1/180;
+          var radlat2 = Math.PI * lat2/180;
+          var theta = lon1-lon2;
+          var radtheta = Math.PI * theta/180;
+          var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+          dist = Math.acos(dist);
+          dist = dist * 180/Math.PI;
+          dist = dist * 60 * 1.1515;
+          return dist;
+      }
+
+
+      function addMarker(latitude, longitude, placename){
+          var marker = new google.maps.Marker({
+              map: map,
+              label: labels[labelIndex++ % labels.length],
+              position: {lat: latitude, lng: longitude}
+
+          })
+
+      }
+
+        var address = '@Model.Starting_point';
+          function geocodeAddress(geocoder, resultsMap) {
+              geocoder.geocode({'address': address}, function(results, status) {
+                  if (status === 'OK') {
+                      resultsMap.setCenter(results[0].geometry.location);
+                      var marker = new google.maps.Marker({
+                          map: resultsMap,
+                          position: results[0].geometry.location
+                      });
+                      startLat = results[0].geometry.location.lat();
+                      startLng = results[0].geometry.location.lng();
+                  } else {
+                      alert('Geocode was not successful for the following reason: ' + status);
+                  }
+              });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7GonFQA05vP5uYj-cjhhWLeQkqo0dVkc&callback=initMap">
+    </script>
