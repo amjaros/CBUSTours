@@ -34,8 +34,6 @@ namespace Capstone.Web.Controllers
         {
             LandmarkSQLDAL DAL = new LandmarkSQLDAL();
             LandmarkModel selectedLandmark = DAL.GetLandmarkById(id);
-            ReviewSQLDAL reviewDAL = new ReviewSQLDAL();
-            selectedLandmark.Reviews = reviewDAL.GetAllReviews(id);
             return View("LandmarkDetails", selectedLandmark);
         }
 
@@ -45,7 +43,7 @@ namespace Capstone.Web.Controllers
             if (!(itineraryID == 0))
             {
                 LandmarkSQLDAL DAL = new LandmarkSQLDAL();
-                if(!DAL.isLandmarkAlreadyInItinerary(id, itineraryID))
+                if (!DAL.isLandmarkAlreadyInItinerary(id, itineraryID))
                 {
                     bool landmarkAdded = DAL.InsertLandmarkIntoItinerary(id, itineraryID);
                 }
@@ -54,6 +52,56 @@ namespace Capstone.Web.Controllers
             else
             {
                 return RedirectToAction("LoginOrRegister", "Home", new { id = id });
+            }
+        }
+
+        public ActionResult EnterNewLandmarkSuggestion()
+        {
+            LandmarkModel newLandmarkSuggestion = new LandmarkModel();
+            newLandmarkSuggestion.name = Request.Params["Name"];
+            newLandmarkSuggestion.address = Request.Params["Address"];
+            newLandmarkSuggestion.description = Request.Params["Description"];
+            bool suggestionEntered = new LandmarkSQLDAL().InsertSuggestedLandmark(newLandmarkSuggestion);
+            return View("LandmarkSuggestionAccepted", newLandmarkSuggestion);
+        }
+
+        [HttpGet]
+        public ActionResult SubmitReviewRedirect()
+        {
+            LandmarkModel model = (LandmarkModel)TempData["LandmarkModel"];
+            if(model == null)
+            {
+                model = (LandmarkModel)Session["CurrentLandmark"];
+                Session["CurrentLandmark"] = model;
+            }
+            return View("LandmarkDetails", model);
+        }
+
+        [HttpPost]
+        public ActionResult SubmitReview()
+        {
+            ReviewModel review = new ReviewModel();
+            review.Rating = Request.Params["rating"].ToString().Contains("thumbs up");
+            review.Description = Request.Params["reviewdescription"].ToString();
+            int landmark_id = Convert.ToInt32(Request.Params["landmark_id"]);
+
+            bool reviewSubmitted = new ReviewSQLDAL().InsertNewReview(review, landmark_id);
+
+            LandmarkModel model = new LandmarkSQLDAL().GetLandmarkById(landmark_id);
+
+            TempData["LandmarkModel"] = model;
+
+            Session["CurrentLandmark"] = model;
+            model = (LandmarkModel)Session["CurrentLandmark"];
+
+            return RedirectToAction("SubmitReviewRedirect", "Landmarks");
+        }
+
+        public void UserSession()
+        {
+            if(Session["CurrentLandmark"] == null)
+            {
+                Session["CurrentLandmark"] = new LandmarkSQLDAL().GetLandmarkById(1);
             }
         }
     }

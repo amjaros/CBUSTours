@@ -15,6 +15,7 @@ namespace Capstone.Web.DataAccess
         private string SQL_SelectLandmarksByItinerary = "SELECT * from landmark JOIN landmarks_by_itinerary on landmark.landmark_id= landmarks_by_itinerary.landmark_id WHERE itinerary_id=@itineraryID";
         private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
         private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
+        private string SQL_SubmitReview = "INSERT INTO reviews VALUES (@landmark_id, @rating, @description)";
 
         public LandmarkModel GetLandmarkById(int landmarkID)
         {
@@ -36,6 +37,23 @@ namespace Capstone.Web.DataAccess
                         Landmark.approved = Convert.ToBoolean(reader["approved"]);
                         Landmark.image = Convert.ToString(reader["image"]);
                     }
+                    reader.Close();
+
+
+                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM reviews WHERE landmark_id = @landmark_id", conn);
+                    cmd2.Parameters.AddWithValue("@landmark_id", landmarkID);
+                    SqlDataReader reader2 = cmd2.ExecuteReader();
+                    List<ReviewModel> reviews = new List<ReviewModel>();
+                    while(reader2.Read())
+                    {
+                        ReviewModel review = new ReviewModel();
+                        review.Description = reader2["description"].ToString();
+                        review.Rating = Convert.ToBoolean(reader2["rating"]);
+                        review.ReviewID = Convert.ToInt32(reader2["review_id"]);
+
+                        reviews.Add(review);
+                    }
+                    Landmark.Reviews = reviews;
                 }
             }
             catch (SqlException ex)
@@ -168,6 +186,27 @@ namespace Capstone.Web.DataAccess
                         rowsAffected++;
                     }
                     return (rowsAffected > 0);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool InsertSuggestedLandmark(LandmarkModel landmarkSuggested)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_SubmitReview , conn);
+                    cmd.Parameters.AddWithValue("@name", landmarkSuggested.name);
+                    cmd.Parameters.AddWithValue("@address", landmarkSuggested.address);
+                    cmd.Parameters.AddWithValue("@description", landmarkSuggested.description);
+                    int worked = cmd.ExecuteNonQuery();
+                    return (worked > 0);
                 }
             }
             catch (SqlException ex)
