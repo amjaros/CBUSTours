@@ -65,6 +65,18 @@ namespace Capstone.Web.Controllers
             return View("LandmarkSuggestionAccepted", newLandmarkSuggestion);
         }
 
+        [HttpGet]
+        public ActionResult SubmitReviewRedirect()
+        {
+            LandmarkModel model = (LandmarkModel)TempData["LandmarkModel"];
+            if(model == null)
+            {
+                model = (LandmarkModel)Session["CurrentLandmark"];
+                Session["CurrentLandmark"] = model;
+            }
+            return View("LandmarkDetails", model);
+        }
+
         [HttpPost]
         public ActionResult SubmitReview()
         {
@@ -77,7 +89,20 @@ namespace Capstone.Web.Controllers
 
             LandmarkModel model = new LandmarkSQLDAL().GetLandmarkById(landmark_id);
 
-            return View("LandmarkDetails", model);
+            TempData["LandmarkModel"] = model;
+
+            Session["CurrentLandmark"] = model;
+            model = (LandmarkModel)Session["CurrentLandmark"];
+
+            return RedirectToAction("SubmitReviewRedirect", "Landmarks");
+        }
+
+        public void UserSession()
+        {
+            if(Session["CurrentLandmark"] == null)
+            {
+                Session["CurrentLandmark"] = new LandmarkSQLDAL().GetLandmarkById(1);
+            }
         }
     }
 }
