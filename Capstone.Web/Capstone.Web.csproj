@@ -243,6 +243,8 @@
     <Content Include="Views\Route\RouteMap.cshtml" />
     <Content Include="Views\Route\OtherRoute.cshtml" />
     <Content Include="Views\Home\LoginOrRegister.cshtml" />
+    <Content Include="Views\Landmarks\SuggestLandmark.cshtml" />
+    <Content Include="Views\Landmarks\LandmarkSuggestionAccepted.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,6 +255,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Itinerary\" />
+    <Folder Include="Views\Reviews\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
