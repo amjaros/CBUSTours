@@ -2,9 +2,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @using Capstone.Web.Models
 @model LandmarkModel
+
 <div id="landmark-details">
     <div id="landmark-details-container">
 
@@ -25,12 +25,14 @@
     <div id="add-landmark-btn">
         @Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
     </div>
+    
+    <div id="landmark-reviews">
+        <input id="submitreviewbutton" value="Review this Landmark" data-toggle="collapse" data-target="#submitreviewcontainer" />
 
     <div id="submitandreviewscontainer">
-        <h2>Reviews</h2>
-        <input id="submitreviewbutton" value="Review this Landmark" data-toggle="collapse" data-target="#submitreviewcontainer" />
         <div id="submitreviewcontainer" class="collapse">
             <h3>Review @Model.name</h3>
+
             @using(Html.BeginForm("SubmitReview", "Landmarks", FormMethod.Post))
             {
                 @Html.Hidden("landmark_id", Model.landmark_id);
@@ -47,7 +49,7 @@
                     @Html.Label("What did you think of " + Model.name + "?")
                     @Html.TextArea("reviewdescription")
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" class="btn btn-default" />
             }
             <hr />
         </div>
@@ -58,7 +60,7 @@
                 foreach (ReviewModel review in Model.Reviews)
                 {
                     <h4>Review #@counter</h4>
-                    <div id="reviewcontent">
+                    <div class="reviewcontent">
                         @if (review.Rating == true)
                         {
                         <img src="~/Content/imgs/thumbup.png" />
@@ -67,6 +69,7 @@
                         {
                         <img src="~/Content/imgs/thumbdown.png" />
                         }
+                        <br />
                         <div>@review.Description</div>
                         @{counter++;}
                     </div>

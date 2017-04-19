@@ -7,6 +7,8 @@
         $(this).next().slideToggle('fast');
         $(this).parent().find("span").toggleClass("glyphicon-plus glyphicon-minus");
     });
+
+
 });
 
 

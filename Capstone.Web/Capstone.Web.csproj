@@ -151,6 +151,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CapstoneCSS.css" />
     <Content Include="Content\imgs\arenadistrict.jpg" />
+    <Content Include="Content\imgs\columbus-arts-festival.jpg" />
     <Content Include="Content\imgs\Columbus-ohio-downtown-night.jpg" />
     <Content Include="Content\imgs\Columbus_1.jpg" />
     <Content Include="Content\imgs\cosi.jpg" />
