@@ -36,4 +36,8 @@
         @Html.ActionLink("Add Landmark To Itinerary", "SearchLandmarksWithItin", "Landmarks", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
     </div>
 
+    <div id="landmark-distance-btn-itinerary">
+        @Html.ActionLink("Find nearby landmarks", "LandmarkDistance", "Route", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
+    </div>
+        
 </div>

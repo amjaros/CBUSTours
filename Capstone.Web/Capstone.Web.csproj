@@ -243,6 +243,7 @@
     <Content Include="Views\Route\RouteMap.cshtml" />
     <Content Include="Views\Route\OtherRoute.cshtml" />
     <Content Include="Views\Home\LoginOrRegister.cshtml" />
+    <Content Include="Views\Route\LandmarkDistance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
