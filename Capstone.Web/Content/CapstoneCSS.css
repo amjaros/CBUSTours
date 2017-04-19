@@ -637,8 +637,19 @@ nav .container {
 }
 
 /****Landmark Review Stuff - Joe O*******/
+#submitandreviewscontainer {
+    width: 50%;
+    margin: 85px;
+}
+#submitreviewbutton {
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    border: 0.5px solid lightgray;
+    border-radius: 3px;
+}
 #submitreviewcontainer {
-    margin: 50px;
+    width: 100%;
 }
 #submitreviewcontainer div {
     display: block;
@@ -653,13 +664,11 @@ nav .container {
     display: block;
 }
 #submitreviewcontainer textarea {
-    width: 50%;
+    width: 100%;
     min-height: 100px;
 }
-
-
-#reviewscontainer {
-    margin: 50px;
+#submitreviewcontainer hr {
+    border: 0.2px solid gray;
 }
 #reviewscontainer img {
     max-height: 35px;
