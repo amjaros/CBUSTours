@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "LandmarkSuggestionAccepted";
+    int userID = (int)(Session["sid"]);
 }
 @using Capstone.Web.Models
 @model LandmarkModel
@@ -16,4 +17,4 @@
     <div>@Model.description</div><br />
 </div>
 
-@Html.ActionLink("Go Back To Itineraries", "Index", "Dashboard", new { @class = "btn btn-default" })
+@Html.ActionLink("Go Back To Itineraries", "Dashboard", "Dashboard", new { id = userID}, new { @class = "btn btn-default" })
