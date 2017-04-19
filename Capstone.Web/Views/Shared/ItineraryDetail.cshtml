@@ -18,6 +18,7 @@
         <div id="itinerary-details-boxes" class="row">
             @foreach (LandmarkModel landmark in Model.Landmarks)
             {
+
                 <div class="col-lg-4">
                     <div class="itineraryandbutton">
                         <a style="display:block">
@@ -30,6 +31,18 @@
                     </div>
                     <div id="delete-landmark-itinerary-btn">
                         @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
+                    </div>
+
+                    <div class="itineraryandbutton">
+                        <a style="display:block">
+                            <div class="itinerary">
+                                <div class="tripname">@landmark.name</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="delete-landmark-itinerary-btn">
+                        @Html.ActionLink("Delete Landmark", "DeleteLandmark", "Itinerary", new { id = landmark.landmark_id, itineraryId = Model.Itinerary_id }, new { @class = "btn btn-default" })
+
                     </div>
                 </div>
             }

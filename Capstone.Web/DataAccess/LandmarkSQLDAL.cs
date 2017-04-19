@@ -191,6 +191,27 @@ namespace Capstone.Web.DataAccess
                 throw ex;
             }
         }
+
+        public bool InsertSuggestedLandmark(LandmarkModel landmarkSuggested)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_SubmitReview , conn);
+                    cmd.Parameters.AddWithValue("@name", landmarkSuggested.name);
+                    cmd.Parameters.AddWithValue("@address", landmarkSuggested.address);
+                    cmd.Parameters.AddWithValue("@description", landmarkSuggested.description);
+                    int worked = cmd.ExecuteNonQuery();
+                    return (worked > 0);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 

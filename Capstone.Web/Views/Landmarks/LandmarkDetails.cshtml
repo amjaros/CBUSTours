@@ -26,12 +26,13 @@
         @Html.ActionLink("Add Landmark to Itinerary", "AddLandmarkToItinerary", "Landmarks", new { id = Model.landmark_id }, new { @class = "btn btn-default" })
     </div>
     
-    <div id="landmark-divider"></div>
-
     <div id="landmark-reviews">
-        <h2>Reviews</h2>
-        <div id="submitreviewcontainer">
-            <h3>Submit A New Review For @Model.name</h3>
+
+    <div id="submitandreviewscontainer">
+        <input id="submitreviewbutton" value="Review this Landmark" data-toggle="collapse" data-target="#submitreviewcontainer" />
+        <div id="submitreviewcontainer" class="collapse">
+            <h3>Review @Model.name</h3>
+
             @using(Html.BeginForm("SubmitReview", "Landmarks", FormMethod.Post))
             {
                 @Html.Hidden("landmark_id", Model.landmark_id);
@@ -50,9 +51,9 @@
                 </div>
                 <input type="submit" value="Submit" class="btn btn-default" />
             }
+            <hr />
         </div>
         <div id="reviewscontainer">
-            <h3>Past Reviews:</h3>
             @if (Model.Reviews.Count > 0)
             {
                 int counter = 1;
