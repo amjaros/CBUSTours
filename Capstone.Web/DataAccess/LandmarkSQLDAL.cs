@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using Capstone.Web.Models;
+using Dapper;
 
 namespace Capstone.Web.DataAccess
 {
@@ -15,7 +16,7 @@ namespace Capstone.Web.DataAccess
         private string SQL_SelectLandmarksByItinerary = "SELECT * from landmark JOIN landmarks_by_itinerary on landmark.landmark_id= landmarks_by_itinerary.landmark_id WHERE itinerary_id=@itineraryID";
         private string SQL_GetApprovedLandmarks = "SELECT * FROM landmark WHERE approved= 1";
         private string SQL_GetLandmarkByID = "SELECT * FROM landmark WHERE landmark_id= @landmarkID";
-        private string SQL_SubmitReview = "INSERT INTO reviews VALUES (@landmark_id, @rating, @description)";
+        private string SQL_InsertSuggestedLandmark = "INSERT INTO landmark ([name], [address], [description], [approved]) VALUES (@name, @address, @description, @approved);";
 
         public LandmarkModel GetLandmarkById(int landmarkID)
         {
@@ -199,12 +200,8 @@ namespace Capstone.Web.DataAccess
                 using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand(SQL_SubmitReview , conn);
-                    cmd.Parameters.AddWithValue("@name", landmarkSuggested.name);
-                    cmd.Parameters.AddWithValue("@address", landmarkSuggested.address);
-                    cmd.Parameters.AddWithValue("@description", landmarkSuggested.description);
-                    int worked = cmd.ExecuteNonQuery();
-                    return (worked > 0);
+                    int rowsAffected = conn.Execute(SQL_InsertSuggestedLandmark, new { name = landmarkSuggested.name, address = landmarkSuggested.address, description = landmarkSuggested.description, approved = 0});
+                    return (rowsAffected > 0); ;
                 }
             }
             catch (SqlException ex)

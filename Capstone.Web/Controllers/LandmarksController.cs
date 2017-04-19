@@ -58,11 +58,17 @@ namespace Capstone.Web.Controllers
         public ActionResult EnterNewLandmarkSuggestion()
         {
             LandmarkModel newLandmarkSuggestion = new LandmarkModel();
+            return View("SuggestLandmark", newLandmarkSuggestion);
+        }
+
+        public ActionResult SubmitNewLandmarkSuggestion(LandmarkModel id)
+        {
+            LandmarkModel newLandmarkSuggestion = new LandmarkModel();
             newLandmarkSuggestion.name = Request.Params["Name"];
             newLandmarkSuggestion.address = Request.Params["Address"];
             newLandmarkSuggestion.description = Request.Params["Description"];
-            bool suggestionEntered = new LandmarkSQLDAL().InsertSuggestedLandmark(newLandmarkSuggestion);
-            return View("LandmarkSuggestionAccepted", newLandmarkSuggestion);
+            bool suggestionSubmitted = new LandmarkSQLDAL().InsertSuggestedLandmark(id);
+            return View("LandmarkSuggestionAccepted", id);
         }
 
         [HttpPost]
