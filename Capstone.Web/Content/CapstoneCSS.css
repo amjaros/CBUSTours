@@ -993,6 +993,13 @@ nav .container {
     font-family: 'Poiret One';
     font-size: 1.2em;
 }
+    #landmark-distance-btn-itinerary .btn {
+    width: 50%;
+    padding: 10px;
+    font-family: 'Poiret One';
+    font-size: 2em;
+    }
+
     #right-panel {
             font-family: 'Roboto','sans-serif';
             line-height: 30px;
