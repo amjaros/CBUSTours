@@ -1212,9 +1212,10 @@ nav .container {
     position: relative; 
 }
 #route-map-container {
-    margin-top: 50px;
+    margin: 30px auto auto 50px;
+    padding-bottom: 600px;
 }
-    #route-map-splash + h2 {
+    #route-map-container h2 {
         font-family: BillyOhio;
         color: white;
         font-size: 12em;
@@ -1224,17 +1225,22 @@ nav .container {
         text-align: center;
         position: absolute;
     }
-    #api-route-container #map {
-        width: 100%;
-        position: absolute;
-        margin-left: 300px;
-    }
-        #right-panel {
-            font-family: 'Roboto','sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        }
+    #route-map-container h4 {
+        font-size: 1.5em;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        margin-bottom: 30px;
 
+    }
+    #api-map-container #map {
+        width: 75%;
+        height: 500px;
+        position: relative;
+        margin-left: 10px;
+        float: left;
+        display: block;
+
+    }
             #right-panel select, #right-panel input {
                 font-size: 15px;
             }
@@ -1247,27 +1253,88 @@ nav .container {
                 font-size: 12px;
             }
 
-        #map {
-            height: 100%;
-            float: left;
-            width: 70%;
-            height: 100%;
-        }
-
         #right-panel {
-            margin: 20px;
+            margin: 0px auto auto 20px;
             border-width: 2px;
             width: 20%;
             height: 400px;
             float: left;
             text-align: left;
             padding-top: 0;
+            display: block;
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
         }
+            #right-panel .btn {
+            margin: 30px auto auto auto;
+            padding: 10px;
+            width: 100%;
+            font-family: 'Poiret One';
+            font-size: 2em;
+            }
 
         #directions-panel {
-            margin-top: 10px;
-            background-color: #FFEE77;
+            margin: 150px auto 50px 50px;
+            left: 0px;
+            position: absolute;
             padding: 10px;
-            overflow: scroll;
-            height: 174px;
+            overflow-y: scroll;
+            height: 300px;
+            width: 95%;
         }
+
+@media screen and (max-width: 800px) {
+    #route-map-splash {
+        width: 100%;
+        background-position: top;
+        min-height: 250px;
+        position: relative;
+    }
+    #route-map-container h2 {
+        font-size: 50px;
+        top: -130px;
+        margin: 0 auto auto auto;
+        position: relative;
+        color: white;
+        font-family: BillyOhio;
+    }
+    #route-map-container {
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    #route-map-container h4 {
+        font-size: 1.2em;
+        position: relative;
+        margin-top: -40px;
+    }
+    #api-map-container #map {
+        width: 95%;
+        height: 300px;
+        position: relative;
+
+    }
+    #right-panel {
+        margin: 0px auto auto auto;
+        border-width: 2px;
+        width: 100%;
+        height: 400px;
+        float: left;
+        text-align: left;
+        padding-top: 0;
+        display: block;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
+        #right-panel .btn {
+        width: 100%;
+        margin: 50px auto auto -5px;
+        }
+    #directions-panel {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

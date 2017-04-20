@@ -8,10 +8,13 @@
 @model List<LandmarkModel>
 
 <div id="route-map-splash"></div>
-<h2>@ViewBag.Title</h2>
+
 <div id="route-map-container">
+    <h2>@ViewBag.Title</h2>
+    <h4>Choose your starting and ending destinations using the drop down menus. To select multiple waypoints, use Shift + Left-Click to produce a route from start to your destination!</h4>
+
     <div id="api-map-container">
-        <div id="map" style="height: 500px; width: 500px;"></div>
+        <div id="map"></div>
     </div>
     <div id="right-panel">
         <div>
@@ -40,8 +43,9 @@
                 }
             </select>
             <br>
-            <input type="submit" id="submit">
+            <input type="submit" id="submit" class="btn btn-default">
         </div>
+        <br />
         <div id="directions-panel"></div>
     </div>
     <script>
