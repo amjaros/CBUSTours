@@ -935,6 +935,7 @@ nav .container {
 }
 .itinerary-details-container {
     text-align: center;
+    padding-bottom: 50px;
 }
     .itinerary-details-container h3 {
         font-family: Garamond;
@@ -985,12 +986,13 @@ nav .container {
     padding: 10px;
     font-family: 'Poiret One';
     font-size: 2em;
-    margin-bottom: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     }
 
 #itinerary-details-boxes {
     overflow: hidden;
-    margin: auto 10px auto 10px;
+    margin: auto 10px 20px 10px;
     /*column-count: 3;*/
 }
 @media screen and (max-width: 800px) {
@@ -1011,6 +1013,9 @@ nav .container {
     }
     #delete-landmark-itinerary-btn .btn {
         width: 50%;
+    }
+    #landmark-distance-btn-itinerary .btn {
+        width: 100%;
     }
 }
 
@@ -1292,7 +1297,7 @@ nav .container {
         position: relative;
     }
     #route-map-container h2 {
-        font-size: 50px;
+        font-size: 3em;
         top: -130px;
         margin: 0 auto auto auto;
         position: relative;
