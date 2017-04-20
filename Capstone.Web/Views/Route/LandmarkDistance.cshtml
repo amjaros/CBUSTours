@@ -10,20 +10,20 @@
     @using Capstone.Web.Models
     @model ItineraryModel
     <div id="landmark-distance-page-container">
-        <div>Search for landmarks by distance from @Model.Starting_point</div><br />
+        <h3>Search for landmarks by distance from @Model.Starting_point:</h3><br />
         <div id="distance-radio-btns">
             @using (Html.BeginForm("LandmarkDistance", "Route", FormMethod.Post))
             {
-                @Html.Label("Search radius:")<br /><br />
-                @Html.Label("One mile radius")
+                @Html.Label("Search radius: ")<br /><br />
+                @Html.Label("1 mile radius: ")
                 @Html.RadioButton("Radius", 1)<br />
-                @Html.Label("Three mile radius")
+                @Html.Label("3 mile radius: ")
                 @Html.RadioButton("Radius", 3)<br />
-                @Html.Label("Five mile radius")
+                @Html.Label("5 mile radius: ")
                 @Html.RadioButton("Radius", 5)<br />
-                @Html.Label("Ten mile radius")
+                @Html.Label("10 mile radius: ")
                 @Html.RadioButton("Radius", 10)<br />
-                @Html.Label("Twenty Five mile radius")
+                @Html.Label("25 mile radius: ")
                 @Html.RadioButton("Radius", 25)<br />
             }
         </div>
@@ -36,7 +36,6 @@
 
             </tbody>
         </table>
-
 
         @foreach (LandmarkModel L in Model.Landmarks)
             {
