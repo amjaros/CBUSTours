@@ -1,41 +1,41 @@
 ﻿@{
-    ViewBag.Title = "SuggestLandmark";
+    ViewBag.Title = "Suggest A Landmark!";
 }
+<div id="suggest-landmark-splash"></div>
+<div id="suggest-landmark-container">
+    <h2>@ViewBag.Title</h2>
+    <center><h3>Fill in the text areas below to suggest one of your favorite Columbus landmarks!</h3></center>
 
-<h2>SuggestLandmark</h2>
+    <div id="suggest-landmark-form">
+        @using (Html.BeginForm("SubmitNewLandmarkSuggestion", "Landmarks", FormMethod.Post))
+        {
+            <div>
+                <div class="label-textbox-form">
+                    @Html.Label("Landmark Name:")
+                </div>
+                <div>
+                    @Html.TextBox("Name")
+                </div>
+            </div>
+            <div class="label-textbox-form">
+                <div>
+                    @Html.Label("Landmark Address:")
+                </div>
+                <div>
+                    @Html.TextBox("Address")
+                </div>
+            </div>
+            <div class="label-textbox-form" id="suggest-landmark-textarea">
+                <div>
+                    @Html.Label("Landmark Description:")
+                </div>
+                <div>
+                    @Html.TextArea("Description")
 
-@using (Html.BeginForm("SubmitNewLandmarkSuggestion", "Landmarks", FormMethod.Post))
-{
-    <div>
-
-        <h2>@ViewBag.Title</h2>
-        <hr />
-        <div>
-            @Html.Label("Landmark Name:")
-        </div>
-        <div>
-
-            @Html.TextBox("Name")
+                </div>
+            </div>
             <br />
-        </div>
+            <input type="submit" value="Submit" />
+        }
     </div>
-        <br />
-        <div>
-            @Html.Label("Landmark Address:")
-        </div>
-        <div class="register_textbox">
-            @Html.TextBox("Address")
-        <br />
-        </div>
-        <br />
-        <div>
-            @Html.Label("Landmark Description:")
-        </div>
-        <div class="register_textbox">
-            @Html.TextArea("Description")
-        <br />
-
-        </div>
-        <br />
-        <input type="submit" value="Submit"/>
-}
+</div>

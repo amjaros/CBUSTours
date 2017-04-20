@@ -14,7 +14,7 @@
         <div id="distance-radio-btns">
             @using (Html.BeginForm("LandmarkDistance", "Route", FormMethod.Post))
             {
-                @Html.Label("Search radius:")<br />
+                @Html.Label("Search radius:")<br /><br />
                 @Html.Label("One mile radius")
                 @Html.RadioButton("Radius", 1)<br />
                 @Html.Label("Three mile radius")

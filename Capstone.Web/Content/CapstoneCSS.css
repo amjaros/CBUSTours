@@ -993,6 +993,14 @@ nav .container {
     font-family: 'Poiret One';
     font-size: 1.2em;
 }
+    #landmark-distance-btn-itinerary .btn {
+    width: 50%;
+    padding: 10px;
+    font-family: 'Poiret One';
+    font-size: 2em;
+    margin-bottom: 90px;
+    }
+
     #right-panel {
             font-family: 'Roboto','sans-serif';
             line-height: 30px;
@@ -1061,19 +1069,11 @@ nav .container {
     }
 }
 
-/****** SUGGEST LANDMARK *******/
+/****** LANDMARK DISTANCE *******/
 
 #landmark-distance-page-container {
     width: 100%;
     text-align: left;
-}
-#maps-container {
-    width: 100%;
-}
-#maps-container #map {
-    width: 1080px;
-    height: 500px;
-    margin: 40px auto 200px 200px;
 }
 
 #landmark-distance-splash {
@@ -1095,15 +1095,24 @@ nav .container {
         color: white;
         font-size: 150px;
         text-align: center;
-        margin-top: -100px;
-        top: -200px;
+        margin-top: -140px;
+        top: -160px;
         position: relative;
     }
+    #maps-container {
+    width: 100%;
+}
+#maps-container #map {
+    width: 70%;
+    height: 500px;
+    margin: 40px auto 200px 250px;
+}
+
 
 @media screen and (max-width: 800px) {
     #landmark-distance-splash {
         background-size: cover;
-        min-height: 250px;
+        min-height: 240px;
         background-position: 90% 110%;
     }
     #landmark-distance-page-container {
@@ -1112,16 +1121,18 @@ nav .container {
     }
         #landmark-distance-container #distance-radio-btns {
             margin-left: 10px;
-            color: red;
         }
         #landmark-distance-page-container input {
             float: right;
             margin-right: 40px;
         }
     #landmark-distance-container h2 {
-        font-size: 1em;
-        margin-bottom: 100px;
+        font-size: 10vw;
+        margin-bottom: 150px;
         color: white;
+        top: 30px;
+        position: absolute;
+        width: 100%;
     }
     #maps-container {
         margin: 30px auto;
@@ -1131,4 +1142,51 @@ nav .container {
         width: 100%;
         margin: auto;
     }
+}
+
+/***** SUGGEST A LANDMARK ******/
+
+#suggest-landmark-splash {
+    background-image: url('imgs/columbus-arts-festival.jpg');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: 10% -190px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative; 
+}
+#suggest-landmark-container {
+    width: 100%;
+    /*margin: 0 auto;*/
+    text-align: center;
+    position: relative;
+}
+    #suggest-landmark-container h2 {
+        font-family: BillyOhio;
+        color: white;
+        font-size: 10vw;
+        position: relative;
+        top: -320px;
+        text-align: center;
+    }
+    #suggest-landmark-container h3 {
+        font-family: 'Poiret One';
+        font-weight: 800;
+        position: relative;
+        margin-top: -220px;
+    }
+#suggest-landmark-form {
+    text-align: left;
+    margin: 30px 0px 0px 550px;
+}
+
+.label-textbox-form {
+    text-align: left;
+
+}
+
+#suggest-landmark-textarea textarea {
+    width: 500px;
+    height: 100px;
+    position: relative;
 }
