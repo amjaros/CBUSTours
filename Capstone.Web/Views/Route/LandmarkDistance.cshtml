@@ -107,13 +107,7 @@
             })
             );
 
-            //var infowindow = new google.maps.InfoWindow({
-            //    content: contentString
-            //});
-
-            //google.maps.event.addListener(marker, 'click', function() {
-            //    infowindow.open(map,marker);
-            //});
+        
 
             function initMap() {
 
@@ -159,8 +153,17 @@
                     label: labels[labelIndex++ % labels.length],
                     position: {lat: latitude, lng: longitude},
                     title: placename
+
                 })
                 gmarkers.push(marker);
+                var infowindow = new google.maps.InfoWindow({
+                    content: placename
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                });
+                
             }
 
             function removeMarkers(){
