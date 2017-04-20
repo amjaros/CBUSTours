@@ -75,6 +75,26 @@
             $("input[type=radio]").on("change", (function(event){
                 removeMarkers();
                 radius = ($(this).attr('value'));
+                if (radius==1)
+                {
+                    map.setZoom(14)
+                }
+                if (radius==3)
+                {
+                    map.setZoom(13)
+                }
+                if (radius==5)
+                {
+                    map.setZoom(12)
+                }
+                if (radius==10)
+                {
+                    map.setZoom(11)
+                }
+                if (radius==25)
+                {
+                    map.setZoom(10);
+                }
                 DrawCircle(radius);
                 for(var i=0; i<Coordinates.length; i++ )
                 {
@@ -89,7 +109,7 @@
             );
 
             //var infowindow = new google.maps.InfoWindow({
-            //    content: "<span>marker</span>"
+            //    content: contentString
             //});
 
             //google.maps.event.addListener(marker, 'click', function() {

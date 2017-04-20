@@ -28,8 +28,6 @@
                     <option value="@L.address">@L.name</option>
                 }
             </select>
-            @foreach (LandmarkModel L in Model) { }
-
             <br>
             <b>End:</b>
             <select id="end">
@@ -87,14 +85,13 @@
           destination: document.getElementById('end').value,
           waypoints: waypts,
           optimizeWaypoints: true,
-          travelMode: 'DRIVING'
+          travelMode: 'DRIVING',
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
             var route = response.routes[0];
             var summaryPanel = document.getElementById('directions-panel');
             summaryPanel.innerHTML = '';
-            // For each route, display summary information.
             for (var i = 0; i < route.legs.length; i++) {
               var routeSegment = i + 1;
               summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +

@@ -11,19 +11,19 @@ namespace Capstone.Web.Controllers
     public class RouteController : Controller
     {
         // GET: Route
-        public ActionResult RouteMap()
+        public ActionResult RouteMap(int id)
         {
-            string itinerary = "1";
+            string ItinID = id.ToString(); 
             LandmarkSQLDAL thisDAL = new LandmarkSQLDAL();
-            List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(itinerary);
+            List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(ItinID);
             return View("RouteMap", LandmarkList);
         }
-        public ActionResult OtherRoute()
+        public ActionResult OtherRoute(int id)
         {
-            string itinerary = "1";
-            LandmarkSQLDAL thisDAL = new LandmarkSQLDAL();
-            List<LandmarkModel> LandmarkList = thisDAL.SelectLandmarksByItinerary(itinerary);
-            return View("OtherRoute", LandmarkList);
+            ItinerarySQLDAL thatDAL = new ItinerarySQLDAL();
+            ItineraryModel IM = new ItineraryModel();
+            IM = thatDAL.GetItinerary(id);
+            return View("OtherRoute", IM);
         }
 
         public ActionResult LandmarkDistance(int id)
