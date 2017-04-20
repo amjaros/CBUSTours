@@ -1,20 +1,24 @@
 ﻿
 @{
-    ViewBag.Title = "LandmarkSuggestionAccepted";
+    ViewBag.Title = "Suggest A Landmark!";
     int userID = (int)(Session["sid"]);
 }
 @using Capstone.Web.Models
 @model LandmarkModel
 
-<h2>LandmarkSuggestionAccepted</h2>
+<div id="suggest-landmark-splash"></div>
 
-<div>
-    <h2>Thanks for your suggestion!</h2>
-    <div>We will have to review your suggestion before it is an option to add to your itinerary.</div>
-    <h4>Information Submitted:</h4>
-    <div>@Model.name</div><br />
-    <div>@Model.address</div><br />
-    <div>@Model.description</div><br />
+<div id="suggest-landmark-container">
+    <h2>@ViewBag.Title</h2>
+
+    <div>
+        <h3>Thanks for your suggestion!</h3>
+        <div>We will have to review your suggestion before it is an option to add to your itinerary.</div>
+        <h4>Information Submitted:</h4>
+        <div>@Model.name</div><br />
+        <div>@Model.address</div><br />
+        <div>@Model.description</div><br />
+    </div>
+
+    @Html.ActionLink("Go Back To Itineraries", "Dashboard", "Dashboard", new { id = userID }, new { @class = "btn btn-default" })
 </div>
-
-@Html.ActionLink("Go Back To Itineraries", "Dashboard", "Dashboard", new { id = userID}, new { @class = "btn btn-default" })

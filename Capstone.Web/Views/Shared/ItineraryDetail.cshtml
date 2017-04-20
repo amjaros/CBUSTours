@@ -35,6 +35,12 @@
             }
         </div>
     }
+
+
+    <div id="add-landmark-btn-itinerary">
+        @Html.ActionLink("View Route", "RouteMap", "Route", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
+    </div>
+
     <div id="add-landmark-btn-itinerary">
         @Html.ActionLink("Add Landmark To Itinerary", "SearchLandmarksWithItin", "Landmarks", new { id = Model.Itinerary_id }, new { @class = "btn btn-default" })
     </div>
